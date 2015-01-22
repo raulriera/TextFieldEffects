@@ -69,6 +69,8 @@ import UIKit
         self.addSubview(placeholderLabel)
         
         self.delegate = self
+        
+        layoutIfNeeded()
     }
     
     private func updateForegroundColor() {
@@ -76,7 +78,7 @@ import UIKit
     }
     
     private func updatePlaceholder() {
-        placeholderLabel.text = self.placeholder
+        placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
     }
     
@@ -101,6 +103,10 @@ import UIKit
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return CGRectInset(frame, 10, 0)
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        placeholderLabel.text = placeholder
     }
     
     // MARK: - UITextFieldDelegate
