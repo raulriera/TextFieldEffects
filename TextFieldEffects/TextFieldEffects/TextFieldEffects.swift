@@ -106,7 +106,7 @@ import UIKit
     }
     
     override func prepareForInterfaceBuilder() {
-        placeholderLabel.text = placeholder
+        drawViewsForRect(self.frame)
     }
     
     // MARK: - UITextFieldDelegate
