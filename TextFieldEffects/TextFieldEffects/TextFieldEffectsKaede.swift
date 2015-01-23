@@ -1,5 +1,5 @@
 //
-//  TextFieldEffects.swift
+//  TextFieldEffectsKaede.swift
 //  Swish
 //
 //  Created by Raúl Riera on 20/01/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class TextFieldEffects: UITextField, UITextFieldDelegate {
+@IBDesignable class TextFieldEffectsKaede: UITextField, UITextFieldDelegate {
     
     @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -28,16 +28,6 @@ import UIKit
     private let foregroundView = UIView()
     private let placeholderLabel = UILabel()
     private let placeholderInsets = CGPoint(x: 10, y: 5)
-    private let style: TextFieldEffectsStyle = TextFieldEffectsStyle.Kaede
-    
-    enum TextFieldEffectsStyle: Int {
-        case Kaede
-        case Yoko // This is hard
-        case Hoshi
-        case Jiro
-        case Madoka
-        case Isao
-    }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -88,6 +78,10 @@ import UIKit
     }
         
     // MARK: - Overrides
+    
+    override func drawRect(rect: CGRect) {
+        drawViewsForRect(rect)
+    }
     
     override func drawPlaceholderInRect(rect: CGRect) {
         // Don't draw any placeholders
