@@ -8,20 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		4CBF76511A71AE4500073B6A /* TextFieldEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBF76501A71AE4500073B6A /* TextFieldEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4CBF76681A71AE6700073B6A /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF76671A71AE6700073B6A /* TextFieldEffects.swift */; };
+		4CBF76681A71AE6700073B6A /* KaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF76671A71AE6700073B6A /* KaedeTextField.swift */; };
 		4CBF76721A71AF7700073B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF76711A71AF7700073B6A /* AppDelegate.swift */; };
 		4CBF76741A71AF7700073B6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBF76731A71AF7700073B6A /* ViewController.swift */; };
 		4CBF76771A71AF7700073B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76751A71AF7700073B6A /* Main.storyboard */; };
 		4CBF76791A71AF7700073B6A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76781A71AF7700073B6A /* Images.xcassets */; };
 		4CBF767C1A71AF7700073B6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */; };
 		4CBF768F1A71B1E200073B6A /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBF764B1A71AE4500073B6A /* TextFieldEffects.framework */; };
+		4CE365841A7327CD0021A842 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE365831A7327CD0021A842 /* HoshiTextField.swift */; };
+		4CE365861A73C59B0021A842 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE365851A73C59B0021A842 /* TextFieldsEffects.swift */; };
+		4CE365881A73CC510021A842 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBF764B1A71AE4500073B6A /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CE3658D1A7464D80021A842 /* TextFieldEffectsJiro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3658C1A7464D80021A842 /* TextFieldEffectsJiro.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4CE365891A73CC510021A842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CBF76421A71AE4500073B6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CBF764A1A71AE4500073B6A;
+			remoteInfo = TextFieldEffects;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4CE3658B1A73CC520021A842 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4CE365881A73CC510021A842 /* TextFieldEffects.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4CBF764B1A71AE4500073B6A /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBF764F1A71AE4500073B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CBF76501A71AE4500073B6A /* TextFieldEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
-		4CBF76671A71AE6700073B6A /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		4CBF76671A71AE6700073B6A /* KaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaedeTextField.swift; sourceTree = "<group>"; };
 		4CBF766D1A71AF7700073B6A /* TextFieldsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextFieldsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBF76701A71AF7700073B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CBF76711A71AF7700073B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +57,9 @@
 		4CBF76761A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CBF76781A71AF7700073B6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CBF767B1A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4CE365831A7327CD0021A842 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		4CE365851A73C59B0021A842 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
+		4CE3658C1A7464D80021A842 /* TextFieldEffectsJiro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffectsJiro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				4CBF76501A71AE4500073B6A /* TextFieldEffects.h */,
-				4CBF76671A71AE6700073B6A /* TextFieldEffects.swift */,
+				4CE365851A73C59B0021A842 /* TextFieldsEffects.swift */,
+				4CBF76671A71AE6700073B6A /* KaedeTextField.swift */,
+				4CE365831A7327CD0021A842 /* HoshiTextField.swift */,
+				4CE3658C1A7464D80021A842 /* TextFieldEffectsJiro.swift */,
 				4CBF764E1A71AE4500073B6A /* Supporting Files */,
 			);
 			path = TextFieldEffects;
@@ -146,10 +180,12 @@
 				4CBF76691A71AF7700073B6A /* Sources */,
 				4CBF766A1A71AF7700073B6A /* Frameworks */,
 				4CBF766B1A71AF7700073B6A /* Resources */,
+				4CE3658B1A73CC520021A842 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4CE3658A1A73CC510021A842 /* PBXTargetDependency */,
 			);
 			name = TextFieldsDemo;
 			productName = TextFieldsDemo;
@@ -217,7 +253,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CBF76681A71AE6700073B6A /* TextFieldEffects.swift in Sources */,
+				4CE365841A7327CD0021A842 /* HoshiTextField.swift in Sources */,
+				4CE365861A73C59B0021A842 /* TextFieldsEffects.swift in Sources */,
+				4CE3658D1A7464D80021A842 /* TextFieldEffectsJiro.swift in Sources */,
+				4CBF76681A71AE6700073B6A /* KaedeTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +270,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4CE3658A1A73CC510021A842 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CBF764A1A71AE4500073B6A /* TextFieldEffects */;
+			targetProxy = 4CE365891A73CC510021A842 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4CBF76751A71AF7700073B6A /* Main.storyboard */ = {
@@ -374,6 +421,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -388,6 +436,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = TextFieldsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +462,7 @@
 				4CBF76631A71AE4500073B6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4CBF76891A71AF7800073B6A /* Build configuration list for PBXNativeTarget "TextFieldsDemo" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +471,7 @@
 				4CBF768B1A71AF7800073B6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
