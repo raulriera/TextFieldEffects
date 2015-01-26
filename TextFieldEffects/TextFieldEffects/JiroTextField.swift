@@ -1,5 +1,5 @@
 //
-//  TextFieldEffectsJiro.swift
+//  JiroTextField.swift
 //  TextFieldEffects
 //
 //  Created by Raúl Riera on 24/01/2015.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class TextFieldEffectsJiro: UITextField, UITextFieldDelegate {
+@IBDesignable class JiroTextField: UITextField, UITextFieldDelegate {
     
     @IBInspectable var borderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -37,6 +37,7 @@ import UIKit
     private let borderThickness: CGFloat = 2
     private let placeholderLabel = UILabel()
     private let placeholderInsets = CGPoint(x: 8, y: 8)
+    private let textFieldInsets = CGPoint(x:8, y:12)
     private let borderLayer = CALayer()
     
     /**
@@ -48,7 +49,7 @@ import UIKit
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(self.font)
+        placeholderLabel.font = placeholderFontFromFont(font)
         
         updateBorder()
         updatePlaceholder()
@@ -69,6 +70,10 @@ import UIKit
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
+        
+        if isFirstResponder() || !text.isEmpty {
+            animateViewsForTextEntry()
+        }
     }
     
     private func placeholderFontFromFont(font: UIFont) -> UIFont! {
@@ -85,6 +90,11 @@ import UIKit
     }
     
     private func layoutPlaceholderInTextRect() {
+        
+        if !text.isEmpty {
+            return
+        }
+        
         let textRect = textRectForBounds(bounds)
         var originX = textRect.origin.x
         switch self.textAlignment {
@@ -99,6 +109,26 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
+    private func animateViewsForTextEntry() {
+        borderLayer.frame.origin = CGPoint(x: 0, y: font.lineHeight)
+        
+        UIView.animateWithDuration(0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
+            
+            self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - 20)
+            self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFill: true)
+            
+        }), completion:nil)
+    }
+    
+    private func animateViewsForTextDisplay() {
+        UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
+            self.layoutPlaceholderInTextRect()
+            self.placeholderLabel.alpha = 1
+        }), completion: nil)
+        
+        borderLayer.frame = rectForBorder(borderThickness, isFill: false)
+    }
+    
     // MARK: - Overrides
     
     override func drawRect(rect: CGRect) {
@@ -110,53 +140,28 @@ import UIKit
     }
     
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectOffset(bounds, 8, 12)
+        return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
     }
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectOffset(bounds, 8, 12)
+        return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
     }
     
     override func prepareForInterfaceBuilder() {
-        drawViewsForRect(self.frame)
+        drawViewsForRect(frame)
     }
     
     // MARK: - UITextFieldDelegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        
-        if self.text.isEmpty {
-            
-            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: ({
-                
-                self.borderLayer.frame.origin = CGPoint(x: 0, y: self.font.lineHeight)
-            }), completion: { (completed) -> Void in
-                
-                UIView.animateWithDuration(0.2, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                    
-                    self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - 20)
-                }), completion: { (completed) -> Void in
-                    
-                    UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                        
-                        self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFill: true)
-                    }), completion: nil)
-                })
-                
-            })
+        if text.isEmpty {
+            animateViewsForTextEntry()
         }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        if self.text.isEmpty {
-            UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                self.layoutPlaceholderInTextRect()
-                self.placeholderLabel.alpha = 1
-            }), completion: nil)
-            
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFill: false)
-            }), completion: nil)
+        if text.isEmpty {
+            animateViewsForTextDisplay()
         }
         
     }

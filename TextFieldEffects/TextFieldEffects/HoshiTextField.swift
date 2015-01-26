@@ -135,9 +135,7 @@ import UIKit
             })
         }
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: ({
-            self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFill: true)
-        }), completion: nil)
+        self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFill: true)
     }
     
     private func animateViewsForTextDisplay() {
@@ -147,9 +145,7 @@ import UIKit
                 self.placeholderLabel.alpha = 1
             }), completion: nil)
             
-            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-                self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFill: false)
-            }), completion: nil)
+            self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFill: false)
         }
     }
     
