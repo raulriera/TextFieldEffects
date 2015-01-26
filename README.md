@@ -32,5 +32,5 @@ Currently it features the following effects from the article:
 The easiest way to install this framework is via [Carthage](https://github.com/Carthage/Carthage)
 
 ```
-github "raulriera/TextFieldEffects" ~> 0.1.0
+github "raulriera/TextFieldEffects" ~> 0.2.0
 ```
