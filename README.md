@@ -13,19 +13,13 @@ Currently it features the following effects from the article:
 ## How they look
 
 ### Kaede
-<p align="center">
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Kaede.gif" />
-</p>
 
 ### Hoshi
-<p align="center">
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Hoshi.gif" />
-</p>
 
 ### Jiro
-<p align="center">
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif" />
-</p>
 
 ## Installation
 
