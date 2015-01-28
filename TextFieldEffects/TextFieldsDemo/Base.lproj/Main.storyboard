@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kzy-mN-NiP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kzy-mN-NiP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -205,6 +205,66 @@
                                                 <constraint firstItem="665-SK-xJL" firstAttribute="leading" secondItem="eLK-P9-37O" secondAttribute="leadingMargin" id="dYW-bj-Lb5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="665-SK-xJL" secondAttribute="trailing" id="i35-dD-Aa1"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="665-SK-xJL" secondAttribute="bottom" constant="-8" id="sGb-Hh-Ulx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Minoru" id="r7g-8X-gCL" userLabel="Minoru">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dmM-Gc-ifx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dmM-Gc-ifx" id="xq7-nD-P5i">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wa-S2-hoJ" customClass="MinoruTextField" customModule="TextFieldEffects">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="0.40400000000000003" green="0.58799999999999997" blue="0.012" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7wa-S2-hoJ" secondAttribute="bottom" constant="-8" id="c5U-Yr-lSU"/>
+                                                <constraint firstItem="7wa-S2-hoJ" firstAttribute="top" secondItem="xq7-nD-P5i" secondAttribute="topMargin" constant="-8" id="jsa-vg-mu5"/>
+                                                <constraint firstItem="7wa-S2-hoJ" firstAttribute="leading" secondItem="xq7-nD-P5i" secondAttribute="leadingMargin" id="wXz-E7-5uP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7wa-S2-hoJ" secondAttribute="trailing" id="xcl-QV-oRN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QDk-yb-Wrx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QDk-yb-Wrx" id="eXe-jG-StF">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Eb-3h-6i8" customClass="MinoruTextField" customModule="TextFieldEffects">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="0.40400000000000003" green="0.58799999999999997" blue="0.012" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3Eb-3h-6i8" secondAttribute="trailing" id="4sW-31-Yhl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3Eb-3h-6i8" secondAttribute="bottom" constant="-8" id="D5U-kB-zhu"/>
+                                                <constraint firstItem="3Eb-3h-6i8" firstAttribute="top" secondItem="eXe-jG-StF" secondAttribute="topMargin" constant="-8" id="IlR-SY-Ngb"/>
+                                                <constraint firstItem="3Eb-3h-6i8" firstAttribute="leading" secondItem="eXe-jG-StF" secondAttribute="leadingMargin" id="y7T-ei-tNy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

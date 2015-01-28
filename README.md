@@ -8,7 +8,7 @@ Currently it features the following effects from the article:
 - [x] Hoshi
 - [x] Jiro
 - [ ] Isao **(in development)**
-- [ ] Minoru **(in development)**
+- [x] Minoru
 
 ## How they look
 
@@ -20,6 +20,9 @@ Currently it features the following effects from the article:
 
 ### Jiro
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif" />
+
+### Minoru
+<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Minoru.gif" />
 
 ## Installation
 
