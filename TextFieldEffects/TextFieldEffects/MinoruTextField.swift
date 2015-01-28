@@ -66,7 +66,7 @@ import UIKit
     }
     
     private func updateBorder() {
-        borderLayer.frame = rectForBorder()
+        borderLayer.frame = rectForBorder(frame)
         borderLayer.backgroundColor = backgroundColor?.CGColor
     }
     
@@ -86,10 +86,10 @@ import UIKit
         return smallerFont
     }
     
-    private func rectForBorder() -> CGRect {
-        var newRect = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height - 15)
+    private func rectForBorder(bounds: CGRect) -> CGRect {
+        var newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
         
-        return CGRectInset(newRect, textFieldInsets.x, textFieldInsets.y)
+        return newRect
     }
     
     private func layoutPlaceholderInTextRect() {
@@ -141,14 +141,14 @@ import UIKit
     }
     
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width, height: bounds.size.height - placeholderLabel.frame.size.height))
-        return CGRectInset(newBounds, textFieldInsets.x * 2, 0)
+        let newBounds = rectForBorder(bounds)
+        return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width, height: bounds.size.height - placeholderLabel.frame.size.height))
+        let newBounds = rectForBorder(bounds)
 
-        return CGRectInset(newBounds, textFieldInsets.x * 2, 0)
+        return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
     override func prepareForInterfaceBuilder() {
