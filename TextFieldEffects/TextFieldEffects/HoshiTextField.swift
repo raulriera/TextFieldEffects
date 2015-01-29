@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class HoshiTextField: UITextField, UITextFieldDelegate {
+@IBDesignable class HoshiTextField: TextFieldEffects {
     
     @IBInspectable var borderInactiveColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -46,11 +46,6 @@ import UIKit
     private let inactiveBorderLayer = CALayer()
     private let activeBorderLayer = CALayer()
     
-    /**
-    Draws all the requires view on top of the textfield
-    
-    :param: rect to based the views from
-    */
     private func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
@@ -119,7 +114,7 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    private func animateViewsForTextEntry() {
+    override func animateViewsForTextEntry() {
         if text.isEmpty {
             UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
@@ -138,7 +133,7 @@ import UIKit
         self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFill: true)
     }
     
-    private func animateViewsForTextDisplay() {
+    override func animateViewsForTextDisplay() {
         if text.isEmpty {
             UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
@@ -171,13 +166,4 @@ import UIKit
         drawViewsForRect(frame)
     }
     
-    // MARK: - UITextFieldDelegate
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        animateViewsForTextEntry()
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        animateViewsForTextDisplay()
-    }
 }

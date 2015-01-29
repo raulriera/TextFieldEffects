@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class KaedeTextField: UITextField, UITextFieldDelegate {
+@IBDesignable class KaedeTextField: TextFieldEffects {
     
     @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -78,7 +78,7 @@ import UIKit
         return smallerFont
     }
     
-    private func animateViewsForTextEntry() {
+    override func animateViewsForTextEntry() {
         UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
             self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
         }), completion: nil)
@@ -88,14 +88,16 @@ import UIKit
         }), completion: nil)
     }
     
-    private func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-            self.placeholderLabel.frame.origin = self.placeholderInsets
-        }), completion: nil)
-        
-        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-            self.foregroundView.frame.origin = CGPointZero
-        }), completion: nil)
+    override func animateViewsForTextDisplay() {
+        if text.isEmpty {
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
+                self.placeholderLabel.frame.origin = self.placeholderInsets
+            }), completion: nil)
+            
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
+                self.foregroundView.frame.origin = CGPointZero
+            }), completion: nil)
+        }
     }
     
     // MARK: - Overrides
@@ -124,16 +126,4 @@ import UIKit
         drawViewsForRect(frame)
     }
     
-    // MARK: - UITextFieldDelegate
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        animateViewsForTextEntry()
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if text.isEmpty {
-            animateViewsForTextDisplay()
-        }
-
-    }
 }

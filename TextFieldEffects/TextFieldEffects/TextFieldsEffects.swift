@@ -9,13 +9,29 @@
 import Foundation
 
 protocol TextFieldsEffectsDelegate {
-    /**
-    Implement this method to draw all the requires view on screen
-    
-    :param: rect to based the views from
-    */
     func drawViewsForRect(rect: CGRect)
     func updateViewsForBoundsChange(bounds: CGRect)
     func animateViewsForTextEntry()
     func animateViewsForTextDisplay()
+}
+
+class TextFieldEffects : UITextField, UITextFieldDelegate {
+    
+    func animateViewsForTextEntry() {
+        assertionFailure("Must be overridden")
+    }
+    func animateViewsForTextDisplay() {
+        assertionFailure("Must be overridden")
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        animateViewsForTextEntry()
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        animateViewsForTextDisplay()
+    }
+    
 }

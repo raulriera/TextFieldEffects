@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class JiroTextField: UITextField, UITextFieldDelegate {
+@IBDesignable class JiroTextField: TextFieldEffects {
     
     @IBInspectable var borderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -40,11 +40,6 @@ import UIKit
     private let textFieldInsets = CGPoint(x:8, y:12)
     private let borderLayer = CALayer()
     
-    /**
-    Draws all the requires view on top of the textfield
-    
-    :param: rect to based the views from
-    */
     private func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
@@ -109,7 +104,7 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    private func animateViewsForTextEntry() {
+    override func animateViewsForTextEntry() {
         borderLayer.frame.origin = CGPoint(x: 0, y: font.lineHeight)
         
         UIView.animateWithDuration(0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
@@ -120,13 +115,15 @@ import UIKit
         }), completion:nil)
     }
     
-    private func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
-            self.layoutPlaceholderInTextRect()
-            self.placeholderLabel.alpha = 1
-        }), completion: nil)
-        
-        borderLayer.frame = rectForBorder(borderThickness, isFill: false)
+    override func animateViewsForTextDisplay() {
+        if text.isEmpty {
+            UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
+                self.layoutPlaceholderInTextRect()
+                self.placeholderLabel.alpha = 1
+            }), completion: nil)
+            
+            borderLayer.frame = rectForBorder(borderThickness, isFill: false)
+        }
     }
     
     // MARK: - Overrides
@@ -151,18 +148,4 @@ import UIKit
         drawViewsForRect(frame)
     }
     
-    // MARK: - UITextFieldDelegate
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if text.isEmpty {
-            animateViewsForTextEntry()
-        }
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        if text.isEmpty {
-            animateViewsForTextDisplay()
-        }
-        
-    }
 }

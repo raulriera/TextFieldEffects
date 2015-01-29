@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class MinoruTextField: UITextField, UITextFieldDelegate {
+@IBDesignable class MinoruTextField: TextFieldEffects {
     
     @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -45,16 +45,11 @@ import UIKit
     private let borderLayer = CALayer()
     private var backgroundLayerColor: UIColor?
     
-    /**
-    Draws all the requires view on top of the textfield
-    
-    :param: rect to based the views from
-    */
     private func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(self.font)
+        placeholderLabel.font = placeholderFontFromFont(font)
         
         updateBorder()
         updatePlaceholder()
@@ -100,7 +95,7 @@ import UIKit
         
         let textRect = textRectForBounds(bounds)
         var originX = textRect.origin.x
-        switch self.textAlignment {
+        switch textAlignment {
         case .Center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
         case .Right:
@@ -112,7 +107,7 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    private func animateViewsForTextEntry() {
+    override func animateViewsForTextEntry() {
         borderLayer.borderColor = textColor?.CGColor
         borderLayer.shadowOffset = CGSizeZero
         borderLayer.borderWidth = borderThickness
@@ -121,7 +116,7 @@ import UIKit
         borderLayer.shadowRadius = 1
     }
     
-    private func animateViewsForTextDisplay() {
+    override func animateViewsForTextDisplay() {
         borderLayer.borderColor = nil
         borderLayer.shadowOffset = CGSizeZero
         borderLayer.borderWidth = 0
@@ -155,13 +150,5 @@ import UIKit
         drawViewsForRect(frame)
     }
     
-    // MARK: - UITextFieldDelegate
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        animateViewsForTextEntry()
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        animateViewsForTextDisplay()
-    }
+
 }
