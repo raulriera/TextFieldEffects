@@ -21,7 +21,7 @@ Currently it features the following effects from the article:
 ### Jiro
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif" />
 
-### Minoru
+### Isao
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Isao.gif" />
 
 ### Minoru
