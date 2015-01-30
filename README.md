@@ -7,7 +7,7 @@ Currently it features the following effects from the article:
 - [x] Kaede
 - [x] Hoshi
 - [x] Jiro
-- [ ] Isao **(in development)**
+- [x] Isao
 - [x] Minoru
 
 ## How they look
@@ -22,6 +22,9 @@ Currently it features the following effects from the article:
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif" />
 
 ### Minoru
+<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Isao.gif" />
+
+### Minoru
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Minoru.gif" />
 
 ## Installation
@@ -29,5 +32,5 @@ Currently it features the following effects from the article:
 The easiest way to install this framework is via [Carthage](https://github.com/Carthage/Carthage)
 
 ```
-github "raulriera/TextFieldEffects" ~> 0.2.0
+github "raulriera/TextFieldEffects" ~> 0.2.2
 ```

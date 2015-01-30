@@ -270,6 +270,70 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Isao" id="UoQ-1E-7uy" userLabel="Isao">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ay3-Kb-THx">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ay3-Kb-THx" id="48u-pq-uhH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fr4-Gq-JAN" customClass="IsaoTextField" customModule="TextFieldEffects">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                            <color key="value" red="0.94509803920000002" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="fr4-Gq-JAN" firstAttribute="top" secondItem="48u-pq-uhH" secondAttribute="topMargin" constant="-8" id="FME-Ov-czL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fr4-Gq-JAN" secondAttribute="trailing" id="NQq-HD-Eem"/>
+                                                <constraint firstItem="fr4-Gq-JAN" firstAttribute="leading" secondItem="48u-pq-uhH" secondAttribute="leadingMargin" id="OAb-pd-Yaq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fr4-Gq-JAN" secondAttribute="bottom" constant="-8" id="s9u-Bm-YOJ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4nS-km-qlu">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4nS-km-qlu" id="BEb-aM-Vgo">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjH-Nv-UyT" customClass="IsaoTextField" customModule="TextFieldEffects">
+                                                    <rect key="frame" x="8" y="0.0" width="584" height="66"/>
+                                                    <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="inactiveColor">
+                                                            <color key="value" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="activeColor">
+                                                            <color key="value" red="0.94509803920000002" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yjH-Nv-UyT" secondAttribute="trailing" id="8U0-Hu-9hN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yjH-Nv-UyT" secondAttribute="bottom" constant="-8" id="Mq2-5M-sDB"/>
+                                                <constraint firstItem="yjH-Nv-UyT" firstAttribute="top" secondItem="BEb-aM-Vgo" secondAttribute="topMargin" constant="-8" id="SSA-dJ-dJI"/>
+                                                <constraint firstItem="yjH-Nv-UyT" firstAttribute="leading" secondItem="BEb-aM-Vgo" secondAttribute="leadingMargin" id="sZK-Di-GAP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="kzy-mN-NiP" id="QcT-K3-9yn"/>
