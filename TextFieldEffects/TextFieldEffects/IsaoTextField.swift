@@ -121,13 +121,16 @@ import UIKit
     }
     
     private func performPlacerholderAnimationWithColor(color: UIColor) {
+        
+        let yOffset:CGFloat = 4
+        
         UIView.animateWithDuration(0.15, animations: { () -> Void in
-            self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, -4)
+            self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, -yOffset)
             self.placeholderLabel.alpha = 0
             }) { (completed) -> Void in
                 
                 self.placeholderLabel.transform = CGAffineTransformIdentity
-                self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, 4)
+                self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, yOffset)
                 
                 UIView.animateWithDuration(0.15, animations: {
                     self.placeholderLabel.textColor = color

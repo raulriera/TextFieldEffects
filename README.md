@@ -34,3 +34,7 @@ The easiest way to install this framework is via [Carthage](https://github.com/C
 ```
 github "raulriera/TextFieldEffects" ~> 0.2.2
 ```
+
+## How to use them
+
+Check out the demo project to see the configuration options for each effect.
