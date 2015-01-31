@@ -35,13 +35,12 @@ import UIKit
     }
     
     private let foregroundView = UIView()
-    private let placeholderLabel = UILabel()
     private let placeholderInsets = CGPoint(x: 10, y: 5)
     private let textFieldInsets = CGPoint(x: 10, y: 0)
     
     // MARK: - TextFieldsEffectsDelegate
 
-    private func drawViewsForRect(rect: CGRect) {
+    override func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         foregroundView.frame = frame
@@ -101,15 +100,7 @@ import UIKit
     }
     
     // MARK: - Overrides
-    
-    override func drawRect(rect: CGRect) {
-        drawViewsForRect(rect)
-    }
-    
-    override func drawPlaceholderInRect(rect: CGRect) {
-        // Don't draw any placeholders
-    }
-    
+        
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
@@ -120,10 +111,6 @@ import UIKit
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return CGRectInset(frame, textFieldInsets.x, textFieldInsets.y)
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        drawViewsForRect(frame)
     }
     
 }

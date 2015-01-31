@@ -40,13 +40,12 @@ import UIKit
     }
     
     private let borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.5)
-    private let placeholderLabel = UILabel()
     private let placeholderInsets = CGPoint(x: 0, y: 6)
     private let textFieldInsets = CGPoint(x: 0, y: 12)
     private let inactiveBorderLayer = CALayer()
     private let activeBorderLayer = CALayer()
     
-    private func drawViewsForRect(rect: CGRect) {
+    override func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
@@ -145,25 +144,13 @@ import UIKit
     }
     
     // MARK: - Overrides
-    
-    override func drawRect(rect: CGRect) {
-        drawViewsForRect(rect)
-    }
-    
-    override func drawPlaceholderInRect(rect: CGRect) {
-        // Don't draw any placeholders
-    }
-    
+        
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
     }
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
-    }
-    
-    override func prepareForInterfaceBuilder() {
-        drawViewsForRect(frame)
     }
     
 }

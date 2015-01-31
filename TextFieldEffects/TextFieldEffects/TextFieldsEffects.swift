@@ -15,13 +15,38 @@ protocol TextFieldsEffectsDelegate {
     func animateViewsForTextDisplay()
 }
 
-class TextFieldEffects : UITextField, UITextFieldDelegate {
+class TextFieldEffects : UITextField, UITextFieldDelegate, TextFieldsEffectsDelegate {
+    
+    let placeholderLabel = UILabel()
     
     func animateViewsForTextEntry() {
-        assertionFailure("Must be overridden")
+        fatalError("\(__FUNCTION__) must be overridden")
     }
+    
     func animateViewsForTextDisplay() {
-        assertionFailure("Must be overridden")
+        fatalError("\(__FUNCTION__) must be overridden")
+    }
+    
+    func drawViewsForRect(rect: CGRect) {
+        fatalError("\(__FUNCTION__) must be overridden")
+    }
+
+    func updateViewsForBoundsChange(bounds: CGRect) {
+        fatalError("\(__FUNCTION__) must be overridden")
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        drawViewsForRect(frame)
+    }
+    
+    // MARK: - Overrides
+    
+    override func drawRect(rect: CGRect) {
+        drawViewsForRect(rect)
+    }
+    
+    override func drawPlaceholderInRect(rect: CGRect) {
+        // Don't draw any placeholders
     }
     
     // MARK: - UITextFieldDelegate
