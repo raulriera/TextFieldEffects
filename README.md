@@ -9,6 +9,8 @@ Currently it features the following effects from the article:
 - [x] Jiro
 - [x] Isao
 - [x] Minoru
+- [x] Yoko
+- [ ] Madoka
 
 ## How they look
 
@@ -26,6 +28,9 @@ Currently it features the following effects from the article:
 
 ### Minoru
 <img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Minoru.gif" />
+
+### Yoko
+<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Yoko.gif" />
 
 ## Installation
 
