@@ -30,7 +30,8 @@ import UIKit
     
     override var bounds: CGRect {
         didSet {
-            drawViewsForRect(bounds)
+            updateForeground()
+            updatePlaceholder()
         }
     }
     
@@ -41,16 +42,7 @@ import UIKit
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     
     override func drawViewsForRect(rect: CGRect) {
-        let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
-        
-        foregroundView.frame = rectForForeground(rect)
-        foregroundView.userInteractionEnabled = false
-        foregroundView.layer.transform = rotationAndPerspectiveTransformForView(foregroundView)
-        updateForeground()        
-        
-        placeholderLabel.frame = CGRectInset(rect, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
-        
+        updateForeground()
         updatePlaceholder()
         
         addSubview(foregroundView)
@@ -61,6 +53,9 @@ import UIKit
     }
     
     private func updateForeground() {
+        foregroundView.frame = rectForForeground(frame)
+        foregroundView.userInteractionEnabled = false
+        foregroundView.layer.transform = rotationAndPerspectiveTransformForView(foregroundView)
         foregroundView.backgroundColor = foregroundColor
         
         foregroundLayer.borderWidth = borderThickness
@@ -69,12 +64,13 @@ import UIKit
     }
     
     private func updatePlaceholder() {
+        placeholderLabel.font = placeholderFontFromFont(font)
         placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() {
+        if isFirstResponder() || !text.isEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -101,11 +97,6 @@ import UIKit
     }
     
     private func layoutPlaceholderInTextRect() {
-        
-        if !text.isEmpty {
-            return
-        }
-        
         let textRect = textRectForBounds(bounds)
         var originX = textRect.origin.x
         switch textAlignment {
@@ -121,7 +112,7 @@ import UIKit
     }
     
     override func animateViewsForTextEntry() {
-         UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
         
                 self.foregroundView.layer.transform = CATransform3DIdentity
             
