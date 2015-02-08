@@ -21,6 +21,7 @@
 		4CE365861A73C59B0021A842 /* TextFieldsEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE365851A73C59B0021A842 /* TextFieldsEffects.swift */; };
 		4CE365881A73CC510021A842 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CBF764B1A71AE4500073B6A /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CE3658D1A7464D80021A842 /* JiroTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3658C1A7464D80021A842 /* JiroTextField.swift */; };
+		4CF6F88B1A83FB87005F4BCA /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF6F88A1A83FB87005F4BCA /* MadokaTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		4CE365831A7327CD0021A842 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		4CE365851A73C59B0021A842 /* TextFieldsEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsEffects.swift; sourceTree = "<group>"; };
 		4CE3658C1A7464D80021A842 /* JiroTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JiroTextField.swift; sourceTree = "<group>"; };
+		4CF6F88A1A83FB87005F4BCA /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				4C776DDB1A7C094700EDBF68 /* YokoTextField.swift */,
 				4CE365831A7327CD0021A842 /* HoshiTextField.swift */,
 				4CE3658C1A7464D80021A842 /* JiroTextField.swift */,
+				4CF6F88A1A83FB87005F4BCA /* MadokaTextField.swift */,
 				4CBF764E1A71AE4500073B6A /* Supporting Files */,
 			);
 			path = TextFieldEffects;
@@ -265,6 +268,7 @@
 				4C25E5C61A7845CA0008379F /* MinoruTextField.swift in Sources */,
 				4C25E5C81A7AFDC30008379F /* IsaoTextField.swift in Sources */,
 				4CE3658D1A7464D80021A842 /* JiroTextField.swift in Sources */,
+				4CF6F88B1A83FB87005F4BCA /* MadokaTextField.swift in Sources */,
 				4CBF76681A71AE6700073B6A /* KaedeTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
