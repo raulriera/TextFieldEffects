@@ -108,7 +108,7 @@ import UIKit
         
         UIView.animateWithDuration(0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
             
-            self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - 20)
+            self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height)
             self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFill: true)
             
         }), completion:nil)
