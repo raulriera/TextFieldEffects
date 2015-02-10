@@ -85,7 +85,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() {
+        if isFirstResponder() || !text.isEmpty {
             animateViewsForTextEntry()
         }
     }
