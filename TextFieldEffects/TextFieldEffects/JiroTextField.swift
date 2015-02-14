@@ -10,12 +10,12 @@ import UIKit
 
 @IBDesignable public class JiroTextField: TextFieldEffects {
     
-    @IBInspectable var borderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
@@ -56,7 +56,7 @@ import UIKit
     
     private func updateBorder() {
         borderLayer.frame = rectForBorder(borderThickness, isFill: false)
-        borderLayer.backgroundColor = borderColor.CGColor
+        borderLayer.backgroundColor = borderColor?.CGColor
     }
     
     private func updatePlaceholder() {

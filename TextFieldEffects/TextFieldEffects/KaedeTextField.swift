@@ -10,13 +10,13 @@ import UIKit
 
 @IBDesignable public class KaedeTextField: TextFieldEffects {
     
-    @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    @IBInspectable var foregroundColor: UIColor = UIColor(red: 239, green: 239, blue: 239, alpha: 1) {
+    @IBInspectable public var foregroundColor: UIColor? {
         didSet {
             updateForegroundColor()
         }

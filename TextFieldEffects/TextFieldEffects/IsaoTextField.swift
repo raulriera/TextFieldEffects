@@ -10,12 +10,12 @@ import UIKit
 
 @IBDesignable public class IsaoTextField: TextFieldEffects {
     
-    @IBInspectable var inactiveColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var inactiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable var activeColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var activeColor: UIColor? {
         didSet {
             updateBorder()
         }
@@ -56,7 +56,7 @@ import UIKit
     
     private func updateBorder() {
         borderLayer.frame = rectForBorder(frame)
-        borderLayer.backgroundColor = isFirstResponder() ? activeColor.CGColor : inactiveColor.CGColor
+        borderLayer.backgroundColor = isFirstResponder() ? activeColor?.CGColor : inactiveColor?.CGColor
     }
     
     private func updatePlaceholder() {
@@ -109,14 +109,16 @@ import UIKit
     
     override func animateViewsForTextEntry() {
         updateBorder()
-        performPlacerholderAnimationWithColor(activeColor)
-        
+        if let activeColor = activeColor {
+            performPlacerholderAnimationWithColor(activeColor)
+        }
     }
     
     override func animateViewsForTextDisplay() {
         updateBorder()
-        performPlacerholderAnimationWithColor(inactiveColor)
-        
+        if let inactiveColor = inactiveColor {
+            performPlacerholderAnimationWithColor(inactiveColor)
+        }
     }
     
     private func performPlacerholderAnimationWithColor(color: UIColor) {

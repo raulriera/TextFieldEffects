@@ -10,17 +10,17 @@ import UIKit
 
 @IBDesignable public class HoshiTextField: TextFieldEffects {
     
-    @IBInspectable var borderInactiveColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var borderInactiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable var borderActiveColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var borderActiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
+    @IBInspectable public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
@@ -63,10 +63,10 @@ import UIKit
     
     private func updateBorder() {
         inactiveBorderLayer.frame = rectForBorder(borderThickness.inactive, isFill: true)
-        inactiveBorderLayer.backgroundColor = borderInactiveColor.CGColor
+        inactiveBorderLayer.backgroundColor = borderInactiveColor?.CGColor
         
         activeBorderLayer.frame = rectForBorder(borderThickness.active, isFill: false)
-        activeBorderLayer.backgroundColor = borderActiveColor.CGColor
+        activeBorderLayer.backgroundColor = borderActiveColor?.CGColor
     }
  
     private func updatePlaceholder() {
