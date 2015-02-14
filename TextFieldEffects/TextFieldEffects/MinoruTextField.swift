@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class MinoruTextField: TextFieldEffects {
+@IBDesignable public class MinoruTextField: TextFieldEffects {
     
     @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -16,7 +16,7 @@ import UIKit
         }
     }
     
-    override var backgroundColor: UIColor? {
+    override public var backgroundColor: UIColor? {
         set {
             backgroundLayerColor = newValue!
         }
@@ -25,13 +25,13 @@ import UIKit
         }
     }
     
-    override var placeholder: String? {
+    override public var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         didSet {
             updateBorder()
             updatePlaceholder()
@@ -126,12 +126,12 @@ import UIKit
     
     // MARK: - Overrides
         
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
 
         return CGRectInset(newBounds, textFieldInsets.x, 0)

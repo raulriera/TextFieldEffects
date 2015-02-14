@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class JiroTextField: TextFieldEffects {
+@IBDesignable public class JiroTextField: TextFieldEffects {
     
     @IBInspectable var borderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -21,13 +21,13 @@ import UIKit
         }
     }
     
-    override var placeholder: String? {
+    override public var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         didSet {
             updateBorder()
             updatePlaceholder()
@@ -127,11 +127,11 @@ import UIKit
     
     // MARK: - Overrides
             
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
     }
 

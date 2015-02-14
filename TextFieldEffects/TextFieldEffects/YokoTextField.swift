@@ -8,9 +8,9 @@
 
 import UIKit
 
-@IBDesignable class YokoTextField: TextFieldEffects {
+@IBDesignable public class YokoTextField: TextFieldEffects {
     
-    override var placeholder: String? {
+    override public var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
@@ -28,7 +28,7 @@ import UIKit
         }
     }
     
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         didSet {
             updateForeground()
             updatePlaceholder()
@@ -177,12 +177,12 @@ import UIKit
     
     // MARK: - Overrides
         
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
         let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
         
         return CGRectInset(newBounds, textFieldInsets.x, 0)

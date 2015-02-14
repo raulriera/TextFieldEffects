@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class KaedeTextField: TextFieldEffects {
+@IBDesignable public class KaedeTextField: TextFieldEffects {
     
     @IBInspectable var placeholderColor: UIColor = UIColor(red: 106, green: 121, blue: 137, alpha: 1) {
         didSet {
@@ -22,13 +22,13 @@ import UIKit
         }
     }
     
-    override var placeholder: String? {
+    override public var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         didSet {
             drawViewsForRect(bounds)
         }
@@ -101,13 +101,13 @@ import UIKit
     
     // MARK: - Overrides
         
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return CGRectInset(frame, textFieldInsets.x, textFieldInsets.y)
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return CGRectInset(frame, textFieldInsets.x, textFieldInsets.y)

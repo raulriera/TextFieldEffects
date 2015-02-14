@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class MadokaTextField: TextFieldEffects {
+@IBDesignable public class MadokaTextField: TextFieldEffects {
     
     @IBInspectable var placeholderColor: UIColor? {
         didSet {
@@ -22,13 +22,13 @@ import UIKit
         }
     }
     
-    override var placeholder: String? {
+    override public var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         didSet {
             updateBorder()
             updatePlaceholder()
@@ -147,12 +147,12 @@ import UIKit
     
     // MARK: - Overrides
     
-    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
-    override func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         
         return CGRectInset(newBounds, textFieldInsets.x, 0)
