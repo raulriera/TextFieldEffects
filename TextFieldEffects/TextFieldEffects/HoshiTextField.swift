@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Raul Riera. All rights reserved.
 //
 
-import UIKit
-
 @IBDesignable public class HoshiTextField: TextFieldEffects {
     
     @IBInspectable public var borderInactiveColor: UIColor? {

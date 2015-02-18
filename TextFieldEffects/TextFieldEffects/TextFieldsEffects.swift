@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol TextFieldsEffectsDelegate {
     func drawViewsForRect(rect: CGRect)

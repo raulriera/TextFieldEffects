@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 com.raulriera.swishapp. All rights reserved.
 //
 
-import UIKit
-
 @IBDesignable public class KaedeTextField: TextFieldEffects {
     
     @IBInspectable public var placeholderColor: UIColor? {

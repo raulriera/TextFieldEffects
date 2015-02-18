@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Raul Riera. All rights reserved.
 //
 
-import UIKit
-
 @IBDesignable public class YokoTextField: TextFieldEffects {
     
     override public var placeholder: String? {

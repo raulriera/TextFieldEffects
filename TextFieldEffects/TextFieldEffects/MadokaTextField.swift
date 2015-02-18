@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Raul Riera. All rights reserved.
 //
 
-import UIKit
-
 @IBDesignable public class MadokaTextField: TextFieldEffects {
     
     @IBInspectable public var placeholderColor: UIColor? {
