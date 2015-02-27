@@ -39,15 +39,7 @@ Currently it features the following effects from the article:
 
 ### Manual
 
-The easiest way to install this framework is to drag and drop the `TextFieldEffects` folder into your project.
-
-### Carthage
-
-Alternatively, you can use  [Carthage](https://github.com/Carthage/Carthage) and then adding this line to your Cartfile
-
-```
-github "raulriera/TextFieldEffects" ~> 0.2.5
-```
+The easiest way to install this framework is to drag and drop the `TextFieldEffects/TextFieldEffects` folder into your project.
 
 ## How to use them
 
