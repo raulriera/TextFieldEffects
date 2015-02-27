@@ -54,9 +54,7 @@
         
         layer.addSublayer(inactiveBorderLayer)
         layer.addSublayer(activeBorderLayer)
-        addSubview(placeholderLabel)
-        
-        delegate = self
+        addSubview(placeholderLabel)        
     }
     
     private func updateBorder() {

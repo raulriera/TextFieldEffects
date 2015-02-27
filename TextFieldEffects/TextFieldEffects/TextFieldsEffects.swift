@@ -16,7 +16,7 @@ protocol TextFieldsEffectsDelegate {
     func animateViewsForTextDisplay()
 }
 
-public class TextFieldEffects : UITextField, UITextFieldDelegate, TextFieldsEffectsDelegate {
+public class TextFieldEffects : UITextField, TextFieldsEffectsDelegate {
     
     let placeholderLabel = UILabel()
     
@@ -31,7 +31,7 @@ public class TextFieldEffects : UITextField, UITextFieldDelegate, TextFieldsEffe
     func drawViewsForRect(rect: CGRect) {
         fatalError("\(__FUNCTION__) must be overridden")
     }
-
+    
     func updateViewsForBoundsChange(bounds: CGRect) {
         fatalError("\(__FUNCTION__) must be overridden")
     }
@@ -50,13 +50,23 @@ public class TextFieldEffects : UITextField, UITextFieldDelegate, TextFieldsEffe
         // Don't draw any placeholders
     }
     
-    // MARK: - UITextFieldDelegate
+    // MARK: - UITextField Observing
     
-    public func textFieldDidBeginEditing(textField: UITextField) {
+    override public func willMoveToSuperview(newSuperview: UIView!) {
+        if nil != newSuperview {
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidEndEditing", name:UITextFieldTextDidEndEditingNotification, object: self)
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidBeginEditing", name:UITextFieldTextDidBeginEditingNotification, object: self)
+        } else {
+            NSNotificationCenter.defaultCenter().removeObserver(self)
+        }
+    }
+    
+    public func textFieldDidBeginEditing() {
         animateViewsForTextEntry()
     }
     
-    public func textFieldDidEndEditing(textField: UITextField) {
+    public func textFieldDidEndEditing() {
         animateViewsForTextDisplay()
     }
     

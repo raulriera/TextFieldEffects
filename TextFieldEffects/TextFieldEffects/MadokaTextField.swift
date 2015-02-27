@@ -49,9 +49,7 @@
         updatePlaceholder()
         
         layer.addSublayer(borderLayer)
-        addSubview(placeholderLabel)
-        
-        delegate = self
+        addSubview(placeholderLabel)        
     }
     
     private func updateBorder() {

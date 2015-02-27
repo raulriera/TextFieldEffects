@@ -45,9 +45,7 @@
         
         addSubview(foregroundView)
         addSubview(placeholderLabel)
-        layer.addSublayer(foregroundLayer)
-        
-        delegate = self
+        layer.addSublayer(foregroundLayer)        
     }
     
     private func updateForeground() {

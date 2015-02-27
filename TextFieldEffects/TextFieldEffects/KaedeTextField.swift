@@ -54,9 +54,7 @@
         }
         
         addSubview(foregroundView)
-        addSubview(placeholderLabel)
-        
-        delegate = self        
+        addSubview(placeholderLabel)        
     }
     
     // MARK: -
