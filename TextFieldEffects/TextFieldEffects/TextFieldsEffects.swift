@@ -53,7 +53,7 @@ public class TextFieldEffects : UITextField, TextFieldsEffectsDelegate {
     // MARK: - UITextField Observing
     
     override public func willMoveToSuperview(newSuperview: UIView!) {
-        if nil != newSuperview {
+        if newSuperview != nil {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidEndEditing", name:UITextFieldTextDidEndEditingNotification, object: self)
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "textFieldDidBeginEditing", name:UITextFieldTextDidBeginEditingNotification, object: self)
