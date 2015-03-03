@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-protocol TextFieldsEffectsDelegate {
+protocol TextFieldsEffectsProtocol {
     func drawViewsForRect(rect: CGRect)
     func updateViewsForBoundsChange(bounds: CGRect)
     func animateViewsForTextEntry()
     func animateViewsForTextDisplay()
 }
 
-public class TextFieldEffects : UITextField, TextFieldsEffectsDelegate {
+public class TextFieldEffects : UITextField, TextFieldsEffectsProtocol {
     
     let placeholderLabel = UILabel()
     
