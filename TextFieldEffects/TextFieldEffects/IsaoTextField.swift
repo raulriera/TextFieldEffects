@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Raul Riera. All rights reserved.
 //
 
+import UIKit
+
 @IBDesignable public class IsaoTextField: TextFieldEffects {
     
     @IBInspectable public var inactiveColor: UIColor? {
@@ -36,6 +38,26 @@
     private let placeholderInsets = CGPoint(x: 6, y: 6)
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     private let borderLayer = CALayer()
+    
+    // MARK: - Initializers
+    
+    override init() {
+        super.init()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public override init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    // MARK: - TextFieldsEffectsProtocol
     
     override func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))

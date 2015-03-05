@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 com.raulriera.swishapp. All rights reserved.
 //
 
+import UIKit
+
 @IBDesignable public class KaedeTextField: TextFieldEffects {
     
     @IBInspectable public var placeholderColor: UIColor? {
@@ -36,7 +38,25 @@
     private let placeholderInsets = CGPoint(x: 10, y: 5)
     private let textFieldInsets = CGPoint(x: 10, y: 0)
     
-    // MARK: - TextFieldsEffectsDelegate
+    // MARK: - Initializers
+    
+    override init() {
+        super.init()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public override init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    // MARK: - TextFieldsEffectsProtocol
 
     override func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
