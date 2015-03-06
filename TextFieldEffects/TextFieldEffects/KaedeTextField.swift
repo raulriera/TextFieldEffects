@@ -37,25 +37,7 @@ import UIKit
     private let foregroundView = UIView()
     private let placeholderInsets = CGPoint(x: 10, y: 5)
     private let textFieldInsets = CGPoint(x: 10, y: 0)
-    
-    // MARK: - Initializers
-    
-    override init() {
-        super.init()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public override init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+        
     // MARK: - TextFieldsEffectsProtocol
 
     override func drawViewsForRect(rect: CGRect) {

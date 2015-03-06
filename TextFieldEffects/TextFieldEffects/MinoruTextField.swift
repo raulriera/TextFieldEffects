@@ -42,25 +42,7 @@ import UIKit
     private let placeholderInsets = CGPoint(x: 6, y: 6)
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     private let borderLayer = CALayer()
-    private var backgroundLayerColor: UIColor?
-    
-    // MARK: - Initializers
-    
-    override init() {
-        super.init()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public override init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    private var backgroundLayerColor: UIColor?    
     
     // MARK: - TextFieldsEffectsProtocol
     

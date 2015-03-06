@@ -44,25 +44,7 @@ import UIKit
     private let textFieldInsets = CGPoint(x: 0, y: 12)
     private let inactiveBorderLayer = CALayer()
     private let activeBorderLayer = CALayer()
-    
-    // MARK: - Initializers
-    
-    override init() {
-        super.init()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public override init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
+        
     // MARK: - TextFieldsEffectsProtocol
     
     override func drawViewsForRect(rect: CGRect) {
