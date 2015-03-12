@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C42C7711AB20C97009BE2A0 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB3B6CE1AA8DEA7000AFA56 /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CB3B6D31AA8DEA7000AFA56 /* TextFieldEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB3B6D21AA8DEA7000AFA56 /* TextFieldEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CB3B6EF1AA8DEC3000AFA56 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3B6E71AA8DEC3000AFA56 /* HoshiTextField.swift */; };
 		4CB3B6F01AA8DEC3000AFA56 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3B6E81AA8DEC3000AFA56 /* IsaoTextField.swift */; };
@@ -23,6 +24,16 @@
 		4CBF767C1A71AF7700073B6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4C42C7721AB20C97009BE2A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CBF76421A71AE4500073B6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CB3B6CD1AA8DEA7000AFA56;
+			remoteInfo = TextFieldEffects;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		4CE3658B1A73CC520021A842 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -30,6 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4C42C7711AB20C97009BE2A0 /* TextFieldEffects.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +194,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4C42C7731AB20C97009BE2A0 /* PBXTargetDependency */,
 			);
 			name = TextFieldsDemo;
 			productName = TextFieldsDemo;
@@ -269,6 +282,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C42C7731AB20C97009BE2A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CB3B6CD1AA8DEA7000AFA56 /* TextFieldEffects */;
+			targetProxy = 4C42C7721AB20C97009BE2A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4CBF76751A71AF7700073B6A /* Main.storyboard */ = {
