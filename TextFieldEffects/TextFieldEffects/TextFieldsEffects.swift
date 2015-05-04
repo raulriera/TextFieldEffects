@@ -42,8 +42,8 @@ public class TextFieldEffects : UITextField, TextFieldsEffectsProtocol {
     
     // MARK: - Initializers
     
-    public override init() {
-        super.init()
+    public init() {
+        super.init(frame: CGRectZero)
     }
     
     public override init(frame: CGRect) {
