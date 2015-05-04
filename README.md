@@ -37,6 +37,14 @@ Currently it features the following effects from the article:
 
 ## Installation
 
+### Carthage
+
+[Carthage](https://github.com/carthage/carthage) is the recommended way to install TextFieldEffects. Add the following to your Cartfile:
+
+``` ruby
+github "raulriera/TextFieldEffects"
+```
+
 ### Manual
 
 The easiest way to install this framework is to drag and drop the `TextFieldEffects/TextFieldEffects` folder into your project.
