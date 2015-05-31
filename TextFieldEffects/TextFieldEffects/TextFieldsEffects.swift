@@ -40,20 +40,6 @@ public class TextFieldEffects : UITextField, TextFieldsEffectsProtocol {
         drawViewsForRect(frame)
     }
     
-    // MARK: - Initializers
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     // MARK: - Overrides
     
     override public func drawRect(rect: CGRect) {
