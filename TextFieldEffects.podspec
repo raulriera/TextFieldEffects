@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TextFieldEffects"
-  s.version      = "0.3.4"
+  s.version      = "0.3.5"
   s.summary      = "Custom drop in UITextFields effects."
 
   s.description  = <<-DESC
@@ -54,7 +54,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios
+  s.platform     = :ios, '8.0'
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
