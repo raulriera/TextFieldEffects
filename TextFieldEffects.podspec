@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TextFieldEffects"
-  s.version      = "0.3.5"
+  s.version      = "0.3.6"
   s.summary      = "Custom drop in UITextFields effects."
 
   s.description  = <<-DESC
