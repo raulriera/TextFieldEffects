@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11E69DA71B27B1A90025D54E /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E69DA61B27B1A90025D54E /* AkiraTextField.swift */; };
 		4C42C7711AB20C97009BE2A0 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB3B6CE1AA8DEA7000AFA56 /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CB3B6D31AA8DEA7000AFA56 /* TextFieldEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB3B6D21AA8DEA7000AFA56 /* TextFieldEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CB3B6EF1AA8DEC3000AFA56 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3B6E71AA8DEC3000AFA56 /* HoshiTextField.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11E69DA61B27B1A90025D54E /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
 		4CB3B6CE1AA8DEA7000AFA56 /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB3B6D11AA8DEA7000AFA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CB3B6D21AA8DEA7000AFA56 /* TextFieldEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		4CB3B6CF1AA8DEA7000AFA56 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
+				11E69DA61B27B1A90025D54E /* AkiraTextField.swift */,
 				4CB3B6E71AA8DEC3000AFA56 /* HoshiTextField.swift */,
 				4CB3B6E81AA8DEC3000AFA56 /* IsaoTextField.swift */,
 				4CB3B6E91AA8DEC3000AFA56 /* JiroTextField.swift */,
@@ -268,6 +271,7 @@
 				4CB3B6F01AA8DEC3000AFA56 /* IsaoTextField.swift in Sources */,
 				4CB3B6F51AA8DEC3000AFA56 /* TextFieldsEffects.swift in Sources */,
 				4CB3B6F21AA8DEC3000AFA56 /* KaedeTextField.swift in Sources */,
+				11E69DA71B27B1A90025D54E /* AkiraTextField.swift in Sources */,
 				4CB3B6F11AA8DEC3000AFA56 /* JiroTextField.swift in Sources */,
 				4CB3B6F41AA8DEC3000AFA56 /* MinoruTextField.swift in Sources */,
 			);
