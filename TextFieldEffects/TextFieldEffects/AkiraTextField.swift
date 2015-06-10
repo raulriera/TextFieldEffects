@@ -90,7 +90,6 @@ import UIKit
         return CGRect(x: bounds.origin.x, y: bounds.origin.y + placeholderHeight, width: bounds.size.width, height: bounds.size.height - placeholderHeight)
     }
     
-    //I think I can. Can I?
     public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         if isFirstResponder() || !text.isEmpty {
             return CGRectMake(placeHolderInsets.x, placeHolderInsets.y, bounds.width, placeholderHeight)
