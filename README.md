@@ -11,29 +11,33 @@ Currently it features the following effects from the article:
 - [x] Minoru
 - [x] Yoko
 - [x] Madoka
+- [x] Akira
 
 ## How they look
 
 ### Kaede
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Kaede.gif" />
+<img src="/Screenshots/Kaede.gif" />
 
 ### Hoshi
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Hoshi.gif" />
+<img src="/Screenshots/Hoshi.gif" />
 
 ### Jiro
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif" />
+<img src="/Screenshots/Jiro.gif" />
 
 ### Isao
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Isao.gif" />
+<img src="/Screenshots/Isao.gif" />
 
 ### Minoru
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Minoru.gif" />
+<img src="/Screenshots/Minoru.gif" />
 
 ### Yoko
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Yoko.gif" />
+<img src="/Screenshots/Yoko.gif" />
 
 ### Madoka
-<img src="https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Madoka.gif" />
+<img src="/Screenshots/Madoka.gif" />
+
+### Akira
+<img src="/Screenshots/Akira.gif" />
 
 ## Installation
 
@@ -57,7 +61,6 @@ Add the following to your Cartfile:
 ``` ruby
 github "raulriera/TextFieldEffects"
 ```
-
 
 ## How to use them
 
