@@ -45,7 +45,7 @@ import UIKit
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
         updatePlaceholder()
@@ -65,7 +65,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || !text!.isEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -77,7 +77,7 @@ import UIKit
     
     private func rectForBorder(thickness: CGFloat, isFill: Bool) -> CGRect {
         if isFill {
-            return CGRect(origin: CGPoint(x: 0, y: placeholderLabel.frame.origin.y + placeholderLabel.font.lineHeight), size: CGSize(width: CGRectGetWidth(frame), height: CGRectGetHeight(frame)))
+            return CGRect(origin: CGPoint(x: 0, y: placeholderLabel.frame.origin.y + placeholderLabel.font!.lineHeight), size: CGSize(width: CGRectGetWidth(frame), height: CGRectGetHeight(frame)))
         } else {
             return CGRect(origin: CGPoint(x: 0, y: CGRectGetHeight(frame)-thickness), size: CGSize(width: CGRectGetWidth(frame), height: thickness))
         }
@@ -85,7 +85,7 @@ import UIKit
     
     private func layoutPlaceholderInTextRect() {
         
-        if !text.isEmpty {
+        if !text!.isEmpty {
             return
         }
         
@@ -104,7 +104,7 @@ import UIKit
     }
     
     override func animateViewsForTextEntry() {
-        borderLayer.frame.origin = CGPoint(x: 0, y: font.lineHeight)
+        borderLayer.frame.origin = CGPoint(x: 0, y: font!.lineHeight)
         
         UIView.animateWithDuration(0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
             
@@ -115,7 +115,7 @@ import UIKit
     }
     
     override func animateViewsForTextDisplay() {
-        if text.isEmpty {
+        if text!.isEmpty {
             UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1

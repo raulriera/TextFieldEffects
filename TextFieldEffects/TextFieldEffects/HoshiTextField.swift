@@ -54,7 +54,7 @@ import UIKit
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(self.font)
+        placeholderLabel.font = placeholderFontFromFont(self.font!)
         
         updateBorder()
         updatePlaceholder()
@@ -81,7 +81,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || !text!.isEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -101,7 +101,7 @@ import UIKit
     
     private func layoutPlaceholderInTextRect() {
         
-        if !text.isEmpty {
+        if !text!.isEmpty {
             return
         }
         
@@ -122,7 +122,7 @@ import UIKit
     override func animateViewsForTextEntry() {
         UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
             
-            if self.text.isEmpty {
+            if self.text!.isEmpty {
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
                 self.placeholderLabel.alpha = 0
             }
@@ -141,7 +141,7 @@ import UIKit
     }
     
     override func animateViewsForTextDisplay() {
-        if text.isEmpty {
+        if text!.isEmpty {
             UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1

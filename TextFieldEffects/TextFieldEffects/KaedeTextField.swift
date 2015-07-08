@@ -46,12 +46,12 @@ import UIKit
         foregroundView.frame = frame
         foregroundView.userInteractionEnabled = false
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateForegroundColor()
         updatePlaceholder()
         
-        if !text.isEmpty || isFirstResponder() {
+        if !text!.isEmpty || isFirstResponder() {
             animateViewsForTextEntry()
         }
         
@@ -86,7 +86,7 @@ import UIKit
     }
     
     override func animateViewsForTextDisplay() {
-        if text.isEmpty {
+        if text!.isEmpty {
             UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = self.placeholderInsets
             }), completion: nil)
