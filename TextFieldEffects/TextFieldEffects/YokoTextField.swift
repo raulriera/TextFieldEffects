@@ -64,13 +64,13 @@ import UIKit
     }
     
     private func updatePlaceholder() {
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || !text!.isEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -81,7 +81,7 @@ import UIKit
     }
     
     private func rectForForeground(bounds: CGRect) -> CGRect {
-        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y - borderThickness)
+        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y - borderThickness)
         
         return newRect
     }
@@ -122,7 +122,7 @@ import UIKit
     }
     
     override func animateViewsForTextDisplay() {
-        if text.isEmpty {
+        if text!.isEmpty {
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIViewAnimationOptions.BeginFromCurrentState, animations: { () -> Void in
                 
                 self.foregroundLayer.frame = self.rectForBorder(self.foregroundView.frame, isFill: true)
@@ -178,12 +178,12 @@ import UIKit
     // MARK: - Overrides
         
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return CGRectInset(newBounds, textFieldInsets.x, 0)
     }

@@ -65,14 +65,14 @@ import UIKit
     {
         placeholderLabel.frame = placeholderRectForBounds(bounds)
         placeholderLabel.text = placeholder
-        placeholderLabel.font = placeholderFontFromFont(self.font)
+        placeholderLabel.font = placeholderFontFromFont(self.font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
     }
     
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
-        borderLayer.borderWidth = (isFirstResponder() || !text.isEmpty) ? borderSize.active : borderSize.inactive
+        borderLayer.borderWidth = (isFirstResponder() || !text!.isEmpty) ? borderSize.active : borderSize.inactive
         borderLayer.borderColor = borderColor?.CGColor
     }
     
@@ -83,7 +83,7 @@ import UIKit
     
     private var placeholderHeight : CGFloat
     {
-        return placeHolderInsets.y + placeholderFontFromFont(self.font).lineHeight;
+        return placeHolderInsets.y + placeholderFontFromFont(self.font!).lineHeight;
     }
     
     private func rectForBounds(bounds: CGRect) -> CGRect {
@@ -91,7 +91,7 @@ import UIKit
     }
     
     public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || !text!.isEmpty {
             return CGRectMake(placeHolderInsets.x, placeHolderInsets.y, bounds.width, placeholderHeight)
         } else {
             return textRectForBounds(bounds)

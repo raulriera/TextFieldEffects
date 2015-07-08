@@ -47,7 +47,7 @@ import UIKit
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
         updatePlaceholder()
@@ -85,7 +85,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || !text!.isEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -96,14 +96,14 @@ import UIKit
     }
     
     private func rectForBorder(bounds: CGRect) -> CGRect {
-        var newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return newRect
     }
     
     private func layoutPlaceholderInTextRect() {
         
-        if !text.isEmpty {
+        if !text!.isEmpty {
             return
         }
         
@@ -136,7 +136,7 @@ import UIKit
     }
     
     override func animateViewsForTextDisplay() {
-        if text.isEmpty {
+        if text!.isEmpty {
             borderLayer.strokeEnd = percentageForBottomBorder()
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
