@@ -65,3 +65,6 @@ github "raulriera/TextFieldEffects"
 ## How to use them
 
 Check out the demo project to see the configuration options for each effect.
+
+## Created by
+Raul Riera, [@raulriera](http://twitter.com/raulriera)
