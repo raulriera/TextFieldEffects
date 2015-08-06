@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kzy-mN-NiP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kzy-mN-NiP">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -521,6 +521,70 @@
                                                 <constraint firstItem="Rj6-4e-wRV" firstAttribute="leading" secondItem="qfz-2g-GIb" secondAttribute="leadingMargin" id="KBx-zW-Moq"/>
                                                 <constraint firstItem="Rj6-4e-wRV" firstAttribute="top" secondItem="qfz-2g-GIb" secondAttribute="topMargin" constant="-8" id="sNP-N5-bcp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rj6-4e-wRV" secondAttribute="trailing" id="zxC-gl-5N9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Juro" id="Uud-aW-j5e" userLabel="Juro">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hxI-r0-1PD">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxI-r0-1PD" id="tjX-6V-tac">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2xx-67-GUF" customClass="JuroTextField" customModule="TextFieldEffects">
+                                                    <rect key="frame" x="8" y="2" width="584" height="62"/>
+                                                    <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.79215686269999996" green="0.3803921569" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerColor">
+                                                            <color key="value" red="0.0" green="0.082352941176470587" blue="0.46081334413135894" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="2xx-67-GUF" firstAttribute="top" secondItem="tjX-6V-tac" secondAttribute="topMargin" constant="-6" id="QMX-s9-Q7t"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2xx-67-GUF" secondAttribute="trailing" id="dVh-D4-cPI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2xx-67-GUF" secondAttribute="bottom" constant="-6" id="gvZ-mY-F5L"/>
+                                                <constraint firstItem="2xx-67-GUF" firstAttribute="leading" secondItem="tjX-6V-tac" secondAttribute="leadingMargin" id="s5I-3f-1Af"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="352-Wf-ztW">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="352-Wf-ztW" id="ZCa-If-c31">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nmy-Gx-WvF" customClass="JuroTextField" customModule="TextFieldEffects">
+                                                    <rect key="frame" x="8" y="2" width="584" height="62"/>
+                                                    <color key="tintColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                            <color key="value" red="0.79215686269999996" green="0.3803921569" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="outerColor">
+                                                            <color key="value" red="0.0" green="0.082352941176470587" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </textField>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="nmy-Gx-WvF" firstAttribute="leading" secondItem="ZCa-If-c31" secondAttribute="leadingMargin" id="GjM-B2-v6J"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nmy-Gx-WvF" secondAttribute="trailing" id="SBW-Qa-chE"/>
+                                                <constraint firstItem="nmy-Gx-WvF" firstAttribute="top" secondItem="ZCa-If-c31" secondAttribute="topMargin" constant="-6" id="iWi-Gc-HhT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="nmy-Gx-WvF" secondAttribute="bottom" constant="-6" id="yfR-eU-B5v"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
