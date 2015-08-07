@@ -12,6 +12,7 @@ Currently it features the following effects from the article:
 - [x] Yoko
 - [x] Madoka
 - [x] Akira
+- [x] Juro
 
 ## How they look
 
@@ -38,6 +39,9 @@ Currently it features the following effects from the article:
 
 ### Akira
 <img src="/Screenshots/Akira.gif" />
+
+### Juro
+<img src="/Screenshots/Juro.gif" />
 
 ## Installation
 
