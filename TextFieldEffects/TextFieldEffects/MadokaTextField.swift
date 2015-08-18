@@ -47,7 +47,7 @@ import UIKit
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
         updatePlaceholder()
@@ -57,7 +57,6 @@ import UIKit
     }
     
     private func updateBorder() {
-        //let path = CGPathCreateWithRect(rectForBorder(bounds), nil)
         let rect = rectForBorder(bounds)
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: rect.origin.x + borderThickness, y: rect.height - borderThickness))
@@ -85,7 +84,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || text!.isNotEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -96,14 +95,14 @@ import UIKit
     }
     
     private func rectForBorder(bounds: CGRect) -> CGRect {
-        var newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font.lineHeight + textFieldInsets.y)
+        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return newRect
     }
     
     private func layoutPlaceholderInTextRect() {
         
-        if !text.isEmpty {
+        if text!.isNotEmpty {
             return
         }
         
@@ -127,7 +126,7 @@ import UIKit
     override func animateViewsForTextEntry() {
         borderLayer.strokeEnd = 1
         
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
             let translate = CGAffineTransformMakeTranslation(-self.placeholderInsets.x, self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
             let scale = CGAffineTransformMakeScale(0.9, 0.9)
             
@@ -136,10 +135,10 @@ import UIKit
     }
     
     override func animateViewsForTextDisplay() {
-        if text.isEmpty {
+        if text!.isEmpty {
             borderLayer.strokeEnd = percentageForBottomBorder()
             
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, animations: {
                 self.placeholderLabel.transform = CGAffineTransformIdentity
             })
         }

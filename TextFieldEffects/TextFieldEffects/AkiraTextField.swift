@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable public class AkiraTextField : TextFieldEffects {
     
-    private let borderSize : (active: CGFloat, inactive: CGFloat) = (1,3)
+    private let borderSize : (active: CGFloat, inactive: CGFloat) = (1, 3)
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
     private let placeHolderInsets = CGPoint(x: 6, y: 0)
@@ -48,31 +48,30 @@ import UIKit
     }
     
     override func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         })
     }
     
     override func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         })
     }
     
-    private func updatePlaceholder()
-    {
+    private func updatePlaceholder() {
         placeholderLabel.frame = placeholderRectForBounds(bounds)
         placeholderLabel.text = placeholder
-        placeholderLabel.font = placeholderFontFromFont(self.font)
+        placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
     }
     
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
-        borderLayer.borderWidth = (isFirstResponder() || !text.isEmpty) ? borderSize.active : borderSize.inactive
+        borderLayer.borderWidth = (isFirstResponder() || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
         borderLayer.borderColor = borderColor?.CGColor
     }
     
@@ -81,9 +80,8 @@ import UIKit
         return smallerFont
     }
     
-    private var placeholderHeight : CGFloat
-    {
-        return placeHolderInsets.y + placeholderFontFromFont(self.font).lineHeight;
+    private var placeholderHeight : CGFloat {
+        return placeHolderInsets.y + placeholderFontFromFont(font!).lineHeight;
     }
     
     private func rectForBounds(bounds: CGRect) -> CGRect {
@@ -91,7 +89,7 @@ import UIKit
     }
     
     public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-        if isFirstResponder() || !text.isEmpty {
+        if isFirstResponder() || text!.isNotEmpty {
             return CGRectMake(placeHolderInsets.x, placeHolderInsets.y, bounds.width, placeholderHeight)
         } else {
             return textRectForBounds(bounds)
