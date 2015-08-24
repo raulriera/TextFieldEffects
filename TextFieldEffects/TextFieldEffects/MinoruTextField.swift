@@ -46,7 +46,7 @@ import UIKit
     
     // MARK: - TextFieldsEffectsProtocol
     
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
@@ -106,7 +106,7 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    override func animateViewsForTextEntry() {
+    override public func animateViewsForTextEntry() {
         borderLayer.borderColor = textColor?.CGColor
         borderLayer.shadowOffset = CGSizeZero
         borderLayer.borderWidth = borderThickness
@@ -115,7 +115,7 @@ import UIKit
         borderLayer.shadowRadius = 1
     }
     
-    override func animateViewsForTextDisplay() {
+    override public func animateViewsForTextDisplay() {
         borderLayer.borderColor = nil
         borderLayer.shadowOffset = CGSizeZero
         borderLayer.borderWidth = 0

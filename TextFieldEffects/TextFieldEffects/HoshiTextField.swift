@@ -50,7 +50,7 @@ import UIKit
     
     // MARK: - TextFieldsEffectsProtocol
     
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
@@ -114,7 +114,7 @@ import UIKit
             width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
     }
     
-    override func animateViewsForTextEntry() {
+    override public func animateViewsForTextEntry() {
         UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: ({
             
             if self.text!.isEmpty {
@@ -135,7 +135,7 @@ import UIKit
         self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: true)
     }
     
-    override func animateViewsForTextDisplay() {
+    override public func animateViewsForTextDisplay() {
         if text!.isEmpty {
             UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
                 self.layoutPlaceholderInTextRect()

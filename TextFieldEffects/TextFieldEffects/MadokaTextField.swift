@@ -43,7 +43,7 @@ import UIKit
     
     // MARK: - TextFieldsEffectsProtocol
     
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
@@ -123,7 +123,7 @@ import UIKit
             width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
     }
     
-    override func animateViewsForTextEntry() {
+    override public func animateViewsForTextEntry() {
         borderLayer.strokeEnd = 1
         
         UIView.animateWithDuration(0.3, animations: {
@@ -134,7 +134,7 @@ import UIKit
         })
     }
     
-    override func animateViewsForTextDisplay() {
+    override public func animateViewsForTextDisplay() {
         if text!.isEmpty {
             borderLayer.strokeEnd = percentageForBottomBorder()
             

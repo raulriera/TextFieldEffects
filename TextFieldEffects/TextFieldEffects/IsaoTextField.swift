@@ -41,7 +41,7 @@ import UIKit
     
     // MARK: - TextFieldsEffectsProtocol
     
-    override func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
@@ -107,14 +107,14 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    override func animateViewsForTextEntry() {
+    override public func animateViewsForTextEntry() {
         updateBorder()
         if let activeColor = activeColor {
             performPlacerholderAnimationWithColor(activeColor)
         }
     }
     
-    override func animateViewsForTextDisplay() {
+    override public func animateViewsForTextDisplay() {
         updateBorder()
         if let inactiveColor = inactiveColor {
             performPlacerholderAnimationWithColor(inactiveColor)

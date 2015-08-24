@@ -47,14 +47,14 @@ import UIKit
         layer.addSublayer(borderLayer)
     }
     
-    override func animateViewsForTextEntry() {
+    override public func animateViewsForTextEntry() {
         UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         })
     }
     
-    override func animateViewsForTextDisplay() {
+    override public func animateViewsForTextDisplay() {
         UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()

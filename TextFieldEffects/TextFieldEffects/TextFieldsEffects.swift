@@ -19,19 +19,19 @@ public class TextFieldEffects : UITextField {
     
     let placeholderLabel = UILabel()
     
-    func animateViewsForTextEntry() {
+    public func animateViewsForTextEntry() {
         fatalError("\(__FUNCTION__) must be overridden")
     }
     
-    func animateViewsForTextDisplay() {
+    public func animateViewsForTextDisplay() {
         fatalError("\(__FUNCTION__) must be overridden")
     }
     
-    func drawViewsForRect(rect: CGRect) {
+    public func drawViewsForRect(rect: CGRect) {
         fatalError("\(__FUNCTION__) must be overridden")
     }
     
-    func updateViewsForBoundsChange(bounds: CGRect) {
+    public func updateViewsForBoundsChange(bounds: CGRect) {
         fatalError("\(__FUNCTION__) must be overridden")
     }
     
