@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "TextFieldEffects"
-  s.version      = "0.4.1"
+  s.version      = "0.4.2"
   s.summary      = "Custom drop in UITextFields effects."
 
   s.description  = <<-DESC
@@ -24,7 +24,8 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://github.com/raulriera/TextFieldEffects"
-  s.screenshots  = "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Kaede.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Hoshi.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Isao.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Minoru.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Yoko.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Madoka.gif"
+  s.screenshots  = "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Kaede.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Hoshi.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Jiro.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Isao.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Minoru.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Yoko.gif", "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Madoka.gif",
+  "https://raw.githubusercontent.com/raulriera/TextFieldEffects/master/Screenshots/Akira.gif"
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
