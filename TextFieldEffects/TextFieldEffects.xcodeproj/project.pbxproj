@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11E69DA71B27B1A90025D54E /* AkiraTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E69DA61B27B1A90025D54E /* AkiraTextField.swift */; };
 		4C42C7711AB20C97009BE2A0 /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB3B6CE1AA8DEA7000AFA56 /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4C8036EB1B90A88E00218FAE /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8036EA1B90A88E00218FAE /* ExampleTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		4CB3B6D31AA8DEA7000AFA56 /* TextFieldEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB3B6D21AA8DEA7000AFA56 /* TextFieldEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CB3B6EF1AA8DEC3000AFA56 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3B6E71AA8DEC3000AFA56 /* HoshiTextField.swift */; };
 		4CB3B6F01AA8DEC3000AFA56 /* IsaoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3B6E81AA8DEC3000AFA56 /* IsaoTextField.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		11E69DA61B27B1A90025D54E /* AkiraTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AkiraTextField.swift; sourceTree = "<group>"; };
+		4C8036EA1B90A88E00218FAE /* ExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
 		4CB3B6CE1AA8DEA7000AFA56 /* TextFieldEffects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TextFieldEffects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB3B6D11AA8DEA7000AFA56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CB3B6D21AA8DEA7000AFA56 /* TextFieldEffects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				4CBF76711A71AF7700073B6A /* AppDelegate.swift */,
+				4C8036EA1B90A88E00218FAE /* ExampleTableViewController.swift */,
 				4CBF76751A71AF7700073B6A /* Main.storyboard */,
 				4CBF76781A71AF7700073B6A /* Images.xcassets */,
 				4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */,
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C8036EB1B90A88E00218FAE /* ExampleTableViewController.swift in Sources */,
 				4CBF76721A71AF7700073B6A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
