@@ -101,11 +101,6 @@ import UIKit
     }
     
     private func layoutPlaceholderInTextRect() {
-        
-        if text!.isNotEmpty {
-            return
-        }
-        
         placeholderLabel.transform = CGAffineTransformIdentity
         
         let textRect = textRectForBounds(bounds)

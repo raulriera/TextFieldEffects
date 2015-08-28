@@ -96,6 +96,8 @@ import UIKit
         }
     }
     
+    // MARK: - Overrides
+    
     public override func editingRectForBounds(bounds: CGRect) -> CGRect {
         return textRectForBounds(bounds)
     }
