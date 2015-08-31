@@ -17,7 +17,7 @@ extension String {
 
 public class TextFieldEffects : UITextField {
     
-    let placeholderLabel = UILabel()
+    public let placeholderLabel = UILabel()
     
     public func animateViewsForTextEntry() {
         fatalError("\(__FUNCTION__) must be overridden")
