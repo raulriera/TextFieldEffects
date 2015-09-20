@@ -10,12 +10,12 @@ import UIKit
 
 @IBDesignable public class IsaoTextField: TextFieldEffects {
     
-    @IBInspectable public var inactiveColor: UIColor? {
+    @IBInspectable dynamic public var inactiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable public var activeColor: UIColor? {
+    @IBInspectable dynamic public var activeColor: UIColor? {
         didSet {
             updateBorder()
         }

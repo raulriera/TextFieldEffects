@@ -10,12 +10,12 @@ import UIKit
 
 @IBDesignable public class JiroTextField: TextFieldEffects {
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable dynamic public var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }

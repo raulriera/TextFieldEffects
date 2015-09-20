@@ -16,13 +16,13 @@ import UIKit
         }
     }
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    @IBInspectable public var foregroundColor: UIColor = UIColor.blackColor() {
+    @IBInspectable dynamic public var foregroundColor: UIColor = UIColor.blackColor() {
         didSet {
             updateForeground()
         }

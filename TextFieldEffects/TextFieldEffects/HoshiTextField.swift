@@ -10,17 +10,17 @@ import UIKit
 
 @IBDesignable public class HoshiTextField: TextFieldEffects {
     
-    @IBInspectable public var borderInactiveColor: UIColor? {
+    @IBInspectable dynamic public var borderInactiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable public var borderActiveColor: UIColor? {
+    @IBInspectable dynamic public var borderActiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
-    @IBInspectable public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }

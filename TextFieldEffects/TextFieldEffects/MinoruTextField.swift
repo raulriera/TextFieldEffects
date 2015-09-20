@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable public class MinoruTextField: TextFieldEffects {
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }

@@ -15,13 +15,13 @@ import UIKit
     private let textFieldInsets = CGPoint(x: 6, y: 0)
     private let placeHolderInsets = CGPoint(x: 6, y: 0)
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable dynamic public var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }

@@ -10,13 +10,13 @@ import UIKit
 
 @IBDesignable public class MadokaTextField: TextFieldEffects {
     
-    @IBInspectable public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable dynamic public var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
