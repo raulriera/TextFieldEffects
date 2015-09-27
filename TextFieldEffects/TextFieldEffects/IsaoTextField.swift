@@ -8,13 +8,27 @@
 
 import UIKit
 
+/**
+ An IsaoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the lower edge of the control.
+ */
 @IBDesignable public class IsaoTextField: TextFieldEffects {
     
+    /**
+     The color of the border when it has no content.
+     
+     This property applies a color to the lower edge of the control. The default value for this property is a clear color. This value is also applied to the placeholder color.
+     */
     @IBInspectable dynamic public var inactiveColor: UIColor? {
         didSet {
             updateBorder()
         }
     }
+    
+    /**
+     The color of the border when it has content.
+     
+     This property applies a color to the lower edge of the control. The default value for this property is a clear color.
+     */
     @IBInspectable dynamic public var activeColor: UIColor? {
         didSet {
             updateBorder()
@@ -39,7 +53,7 @@ import UIKit
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     private let borderLayer = CALayer()
     
-    // MARK: - TextFieldsEffectsProtocol
+    // MARK: - TextFieldsEffects
     
     override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
@@ -53,6 +67,22 @@ import UIKit
         layer.addSublayer(borderLayer)
         addSubview(placeholderLabel)        
     }
+    
+    override public func animateViewsForTextEntry() {
+        updateBorder()
+        if let activeColor = activeColor {
+            performPlacerholderAnimationWithColor(activeColor)
+        }
+    }
+    
+    override public func animateViewsForTextDisplay() {
+        updateBorder()
+        if let inactiveColor = inactiveColor {
+            performPlacerholderAnimationWithColor(inactiveColor)
+        }
+    }
+    
+    // MARK: - Private
     
     private func updateBorder() {
         borderLayer.frame = rectForBorder(frame)
@@ -100,20 +130,6 @@ import UIKit
         }
         placeholderLabel.frame = CGRect(x: originX, y: bounds.height - placeholderLabel.frame.height,
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
-    }
-    
-    override public func animateViewsForTextEntry() {
-        updateBorder()
-        if let activeColor = activeColor {
-            performPlacerholderAnimationWithColor(activeColor)
-        }
-    }
-    
-    override public func animateViewsForTextDisplay() {
-        updateBorder()
-        if let inactiveColor = inactiveColor {
-            performPlacerholderAnimationWithColor(inactiveColor)
-        }
     }
     
     private func performPlacerholderAnimationWithColor(color: UIColor) {
