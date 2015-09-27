@@ -27,9 +27,9 @@ import UIKit
     /**
      The color of the placeholder text.
      
-     This property applies a color to the complete placeholder string. The default value for this property is a  black color.
+     This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor? {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
         didSet {
             updatePlaceholder()
         }
