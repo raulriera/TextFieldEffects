@@ -8,14 +8,27 @@
 
 import UIKit
 
+/**
+ A KaedeTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the foreground of the control.
+ */
 @IBDesignable public class KaedeTextField: TextFieldEffects {
     
+    /**
+     The color of the placeholder text.
+     
+     This property applies a color to the complete placeholder string. The default value for this property is a black color.
+     */
     @IBInspectable dynamic public var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
     }
     
+    /**
+     The view’s foreground color.
+     
+     The default value for this property is a clear color.
+     */
     @IBInspectable dynamic public var foregroundColor: UIColor? {
         didSet {
             updateForegroundColor()
@@ -38,7 +51,7 @@ import UIKit
     private let placeholderInsets = CGPoint(x: 10, y: 5)
     private let textFieldInsets = CGPoint(x: 10, y: 0)
         
-    // MARK: - TextFieldsEffectsProtocol
+    // MARK: - TextFieldsEffects
 
     override public func drawViewsForRect(rect: CGRect) {
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
@@ -57,22 +70,6 @@ import UIKit
         
         addSubview(foregroundView)
         addSubview(placeholderLabel)        
-    }
-    
-    // MARK: -
-    
-    private func updateForegroundColor() {
-        foregroundView.backgroundColor = foregroundColor
-    }
-    
-    private func updatePlaceholder() {
-        placeholderLabel.text = placeholder
-        placeholderLabel.textColor = placeholderColor
-    }
-    
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
-        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * 0.8)
-        return smallerFont
     }
     
     override public func animateViewsForTextEntry() {
@@ -95,6 +92,22 @@ import UIKit
                 self.foregroundView.frame.origin = CGPointZero
             }), completion: nil)
         }
+    }
+    
+    // MARK: - Private
+    
+    private func updateForegroundColor() {
+        foregroundView.backgroundColor = foregroundColor
+    }
+    
+    private func updatePlaceholder() {
+        placeholderLabel.text = placeholder
+        placeholderLabel.textColor = placeholderColor
+    }
+    
+    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * 0.8)
+        return smallerFont
     }
     
     // MARK: - Overrides
