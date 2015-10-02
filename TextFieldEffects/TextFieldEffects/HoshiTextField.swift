@@ -68,6 +68,8 @@ import UIKit
     private var inactivePlaceholderPoint: CGPoint = CGPointZero
     private var activePlaceholderPoint: CGPoint = CGPointZero
     
+    private var completedTextEntryAnimation = true
+    
     // MARK: - TextFieldsEffects
     
     override public func drawViewsForRect(rect: CGRect) {
@@ -91,10 +93,15 @@ import UIKit
         UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: ({
             
             if self.text!.isEmpty {
+                
+                self.completedTextEntryAnimation = false
+                
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
                 self.placeholderLabel.alpha = 0
             }
         }), completion: { (completed) in
+            
+            self.completedTextEntryAnimation = true
             
             self.layoutPlaceholderInTextRect()
             
@@ -110,12 +117,26 @@ import UIKit
     
     override public func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
-                self.layoutPlaceholderInTextRect()
-                self.placeholderLabel.alpha = 1
-                }), completion: nil)
             
-            self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
+            var delay: NSTimeInterval
+            
+            if !completedTextEntryAnimation {
+                delay = 0.31
+            } else {
+                delay = 0.0
+            }
+            
+            var delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+            
+            dispatch_after(delayTime, dispatch_get_main_queue(), {
+                UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
+                    
+                    self.layoutPlaceholderInTextRect()
+                    self.placeholderLabel.alpha = 1
+                    }), completion: nil)
+                
+                self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
+            })
         }
     }
     
