@@ -63,9 +63,7 @@ import UIKit
     private let placeholderInsets = CGPoint(x: 0, y: 6)
     private let textFieldInsets = CGPoint(x: 0, y: 12)
     private let inactiveBorderLayer = CALayer()
-    private let activeBorderLayer = CALayer()
-    
-    private var inactivePlaceholderPoint: CGPoint = CGPointZero
+    private let activeBorderLayer = CALayer()    
     private var activePlaceholderPoint: CGPoint = CGPointZero
     
     // MARK: - TextFieldsEffects
@@ -83,29 +81,25 @@ import UIKit
         layer.addSublayer(activeBorderLayer)
         addSubview(placeholderLabel)
         
-        inactivePlaceholderPoint = placeholderLabel.frame.origin
         activePlaceholderPoint = CGPoint(x: placeholderLabel.frame.origin.x, y: placeholderLabel.frame.origin.y - placeholderLabel.frame.size.height - placeholderInsets.y)
     }
     
     override public func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: ({
-            
-            if self.text!.isEmpty {
+        if text!.isEmpty {
+            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
                 self.placeholderLabel.alpha = 0
-            }
-        }), completion: { (completed) in
-            
-            self.layoutPlaceholderInTextRect()
-            
-            self.placeholderLabel.frame.origin = self.activePlaceholderPoint
-            
-            UIView.animateWithDuration(0.2, animations: {
-                self.placeholderLabel.alpha = 0.5
-            })
+            }), completion:nil)
+        }
+    
+        layoutPlaceholderInTextRect()
+        placeholderLabel.frame.origin = activePlaceholderPoint
+        
+        UIView.animateWithDuration(0.2, animations: {
+            self.placeholderLabel.alpha = 0.5
         })
         
-        self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: true)
+        activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: true)
     }
     
     override public func animateViewsForTextDisplay() {
