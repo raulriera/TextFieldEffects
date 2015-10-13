@@ -40,23 +40,17 @@ import UIKit
     @IBInspectable dynamic public var outerBackgroundColor: UIColor = .lightGrayColor() {
         didSet {
             updateBorder()
-            updateBackground()
-            updatePlaceholder()
         }
     }
 
     @IBInspectable dynamic public var activeInnerBackgroundColor: UIColor = .clearColor() {
         didSet {
-            updateBorder()
             updateBackground()
-            updatePlaceholder()
         }
     }
 
     @IBInspectable dynamic public var placeholderColor: UIColor = .darkGrayColor() {
         didSet {
-            updateBorder()
-            updateBackground()
             updatePlaceholder()
         }
     }
