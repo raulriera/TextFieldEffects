@@ -12,6 +12,7 @@ Currently it features the following effects from the article:
 - [x] Yoko
 - [x] Madoka
 - [x] Akira
+- [x] Yoshiko
 
 ## How they look
 
@@ -38,6 +39,9 @@ Currently it features the following effects from the article:
 
 ### Akira
 <img src="/Screenshots/Akira.gif" />
+
+### Yoshiko
+<img src="/Screenshots/Yoshiko.gif" />
 
 ## Installation
 
