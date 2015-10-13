@@ -29,7 +29,7 @@ import UIKit
         }
     }
 
-    @IBInspectable dynamic public var inActiveColor: UIColor = .lightGrayColor() {
+    @IBInspectable dynamic public var inactiveColor: UIColor = .lightGrayColor() {
         didSet {
             updateBorder()
             updateBackground()
@@ -66,7 +66,7 @@ import UIKit
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
         borderLayer.borderWidth = borderSize
-        borderLayer.borderColor = (isFirstResponder() || text!.isNotEmpty) ? activeColor.CGColor : inActiveColor.CGColor
+        borderLayer.borderColor = (isFirstResponder() || text!.isNotEmpty) ? activeColor.CGColor : inactiveColor.CGColor
     }
 
     private func updateBackground() {
@@ -78,11 +78,11 @@ import UIKit
         }
 
         backgroundColor = .clearColor()
+        
         if isFirstResponder() || text!.isNotEmpty {
             layer.backgroundColor = activeInnerBackgroundColor.CGColor
-
         } else {
-            layer.backgroundColor = inActiveColor.CGColor
+            layer.backgroundColor = inactiveColor.CGColor
         }
     }
 
@@ -95,7 +95,6 @@ import UIKit
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.5)
             placeholderLabel.text = placeholderLabel.text?.uppercaseString
             placeholderLabel.textColor = activeColor
-
         } else {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7)
             placeholderLabel.text = placeholderLabel.text?.capitalizedString
@@ -115,7 +114,40 @@ import UIKit
     private var placeholderHeight : CGFloat {
         return placeHolderInsets.y + placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7).lineHeight
     }
-
+    
+    // MARK: - TextFieldEffects
+    
+    override public func animateViewsForTextEntry() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.placeholderLabel.alpha = 0
+            self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
+            
+            }) { complete in
+                self.updatePlaceholder()
+                UIView.animateWithDuration(0.3, animations: {
+                    self.placeholderLabel.alpha = 1
+                    self.updateBorder()
+                    self.updateBackground()
+                })
+        }
+    }
+    
+    override public func animateViewsForTextDisplay() {
+        UIView.animateWithDuration(0.2, animations: {
+            self.placeholderLabel.alpha = 0
+            self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
+            
+            }) { complete in
+                self.updatePlaceholder()
+                
+                UIView.animateWithDuration(0.3) {
+                    self.placeholderLabel.alpha = 1
+                    self.updateBorder()
+                    self.updateBackground()
+                }
+        }
+    }
+    
     // MARK: - Overrides
 
     override public var bounds: CGRect {
@@ -134,38 +166,6 @@ import UIKit
         addSubview(placeholderLabel)
         layer.addSublayer(borderLayer)
     }
-
-    override public func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.placeholderLabel.alpha = 0
-            self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
-            
-            }) { (complete) -> Void in
-                self.updatePlaceholder()
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.placeholderLabel.alpha = 1
-                    self.updateBorder()
-                    self.updateBackground()
-                })
-        }
-    }
-
-    override public func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
-            self.placeholderLabel.alpha = 0
-            self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
-            
-            }) { (complete) -> Void in
-                self.updatePlaceholder()
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.placeholderLabel.alpha = 1
-                    self.updateBorder()
-                    self.updateBackground()
-                })
-        }
-    }
-
-    // MARK: - TextFieldEffects Overrides
     
     public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         if isFirstResponder() || text!.isNotEmpty {
@@ -174,12 +174,13 @@ import UIKit
             return textRectForBounds(bounds)
         }
     }
-
+    
     public override func editingRectForBounds(bounds: CGRect) -> CGRect {
         return textRectForBounds(bounds)
     }
-
+    
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y + placeholderHeight / 2)
     }
+    
 }
