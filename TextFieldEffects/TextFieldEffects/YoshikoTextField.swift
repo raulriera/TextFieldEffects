@@ -178,4 +178,10 @@ import UIKit
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y + placeholderHeight / 2)
     }
     
+    // MARK: - Interface Builder
+    
+    public override func prepareForInterfaceBuilder() {
+        placeholderLabel.alpha = 1
+    }
+    
 }
