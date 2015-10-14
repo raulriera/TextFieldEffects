@@ -93,11 +93,10 @@ import UIKit
 
         if isFirstResponder() || text!.isNotEmpty {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.5)
-            placeholderLabel.text = placeholderLabel.text?.uppercaseString
+            placeholderLabel.text = placeholder?.uppercaseString
             placeholderLabel.textColor = activeColor
         } else {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7)
-            placeholderLabel.text = placeholderLabel.text?.capitalizedString
             placeholderLabel.textColor = placeholderColor
         }
     }
@@ -115,9 +114,7 @@ import UIKit
         return placeHolderInsets.y + placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7).lineHeight
     }
     
-    // MARK: - TextFieldEffects
-    
-    override public func animateViewsForTextEntry() {
+    private func animateViews() {
         UIView.animateWithDuration(0.2, animations: {
             self.placeholderLabel.alpha = 0
             self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
@@ -132,20 +129,18 @@ import UIKit
         }
     }
     
+    // MARK: - TextFieldEffects
+    
+    override public func animateViewsForTextEntry() {
+        guard text!.isEmpty else { return }
+        
+        animateViews()
+    }
+    
     override public func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.2, animations: {
-            self.placeholderLabel.alpha = 0
-            self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
-            
-            }) { complete in
-                self.updatePlaceholder()
-                
-                UIView.animateWithDuration(0.3) {
-                    self.placeholderLabel.alpha = 1
-                    self.updateBorder()
-                    self.updateBackground()
-                }
-        }
+        guard text!.isEmpty else { return }
+        
+        animateViews()
     }
     
     // MARK: - Overrides
