@@ -80,8 +80,6 @@ import UIKit
         layer.addSublayer(inactiveBorderLayer)
         layer.addSublayer(activeBorderLayer)
         addSubview(placeholderLabel)
-        
-        activePlaceholderPoint = CGPoint(x: placeholderLabel.frame.origin.x, y: placeholderLabel.frame.origin.y - placeholderLabel.frame.size.height - placeholderInsets.y)
     }
     
     override public func animateViewsForTextEntry() {
@@ -160,6 +158,8 @@ import UIKit
         }
         placeholderLabel.frame = CGRect(x: originX, y: textRect.height/2,
             width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
+        activePlaceholderPoint = CGPoint(x: placeholderLabel.frame.origin.x, y: placeholderLabel.frame.origin.y - placeholderLabel.frame.size.height - placeholderInsets.y)
+
     }
     
     // MARK: - Overrides
