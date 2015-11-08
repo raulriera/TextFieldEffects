@@ -8,20 +8,45 @@
 
 import UIKit
 
+/**
+ An YoshikoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges and background of the control.
+ */
 @IBDesignable public class YoshikoTextField: TextFieldEffects {
 
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
     private let placeHolderInsets = CGPoint(x: 6, y: 0)
-    private let outerBackgroundView = UIView()
-
+    
+    /**
+     The size of the border.
+     
+     This property applies a thickness to the border of the control. The default value for this property is 2 points.
+     */
     @IBInspectable public var borderSize: CGFloat = 2.0 {
         didSet {
             updateBorder()
         }
     }
-
-    @IBInspectable dynamic public var activeColor: UIColor = .blueColor() {
+    
+    /**
+     The color of the border when it has content.
+     
+     This property applies a color to the edges of the control. The default value for this property is a clear color.
+     */
+    @IBInspectable dynamic public var activeBorderColor: UIColor = .clearColor() {
+        didSet {
+            updateBorder()
+            updateBackground()
+            updatePlaceholder()
+        }
+    }
+    
+    /**
+     The color of the border when it has no content.
+     
+     This property applies a color to the edges of the control. The default value for this property is a clear color.
+     */
+    @IBInspectable dynamic public var inactiveBorderColor: UIColor = .clearColor() {
         didSet {
             updateBorder()
             updateBackground()
@@ -29,26 +54,22 @@ import UIKit
         }
     }
 
-    @IBInspectable dynamic public var inactiveColor: UIColor = .lightGrayColor() {
-        didSet {
-            updateBorder()
-            updateBackground()
-            updatePlaceholder()
-        }
-    }
-
-    @IBInspectable dynamic public var outerBackgroundColor: UIColor = .lightGrayColor() {
-        didSet {
-            updateBorder()
-        }
-    }
-
-    @IBInspectable dynamic public var activeInnerBackgroundColor: UIColor = .clearColor() {
+    /**
+     The color of the input's background when it has content. When it's not focused it reverts to the color of the `inactiveBorderColor`
+     
+     This property applies a color to the background of the input.
+     */
+    @IBInspectable dynamic public var activeBackgroundColor: UIColor = .clearColor() {
         didSet {
             updateBackground()
         }
     }
-
+    
+    /**
+     The color of the placeholder text.
+     
+     This property applies a color to the complete placeholder string. The default value for this property is a  black color.
+     */
     @IBInspectable dynamic public var placeholderColor: UIColor = .darkGrayColor() {
         didSet {
             updatePlaceholder()
@@ -66,23 +87,14 @@ import UIKit
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
         borderLayer.borderWidth = borderSize
-        borderLayer.borderColor = (isFirstResponder() || text!.isNotEmpty) ? activeColor.CGColor : inactiveColor.CGColor
+        borderLayer.borderColor = (isFirstResponder() || text!.isNotEmpty) ? activeBorderColor.CGColor : inactiveBorderColor.CGColor
     }
 
     private func updateBackground() {
-        outerBackgroundView.frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.width, height: placeholderHeight))
-        outerBackgroundView.backgroundColor = outerBackgroundColor
-
-        if !subviews.contains(outerBackgroundView) {
-            addSubview(outerBackgroundView)
-        }
-
-        backgroundColor = .clearColor()
-        
         if isFirstResponder() || text!.isNotEmpty {
-            layer.backgroundColor = activeInnerBackgroundColor.CGColor
+            borderLayer.backgroundColor = activeBackgroundColor.CGColor
         } else {
-            layer.backgroundColor = inactiveColor.CGColor
+            borderLayer.backgroundColor = inactiveBorderColor.CGColor
         }
     }
 
@@ -94,7 +106,7 @@ import UIKit
         if isFirstResponder() || text!.isNotEmpty {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.5)
             placeholderLabel.text = placeholder?.uppercaseString
-            placeholderLabel.textColor = activeColor
+            placeholderLabel.textColor = activeBorderColor
         } else {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7)
             placeholderLabel.textColor = placeholderColor
@@ -158,8 +170,8 @@ import UIKit
         updateBorder()
         updateBackground()
 
-        addSubview(placeholderLabel)
         layer.addSublayer(borderLayer)
+        addSubview(placeholderLabel)
     }
     
     public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
