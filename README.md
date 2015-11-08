@@ -70,7 +70,9 @@ github "raulriera/TextFieldEffects"
 
 ## How to use them
 
-Check out the demo project to see the configuration options for each effect.
+The library is a simple drop-in, as soon as you set your subclass to one of the effects you will be able to see all the IBDesignable settings in the storyboard.
+
+Every effect is properly documented in the source code, this is the best way to both understand and see what they do. There is also an example project included with all the effects and their settings.
 
 ## Created by
 Raul Riera, [@raulriera](http://twitter.com/raulriera)
