@@ -78,9 +78,9 @@ The library is a simple drop-in, as soon as you set your subclass to one of the 
 
 ### Code
 
-If you like to get your hands dirty, you can totally do so just like your normally will with any `UITextField`
+If you like to get your hands dirty, you can use them just like you would normally use any `UITextField`
 
-```swift
+``` swift
 let textField = KaedeTextField(frame: textFieldFrame)
 textField.placeholderColor = .darkGrayColor()
 textField.foregroundColor = .lightGrayColor()
