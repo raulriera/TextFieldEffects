@@ -37,7 +37,7 @@ import UIKit
     
     /**
      The color of the placeholder text.
-     
+
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
     @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
@@ -46,6 +46,17 @@ import UIKit
         }
     }
     
+    /**
+     The scale of the placeholder font.
+     
+     This property determines the size of the placeholder label relative to the font size of the text field.
+    */
+    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.65 {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+
     override public var placeholder: String? {
         didSet {
             updatePlaceholder()
@@ -133,7 +144,7 @@ import UIKit
     }
     
     private func placeholderFontFromFont(font: UIFont) -> UIFont! {
-        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * 0.65)
+        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
