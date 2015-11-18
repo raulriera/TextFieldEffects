@@ -75,6 +75,17 @@ import UIKit
             updatePlaceholder()
         }
     }
+    
+    /**
+     The scale of the placeholder font.
+     
+     This property determines the size of the placeholder label relative to the font size of the text field.
+     */
+    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.7 {
+        didSet {
+            updatePlaceholder()
+        }
+    }
 
     override public var placeholder: String? {
         didSet {
@@ -104,11 +115,11 @@ import UIKit
         placeholderLabel.textAlignment = textAlignment
 
         if isFirstResponder() || text!.isNotEmpty {
-            placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.5)
+            placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: placeholderFontScale * 0.8)
             placeholderLabel.text = placeholder?.uppercaseString
             placeholderLabel.textColor = activeBorderColor
         } else {
-            placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7)
+            placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: placeholderFontScale)
             placeholderLabel.textColor = placeholderColor
         }
     }
@@ -123,7 +134,7 @@ import UIKit
     }
 
     private var placeholderHeight : CGFloat {
-        return placeHolderInsets.y + placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: 0.7).lineHeight
+        return placeHolderInsets.y + placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: placeholderFontScale).lineHeight
     }
     
     private func animateViews() {

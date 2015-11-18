@@ -35,6 +35,17 @@ import UIKit
         }
     }
     
+    /**
+     The scale of the placeholder font.
+     
+     This property determines the size of the placeholder label relative to the font size of the text field.
+     */
+    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.7 {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+    
     override public var placeholder: String? {
         didSet {
             updatePlaceholder()
@@ -101,7 +112,7 @@ import UIKit
     }
     
     private func placeholderFontFromFont(font: UIFont) -> UIFont! {
-        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * 0.7)
+        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
