@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Raul Riera. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension String {
