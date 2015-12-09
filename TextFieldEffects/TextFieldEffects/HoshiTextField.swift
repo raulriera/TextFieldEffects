@@ -113,10 +113,10 @@ import UIKit
     
     override public func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({ [unowned self] in
+            UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1
-                }), completion: nil)
+            }), completion: nil)
             
             self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
         }
