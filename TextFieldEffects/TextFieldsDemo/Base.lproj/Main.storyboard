@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kzy-mN-NiP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kzy-mN-NiP">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +13,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" rowHeight="66" sectionHeaderHeight="10" sectionFooterHeight="20" id="UgI-5u-Epd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Kaede" id="Eyj-GA-9HD">
@@ -27,7 +26,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5KP-bf-Al4" customClass="KaedeTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -42,7 +40,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="5KP-bf-Al4" secondAttribute="trailing" constant="-8" id="21D-Sd-q6w"/>
@@ -51,7 +48,6 @@
                                                 <constraint firstItem="5KP-bf-Al4" firstAttribute="top" secondItem="xQo-ST-pqH" secondAttribute="topMargin" constant="-8" id="PR0-HS-nHw"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="HPk-hv-lls">
                                         <rect key="frame" x="0.0" y="115.5" width="600" height="66"/>
@@ -62,7 +58,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yW6-8B-EtX" customClass="KaedeTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -77,7 +72,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="yW6-8B-EtX" secondAttribute="trailing" constant="-8" id="OEk-0t-Wuz"/>
@@ -86,7 +80,6 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="yW6-8B-EtX" secondAttribute="bottom" constant="-8" id="mTO-qS-9mp"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -101,7 +94,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPN-pg-TQv" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -118,7 +110,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="wPN-pg-TQv" firstAttribute="leading" secondItem="wIr-G7-NUd" secondAttribute="leadingMargin" id="3Xd-2D-a8Y"/>
@@ -127,7 +118,6 @@
                                                 <constraint firstItem="wPN-pg-TQv" firstAttribute="top" secondItem="wIr-G7-NUd" secondAttribute="topMargin" constant="-8" id="ScY-CY-aLD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zeb-Ue-zMG">
                                         <rect key="frame" x="0.0" y="299.5" width="600" height="66"/>
@@ -138,7 +128,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0W-QW-ILq" customClass="HoshiTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -155,7 +144,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="e0W-QW-ILq" firstAttribute="top" secondItem="ghv-IE-mta" secondAttribute="topMargin" constant="-8" id="FhC-HE-a0x"/>
@@ -164,7 +152,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="e0W-QW-ILq" secondAttribute="trailing" id="zu3-mo-ddv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -179,8 +166,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sD4-RY-Ajl" customClass="JiroTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -194,7 +179,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="sD4-RY-Ajl" secondAttribute="bottom" constant="-8" id="UOY-Rv-en3"/>
@@ -203,7 +187,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="sD4-RY-Ajl" secondAttribute="trailing" id="f8y-E6-ihU"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VQK-5g-FDm">
                                         <rect key="frame" x="0.0" y="483.5" width="600" height="66"/>
@@ -214,7 +197,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="665-SK-xJL" customClass="JiroTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -228,7 +210,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="665-SK-xJL" firstAttribute="top" secondItem="eLK-P9-37O" secondAttribute="topMargin" constant="-8" id="5ZF-NV-gn2"/>
@@ -237,7 +218,6 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="665-SK-xJL" secondAttribute="bottom" constant="-8" id="sGb-Hh-Ulx"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -252,9 +232,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wa-S2-hoJ" customClass="MinoruTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    
                                                     <color key="textColor" red="0.40400000000000003" green="0.58799999999999997" blue="0.012" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -265,7 +243,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="7wa-S2-hoJ" secondAttribute="bottom" constant="-8" id="c5U-Yr-lSU"/>
@@ -274,7 +251,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="7wa-S2-hoJ" secondAttribute="trailing" id="xcl-QV-oRN"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QDk-yb-Wrx">
                                         <rect key="frame" x="0.0" y="667.5" width="600" height="66"/>
@@ -285,9 +261,7 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Eb-3h-6i8" customClass="MinoruTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    
                                                     <color key="textColor" red="0.40400000000000003" green="0.58799999999999997" blue="0.012" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -298,7 +272,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3Eb-3h-6i8" secondAttribute="trailing" id="4sW-31-Yhl"/>
@@ -307,7 +280,6 @@
                                                 <constraint firstItem="3Eb-3h-6i8" firstAttribute="leading" secondItem="eXe-jG-StF" secondAttribute="leadingMargin" id="y7T-ei-tNy"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -322,8 +294,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fr4-Gq-JAN" customClass="IsaoTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -337,7 +307,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="fr4-Gq-JAN" firstAttribute="top" secondItem="48u-pq-uhH" secondAttribute="topMargin" constant="-8" id="FME-Ov-czL"/>
@@ -346,7 +315,6 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="fr4-Gq-JAN" secondAttribute="bottom" constant="-8" id="s9u-Bm-YOJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4nS-km-qlu">
                                         <rect key="frame" x="0.0" y="851.5" width="600" height="66"/>
@@ -357,8 +325,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yjH-Nv-UyT" customClass="IsaoTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -372,7 +338,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="yjH-Nv-UyT" secondAttribute="trailing" id="8U0-Hu-9hN"/>
@@ -381,7 +346,6 @@
                                                 <constraint firstItem="yjH-Nv-UyT" firstAttribute="leading" secondItem="BEb-aM-Vgo" secondAttribute="leadingMargin" id="sZK-Di-GAP"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -396,8 +360,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-oW-Zxl" customClass="YokoTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -411,7 +373,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="qwW-oW-Zxl" firstAttribute="top" secondItem="3R8-Up-PHw" secondAttribute="topMargin" constant="-8" id="CPP-jV-qyh"/>
@@ -420,7 +381,6 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="qwW-oW-Zxl" secondAttribute="bottom" constant="-8" id="g9J-9p-jzw"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gyc-Zs-9wT">
                                         <rect key="frame" x="0.0" y="1035.5" width="600" height="66"/>
@@ -431,8 +391,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-ae-YBj" customClass="YokoTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -446,7 +404,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="OVc-ae-YBj" secondAttribute="bottom" constant="-8" id="51W-BI-f0h"/>
@@ -455,7 +412,6 @@
                                                 <constraint firstItem="OVc-ae-YBj" firstAttribute="top" secondItem="7mR-1k-YR8" secondAttribute="topMargin" constant="-8" id="nBG-Jt-oRM"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -470,8 +426,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XyO-d2-GJF" customClass="MadokaTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -485,7 +439,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="XyO-d2-GJF" secondAttribute="trailing" id="87e-4j-Qdp"/>
@@ -494,7 +447,6 @@
                                                 <constraint firstItem="XyO-d2-GJF" firstAttribute="top" secondItem="1ay-VS-WZb" secondAttribute="topMargin" constant="-8" id="sXL-YL-Vhg"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ga3-mA-TEo">
                                         <rect key="frame" x="0.0" y="1219.5" width="600" height="66"/>
@@ -505,8 +457,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2vD-ee-FkV" customClass="MadokaTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -520,7 +470,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2vD-ee-FkV" secondAttribute="bottom" constant="-8" id="1As-bL-Gvn"/>
@@ -529,7 +478,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="2vD-ee-FkV" secondAttribute="trailing" id="Ve1-Ut-GiW"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -544,7 +492,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnF-rd-HAe" customClass="AkiraTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -558,7 +505,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jnF-rd-HAe" secondAttribute="trailing" id="4Fa-Zi-xoP"/>
@@ -567,7 +513,6 @@
                                                 <constraint firstItem="jnF-rd-HAe" firstAttribute="leading" secondItem="xaD-Rz-WiF" secondAttribute="leadingMargin" id="nF1-Bv-5ZD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aMl-9H-Ur4">
                                         <rect key="frame" x="0.0" y="1403.5" width="600" height="66"/>
@@ -578,8 +523,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rj6-4e-wRV" customClass="AkiraTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
-                                                    
                                                     <color key="textColor" red="0.41568627450000001" green="0.47450980390000003" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -593,7 +536,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rj6-4e-wRV" secondAttribute="bottom" constant="-8" id="Dnb-Hq-f8q"/>
@@ -602,7 +544,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="Rj6-4e-wRV" secondAttribute="trailing" id="zxC-gl-5N9"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -617,7 +558,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kru-7u-p3t" customClass="YoshikoTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="textColor" red="0.37647058820000001" green="0.34901960780000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -640,7 +580,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Kru-7u-p3t" firstAttribute="leading" secondItem="Wsp-sY-G1R" secondAttribute="leadingMargin" id="8fS-1h-qBV"/>
@@ -649,7 +588,6 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="Kru-7u-p3t" secondAttribute="bottom" constant="-8" id="nkl-DR-7Wo"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xMd-JY-orf">
                                         <rect key="frame" x="0.0" y="1587.5" width="600" height="66"/>
@@ -660,7 +598,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOk-P3-csN" customClass="YoshikoTextField" customModule="TextFieldEffects">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="66"/>
-                                                    <animations/>
                                                     <color key="textColor" red="0.37647058820000001" green="0.34901960780000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -683,7 +620,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="ZOk-P3-csN" firstAttribute="top" secondItem="4DI-tD-73y" secondAttribute="topMargin" constant="-8" id="M6n-DC-rSm"/>
@@ -692,7 +628,6 @@
                                                 <constraint firstItem="ZOk-P3-csN" firstAttribute="leading" secondItem="4DI-tD-73y" secondAttribute="leadingMargin" id="vOd-4S-Ybw"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
