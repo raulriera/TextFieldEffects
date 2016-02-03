@@ -49,7 +49,7 @@ Looking for Swift 1.2 support? Check out the `swift-1.2` branch.
 
 ### Manual
 
-The easiest way to install this framework is to drag and drop the `TextFieldEffects/TextFieldEffects` folder into your project. This also prevents the `frameworks` problem in iOS where the IBInspectable and IBDesignable are stripped out.
+The easiest way to install this framework is to drag and drop the `TextFieldEffects/TextFieldEffects` folder into your project. This also prevents the `frameworks` ![problem in iOS](http://www.openradar.me/21258097) where the IBInspectable and IBDesignable are stripped out.
 
 ### Cocoapods
 
