@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 1.1.1
+  * Fixes bug #57 in Yoshiko
+
 ## Version 1.1.0
   * Support to change the placeholder font via the `placeholderFontScale` property.
   * Fixed some minor issues with the example project.
