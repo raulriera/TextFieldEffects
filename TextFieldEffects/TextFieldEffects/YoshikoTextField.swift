@@ -68,7 +68,7 @@ import UIKit
     /**
      The color of the placeholder text.
      
-     This property applies a color to the complete placeholder string. The default value for this property is a  black color.
+     This property applies a color to the complete placeholder string. The default value for this property is a dark gray color.
      */
     @IBInspectable dynamic public var placeholderColor: UIColor = .darkGrayColor() {
         didSet {
@@ -139,10 +139,14 @@ import UIKit
     
     private func animateViews() {
         UIView.animateWithDuration(0.2, animations: {
-            self.placeholderLabel.alpha = 0
+            // Prevents a "flash" in the placeholder
+            if self.text!.isEmpty {
+                self.placeholderLabel.alpha = 0
+            }
+            
             self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
             
-            }) { complete in
+        }) { complete in
                 self.updatePlaceholder()
                 UIView.animateWithDuration(0.3, animations: {
                     self.placeholderLabel.alpha = 1
@@ -155,14 +159,10 @@ import UIKit
     // MARK: - TextFieldEffects
     
     override public func animateViewsForTextEntry() {
-        guard text!.isEmpty else { return }
-        
         animateViews()
     }
     
     override public func animateViewsForTextDisplay() {
-        guard text!.isEmpty else { return }
-        
         animateViews()
     }
     
