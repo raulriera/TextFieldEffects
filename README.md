@@ -1,4 +1,4 @@
-# TextFieldEffects
+# TextFieldEffects[![codebeat](https://codebeat.co/badges/0818be1a-3741-4716-b407-3fbc6d49894b)](https://codebeat.co/projects/github-com-raulriera-textfieldeffects)
 
 I fell in love with the text inputs effects in [this article](http://tympanus.net/codrops/2015/01/08/inspiration-text-input-effects/). As an exercise I decided to recreate as many of them as I can using Swift *(some of them have a personal touch)*.
 
