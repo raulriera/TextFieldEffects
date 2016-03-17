@@ -105,7 +105,7 @@ import UIKit
         if isFirstResponder() || text!.isNotEmpty {
             borderLayer.backgroundColor = activeBackgroundColor.CGColor
         } else {
-            borderLayer.backgroundColor = inactiveBorderColor.CGColor
+            borderLayer.backgroundColor = backgroundColor?.CGColor ?? UIColor.whiteColor().CGColor
         }
     }
 
