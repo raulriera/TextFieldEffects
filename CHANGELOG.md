@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 1.2
+## Version 1.2.0
   * Swift 2.2 support
   * Support for animation completion blocks
 
