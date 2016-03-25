@@ -88,7 +88,9 @@ import UIKit
             let scale = CGAffineTransformMakeScale(0.9, 0.9)
             
             self.placeholderLabel.transform = CGAffineTransformConcat(translate, scale)
-        })
+        }) { _ in
+            self.animationCompletionHandler?(type: .TextEntry)
+        }
     }
     
     override public func animateViewsForTextDisplay() {
@@ -97,7 +99,9 @@ import UIKit
             
             UIView.animateWithDuration(0.3, animations: {
                 self.placeholderLabel.transform = CGAffineTransformIdentity
-            })
+            }) { _ in
+                self.animationCompletionHandler?(type: .TextDisplay)
+            }
         }
     }
     

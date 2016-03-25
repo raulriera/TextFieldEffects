@@ -98,7 +98,9 @@ import UIKit
             UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .BeginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
                 self.placeholderLabel.alpha = 0
-            }), completion:nil)
+            }), completion: { _ in
+                self.animationCompletionHandler?(type: .TextEntry)
+            })
         }
     
         layoutPlaceholderInTextRect()
@@ -108,7 +110,7 @@ import UIKit
             self.placeholderLabel.alpha = 0.5
         })
         
-        activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: true)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: true)
     }
     
     override public func animateViewsForTextDisplay() {
@@ -116,7 +118,9 @@ import UIKit
             UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1
-            }), completion: nil)
+            }), completion: { _ in
+                self.animationCompletionHandler?(type: .TextDisplay)
+            })
             
             self.activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
         }

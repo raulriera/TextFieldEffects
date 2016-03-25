@@ -85,6 +85,8 @@ import UIKit
         borderLayer.shadowColor = textColor?.CGColor
         borderLayer.shadowOpacity = 0.5
         borderLayer.shadowRadius = 1
+        
+        animationCompletionHandler?(type: .TextEntry)
     }
     
     override public func animateViewsForTextDisplay() {
@@ -94,6 +96,8 @@ import UIKit
         borderLayer.shadowColor = nil
         borderLayer.shadowOpacity = 0
         borderLayer.shadowRadius = 0
+        
+        animationCompletionHandler?(type: .TextDisplay)
     }
     
     // MARK: - Private

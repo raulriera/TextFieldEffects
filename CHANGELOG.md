@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.2
+  * Swift 2.2 support
+  * Support for animation completion blocks
+
 ## Version 1.1.1
   * Fixes bug #57 in Yoshiko
 

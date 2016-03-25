@@ -13,7 +13,7 @@ import UIKit
  */
 @IBDesignable public class AkiraTextField : TextFieldEffects {
     
-    private let borderSize : (active: CGFloat, inactive: CGFloat) = (1, 2)
+    private let borderSize: (active: CGFloat, inactive: CGFloat) = (1, 2)
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
     private let placeHolderInsets = CGPoint(x: 6, y: 0)
@@ -77,6 +77,8 @@ import UIKit
         UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
+        }, completion: { _ in
+            self.animationCompletionHandler?(type: .TextEntry)
         })
     }
     
@@ -84,6 +86,8 @@ import UIKit
         UIView.animateWithDuration(0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
+        }, completion: { _ in
+            self.animationCompletionHandler?(type: .TextDisplay)
         })
     }
     

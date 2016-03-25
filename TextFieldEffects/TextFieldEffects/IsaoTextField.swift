@@ -150,7 +150,7 @@ import UIKit
         UIView.animateWithDuration(0.15, animations: {
             self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, -yOffset)
             self.placeholderLabel.alpha = 0
-            }) { (completed) in
+            }) { _ in
                 self.placeholderLabel.transform = CGAffineTransformIdentity
                 self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, yOffset)
                 
@@ -158,7 +158,9 @@ import UIKit
                     self.placeholderLabel.textColor = color
                     self.placeholderLabel.transform = CGAffineTransformIdentity
                     self.placeholderLabel.alpha = 1
-                })
+                }) { _ in
+                    self.animationCompletionHandler?(type: self.isFirstResponder() ? .TextEntry : .TextDisplay)
+                }
         }
     }
     
