@@ -45,7 +45,8 @@ Currently it features the following effects from the article:
 
 ## Installation
 
-Looking for Swift 1.2 support? Check out the `swift-1.2` branch.
+- Looking for Swift 2.1 support? Check out the [1.1.1](https://github.com/raulriera/TextFieldEffects/releases/tag/1.1.1) tag.
+- Looking for Swift 1.2 support? Check out the `swift-1.2` branch.
 
 ### Manual
 
