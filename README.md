@@ -75,7 +75,7 @@ Every effect is properly documented in the source code, this is the best way to 
 
 ### Interface Builder
 
-The library is a simple drop-in, as soon as you set your subclass to one of the effects you will be able to see all the IBDesignable settings in the storyboard.
+The library is a simple drop-in, as soon as you set your subclass to one of the effects and your module to `TextFieldEffects` you will be able to see all the IBDesignable settings in the storyboard.
 
 ### Code
 
