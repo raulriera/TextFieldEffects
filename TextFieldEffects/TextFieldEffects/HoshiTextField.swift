@@ -51,7 +51,15 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
     */
+    
     @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.65 {
+        didSet {
+            fontScale.inactive = placeholderFontScale
+            updatePlaceholder()
+        }
+    }
+    
+    public var fontScale: (active: CGFloat, inactive: CGFloat) = (active: 0.75, inactive: 1.0) {
         didSet {
             updatePlaceholder()
         }
@@ -88,7 +96,6 @@ import UIKit
         let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
-        placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
         updatePlaceholder()
@@ -107,8 +114,8 @@ import UIKit
                 self.animationCompletionHandler?(type: .TextEntry)
             })
         }
-    
-        layoutPlaceholderInTextRect()
+        
+        layoutPlaceholderInTextRect(active: true)
         placeholderLabel.frame.origin = activePlaceholderPoint
         
         UIView.animateWithDuration(0.2, animations: {
@@ -152,9 +159,14 @@ import UIKit
         }
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
-        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
-        return smallerFont
+    private func placeholderFontFromFont(font: UIFont?, active: Bool) -> UIFont? {
+        if let font = font {
+            let scale = active ? fontScale.active : fontScale.inactive
+            let smallerFont = UIFont(name: font.fontName, size: font.pointSize * scale)
+            return smallerFont
+        }
+        
+        return nil
     }
     
     private func rectForBorder(thickness: CGFloat, isFilled: Bool) -> CGRect {
@@ -165,7 +177,8 @@ import UIKit
         }
     }
     
-    private func layoutPlaceholderInTextRect() {        
+    private func layoutPlaceholderInTextRect(active active: Bool = false) {
+        placeholderLabel.font = placeholderFontFromFont(font, active: active)
         let textRect = textRectForBounds(bounds)
         var originX = textRect.origin.x
         switch self.textAlignment {
