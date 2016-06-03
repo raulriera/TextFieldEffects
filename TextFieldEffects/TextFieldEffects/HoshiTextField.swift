@@ -187,4 +187,11 @@ import UIKit
         return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
     }
     
+    public override func clearButtonRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.clearButtonRectForBounds(bounds)
+        let textRect = textRectForBounds(bounds)
+        rect.origin.y += textRect.height/4
+        return rect
+    }
+    
 }
