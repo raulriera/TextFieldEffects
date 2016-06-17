@@ -34,7 +34,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a  black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .black() {
         didSet {
             updatePlaceholder()
         }
@@ -65,7 +65,7 @@ import UIKit
     
     // MARK: TextFieldEffects
     
-    override public func drawViewsForRect(rect: CGRect) {
+    override public func drawViewsForRect(_ rect: CGRect) {
         updateBorder()
         updatePlaceholder()
         
@@ -74,27 +74,27 @@ import UIKit
     }
     
     override public func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         }, completion: { _ in
-            self.animationCompletionHandler?(type: .TextEntry)
+            self.animationCompletionHandler?(type: .textEntry)
         })
     }
     
     override public func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         }, completion: { _ in
-            self.animationCompletionHandler?(type: .TextDisplay)
+            self.animationCompletionHandler?(type: .textDisplay)
         })
     }
     
     // MARK: Private
     
     private func updatePlaceholder() {
-        placeholderLabel.frame = placeholderRectForBounds(bounds)
+        placeholderLabel.frame = placeholderRect(forBounds: bounds)
         placeholderLabel.text = placeholder
         placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
@@ -104,10 +104,10 @@ import UIKit
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
         borderLayer.borderWidth = (isFirstResponder() || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
-        borderLayer.borderColor = borderColor?.CGColor
+        borderLayer.borderColor = borderColor?.cgColor
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
@@ -116,26 +116,26 @@ import UIKit
         return placeHolderInsets.y + placeholderFontFromFont(font!).lineHeight;
     }
     
-    private func rectForBounds(bounds: CGRect) -> CGRect {
+    private func rectForBounds(_ bounds: CGRect) -> CGRect {
         return CGRect(x: bounds.origin.x, y: bounds.origin.y + placeholderHeight, width: bounds.size.width, height: bounds.size.height - placeholderHeight)
     }
     
     // MARK: - Overrides
     
-    public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder() || text!.isNotEmpty {
-            return CGRectMake(placeHolderInsets.x, placeHolderInsets.y, bounds.width, placeholderHeight)
+            return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
-            return textRectForBounds(bounds)
+            return textRect(forBounds: bounds)
         }
     }
     
-    public override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return textRectForBounds(bounds)
+    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return textRect(forBounds: bounds)
     }
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y + placeholderHeight/2)
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight/2)
     }
 }
 

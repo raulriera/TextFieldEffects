@@ -18,7 +18,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .black() {
         didSet {
             updatePlaceholder()
         }
@@ -67,10 +67,10 @@ import UIKit
     
     // MARK: - TextFieldsEffects
     
-    override public func drawViewsForRect(rect: CGRect) {
-        let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
+    override public func drawViewsForRect(_ rect: CGRect) {
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
-        placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
+        placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
@@ -83,13 +83,13 @@ import UIKit
     override public func animateViewsForTextEntry() {
         borderLayer.strokeEnd = 1
         
-        UIView.animateWithDuration(0.3, animations: {
-            let translate = CGAffineTransformMakeTranslation(-self.placeholderInsets.x, self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
-            let scale = CGAffineTransformMakeScale(0.9, 0.9)
+        UIView.animate(withDuration: 0.3, animations: {
+            let translate = CGAffineTransform(translationX: -self.placeholderInsets.x, y: self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
+            let scale = CGAffineTransform(scaleX: 0.9, y: 0.9)
             
-            self.placeholderLabel.transform = CGAffineTransformConcat(translate, scale)
+            self.placeholderLabel.transform = translate.concat(scale)
         }) { _ in
-            self.animationCompletionHandler?(type: .TextEntry)
+            self.animationCompletionHandler?(type: .textEntry)
         }
     }
     
@@ -97,10 +97,10 @@ import UIKit
         if text!.isEmpty {
             borderLayer.strokeEnd = percentageForBottomBorder()
             
-            UIView.animateWithDuration(0.3, animations: {
-                self.placeholderLabel.transform = CGAffineTransformIdentity
+            UIView.animate(withDuration: 0.3, animations: {
+                self.placeholderLabel.transform = CGAffineTransform.identity
             }) { _ in
-                self.animationCompletionHandler?(type: .TextDisplay)
+                self.animationCompletionHandler?(type: .textDisplay)
             }
         }
     }
@@ -110,16 +110,16 @@ import UIKit
     private func updateBorder() {
         let rect = rectForBorder(bounds)
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: rect.origin.x + borderThickness, y: rect.height - borderThickness))
-        path.addLineToPoint(CGPoint(x: rect.width - borderThickness, y: rect.height - borderThickness))
-        path.addLineToPoint(CGPoint(x: rect.width - borderThickness, y: rect.origin.y + borderThickness))
-        path.addLineToPoint(CGPoint(x: rect.origin.x + borderThickness, y: rect.origin.y + borderThickness))
-        path.closePath()
-        borderLayer.path = path.CGPath
+        path.move(to: CGPoint(x: rect.origin.x + borderThickness, y: rect.height - borderThickness))
+        path.addLine(to: CGPoint(x: rect.width - borderThickness, y: rect.height - borderThickness))
+        path.addLine(to: CGPoint(x: rect.width - borderThickness, y: rect.origin.y + borderThickness))
+        path.addLine(to: CGPoint(x: rect.origin.x + borderThickness, y: rect.origin.y + borderThickness))
+        path.close()
+        borderLayer.path = path.cgPath
         borderLayer.lineCap = kCALineCapSquare
         borderLayer.lineWidth = borderThickness
         borderLayer.fillColor = nil
-        borderLayer.strokeColor = borderColor?.CGColor
+        borderLayer.strokeColor = borderColor?.cgColor
         borderLayer.strokeEnd = percentageForBottomBorder()
     }
     
@@ -140,26 +140,26 @@ import UIKit
         }
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
-    private func rectForBorder(bounds: CGRect) -> CGRect {
+    private func rectForBorder(_ bounds: CGRect) -> CGRect {
         let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return newRect
     }
     
     private func layoutPlaceholderInTextRect() {
-        placeholderLabel.transform = CGAffineTransformIdentity
+        placeholderLabel.transform = CGAffineTransform.identity
         
-        let textRect = textRectForBounds(bounds)
+        let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
         switch textAlignment {
-        case .Center:
+        case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
-        case .Right:
+        case .right:
             originX += textRect.size.width - placeholderLabel.bounds.width
         default:
             break
@@ -171,15 +171,15 @@ import UIKit
     
     // MARK: - Overrides
     
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
-        return CGRectInset(newBounds, textFieldInsets.x, 0)
+        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         
-        return CGRectInset(newBounds, textFieldInsets.x, 0)
+        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
 }

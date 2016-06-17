@@ -64,12 +64,12 @@ import UIKit
         
     // MARK: - TextFieldsEffects
 
-    override public func drawViewsForRect(rect: CGRect) {
-        let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
+    override public func drawViewsForRect(_ rect: CGRect) {
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         foregroundView.frame = frame
-        foregroundView.userInteractionEnabled = false
-        placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
+        foregroundView.isUserInteractionEnabled = false
+        placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateForegroundColor()
@@ -84,27 +84,27 @@ import UIKit
     }
     
     override public func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
+        UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
             self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
         }), completion: nil)
         
-        UIView.animateWithDuration(0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .BeginFromCurrentState, animations: ({
+        UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .beginFromCurrentState, animations: ({
             self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6, y: 0)
         }), completion: { _ in
-            self.animationCompletionHandler?(type: .TextEntry)
+            self.animationCompletionHandler?(type: .textEntry)
         })
     }
     
     override public func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = self.placeholderInsets
             }), completion: nil)
             
-            UIView.animateWithDuration(0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .BeginFromCurrentState, animations: ({
-                self.foregroundView.frame.origin = CGPointZero
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
+                self.foregroundView.frame.origin = CGPoint.zero
             }), completion: { _ in
-                self.animationCompletionHandler?(type: .TextDisplay)
+                self.animationCompletionHandler?(type: .textDisplay)
             })
         }
     }
@@ -120,23 +120,23 @@ import UIKit
         placeholderLabel.textColor = placeholderColor
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
     // MARK: - Overrides
         
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
-        return CGRectInset(frame, textFieldInsets.x, textFieldInsets.y)
+        return frame.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
-        return CGRectInset(frame, textFieldInsets.x, textFieldInsets.y)
+        return frame.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
     
 }

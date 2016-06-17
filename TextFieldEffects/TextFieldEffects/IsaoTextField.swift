@@ -66,10 +66,10 @@ import UIKit
     
     // MARK: - TextFieldsEffects
     
-    override public func drawViewsForRect(rect: CGRect) {
-        let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
+    override public func drawViewsForRect(_ rect: CGRect) {
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
-        placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
+        placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
@@ -97,7 +97,7 @@ import UIKit
     
     private func updateBorder() {
         borderLayer.frame = rectForBorder(frame)
-        borderLayer.backgroundColor = isFirstResponder() ? activeColor?.CGColor : inactiveColor?.CGColor
+        borderLayer.backgroundColor = isFirstResponder() ? activeColor?.cgColor : inactiveColor?.cgColor
     }
     
     private func updatePlaceholder() {
@@ -111,12 +111,12 @@ import UIKit
         }
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
-    private func rectForBorder(bounds: CGRect) -> CGRect {
+    private func rectForBorder(_ bounds: CGRect) -> CGRect {
         var newRect:CGRect
         
         if isFirstResponder() {
@@ -129,12 +129,12 @@ import UIKit
     }
     
     private func layoutPlaceholderInTextRect() {
-        let textRect = textRectForBounds(bounds)
+        let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
         switch textAlignment {
-        case .Center:
+        case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
-        case .Right:
+        case .right:
             originX += textRect.size.width - placeholderLabel.bounds.width
         default:
             break
@@ -143,38 +143,38 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    private func performPlacerholderAnimationWithColor(color: UIColor) {
+    private func performPlacerholderAnimationWithColor(_ color: UIColor) {
         
         let yOffset: CGFloat = 4
         
-        UIView.animateWithDuration(0.15, animations: {
-            self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, -yOffset)
+        UIView.animate(withDuration: 0.15, animations: {
+            self.placeholderLabel.transform = CGAffineTransform(translationX: 0, y: -yOffset)
             self.placeholderLabel.alpha = 0
             }) { _ in
-                self.placeholderLabel.transform = CGAffineTransformIdentity
-                self.placeholderLabel.transform = CGAffineTransformMakeTranslation(0, yOffset)
+                self.placeholderLabel.transform = CGAffineTransform.identity
+                self.placeholderLabel.transform = CGAffineTransform(translationX: 0, y: yOffset)
                 
-                UIView.animateWithDuration(0.15, animations: {
+                UIView.animate(withDuration: 0.15, animations: {
                     self.placeholderLabel.textColor = color
-                    self.placeholderLabel.transform = CGAffineTransformIdentity
+                    self.placeholderLabel.transform = CGAffineTransform.identity
                     self.placeholderLabel.alpha = 1
                 }) { _ in
-                    self.animationCompletionHandler?(type: self.isFirstResponder() ? .TextEntry : .TextDisplay)
+                    self.animationCompletionHandler?(type: self.isFirstResponder() ? .textEntry : .textDisplay)
                 }
         }
     }
     
     // MARK: - Overrides
         
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
-        return CGRectInset(newBounds, textFieldInsets.x, 0)
+        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
-        return CGRectInset(newBounds, textFieldInsets.x, 0)
+        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
 }

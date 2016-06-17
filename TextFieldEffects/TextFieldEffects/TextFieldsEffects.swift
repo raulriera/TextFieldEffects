@@ -29,8 +29,8 @@ public class TextFieldEffects : UITextField {
      - TextDisplay: animation that takes effect when the textfield loses focus.
      */
     public enum AnimationType: Int {
-        case TextEntry
-        case TextDisplay
+        case textEntry
+        case textDisplay
     }
     
     /**
@@ -67,21 +67,21 @@ public class TextFieldEffects : UITextField {
     
     - parameter rect:	The portion of the view’s bounds that needs to be updated.
     */
-    public func drawViewsForRect(rect: CGRect) {
+    public func drawViewsForRect(_ rect: CGRect) {
         fatalError("\(#function) must be overridden")
     }
     
-    public func updateViewsForBoundsChange(bounds: CGRect) {
+    public func updateViewsForBoundsChange(_ bounds: CGRect) {
         fatalError("\(#function) must be overridden")
     }
     
     // MARK: - Overrides
     
-    override public func drawRect(rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         drawViewsForRect(rect)
     }
     
-    override public func drawPlaceholderInRect(rect: CGRect) {
+    override public func drawPlaceholder(in rect: CGRect) {
         // Don't draw any placeholders
     }
     
@@ -97,13 +97,13 @@ public class TextFieldEffects : UITextField {
     
     // MARK: - UITextField Observing
     
-    override public func willMoveToSuperview(newSuperview: UIView!) {
+    override public func willMove(toSuperview newSuperview: UIView!) {
         if newSuperview != nil {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextFieldTextDidEndEditingNotification, object: self)
+            NotificationCenter.default().addObserver(self, selector: #selector(textFieldDidEndEditing), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
             
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextFieldTextDidBeginEditingNotification, object: self)
+            NotificationCenter.default().addObserver(self, selector: #selector(textFieldDidBeginEditing), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
         } else {
-            NSNotificationCenter.defaultCenter().removeObserver(self)
+            NotificationCenter.default().removeObserver(self)
         }
     }
     
