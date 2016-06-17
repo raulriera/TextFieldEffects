@@ -180,7 +180,14 @@ import UIKit
     // MARK: - Overrides
     
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
+        if self.clearButtonMode  != .Never {
+            var rect = CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
+            rect.size.width -= bounds.width - CGRectGetMinX(clearButtonRectForBounds(bounds))
+            return rect
+        } else {
+            return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y)
+        }
+        
     }
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
