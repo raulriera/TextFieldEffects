@@ -99,11 +99,11 @@ public class TextFieldEffects : UITextField {
     
     override public func willMove(toSuperview newSuperview: UIView!) {
         if newSuperview != nil {
-            NotificationCenter.default().addObserver(self, selector: #selector(textFieldDidEndEditing), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
             
-            NotificationCenter.default().addObserver(self, selector: #selector(textFieldDidBeginEditing), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
         } else {
-            NotificationCenter.default().removeObserver(self)
+            NotificationCenter.default.removeObserver(self)
         }
     }
     
