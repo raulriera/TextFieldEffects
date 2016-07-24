@@ -87,7 +87,7 @@ public class TextFieldEffects : UITextField {
     
     override public var text: String? {
         didSet {
-            if let text = text where text.isNotEmpty {
+            if let text = text, text.isNotEmpty {
                 animateViewsForTextEntry()
             } else {
                 animateViewsForTextDisplay()
