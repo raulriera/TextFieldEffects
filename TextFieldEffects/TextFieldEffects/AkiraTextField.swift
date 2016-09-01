@@ -11,19 +11,19 @@ import UIKit
 /**
  An AkiraTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
-@IBDesignable public class AkiraTextField : TextFieldEffects {
+@IBDesignable open class AkiraTextField : TextFieldEffects {
     
-    private let borderSize: (active: CGFloat, inactive: CGFloat) = (1, 2)
-    private let borderLayer = CALayer()
-    private let textFieldInsets = CGPoint(x: 6, y: 0)
-    private let placeHolderInsets = CGPoint(x: 6, y: 0)
+    fileprivate let borderSize: (active: CGFloat, inactive: CGFloat) = (1, 2)
+    fileprivate let borderLayer = CALayer()
+    fileprivate let textFieldInsets = CGPoint(x: 6, y: 0)
+    fileprivate let placeHolderInsets = CGPoint(x: 6, y: 0)
     
     /**
      The color of the border.
      
      This property applies a color to the bounds of the control. The default value for this property is a clear color.
     */
-    @IBInspectable dynamic public var borderColor: UIColor? {
+    @IBInspectable dynamic open var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
@@ -34,7 +34,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a  black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
+    @IBInspectable dynamic open var placeholderColor: UIColor = .black() {
         didSet {
             updatePlaceholder()
         }
@@ -45,19 +45,19 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.7 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.7 {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             updateBorder()
         }
@@ -65,7 +65,7 @@ import UIKit
     
     // MARK: TextFieldEffects
     
-    override public func drawViewsForRect(rect: CGRect) {
+    override open func drawViewsForRect(_ rect: CGRect) {
         updateBorder()
         updatePlaceholder()
         
@@ -73,69 +73,69 @@ import UIKit
         layer.addSublayer(borderLayer)
     }
     
-    override public func animateViewsForTextEntry() {
-        UIView.animateWithDuration(0.3, animations: {
+    override open func animateViewsForTextEntry() {
+        UIView.animate(withDuration: 0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         }, completion: { _ in
-            self.animationCompletionHandler?(type: .TextEntry)
+            self.animationCompletionHandler?(.textEntry)
         })
     }
     
-    override public func animateViewsForTextDisplay() {
-        UIView.animateWithDuration(0.3, animations: {
+    override open func animateViewsForTextDisplay() {
+        UIView.animate(withDuration: 0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
         }, completion: { _ in
-            self.animationCompletionHandler?(type: .TextDisplay)
+            self.animationCompletionHandler?(.textDisplay)
         })
     }
     
     // MARK: Private
     
-    private func updatePlaceholder() {
-        placeholderLabel.frame = placeholderRectForBounds(bounds)
+    fileprivate func updatePlaceholder() {
+        placeholderLabel.frame = placeholderRect(forBounds: bounds)
         placeholderLabel.text = placeholder
         placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
     }
     
-    private func updateBorder() {
+    fileprivate func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
-        borderLayer.borderWidth = (isFirstResponder() || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
-        borderLayer.borderColor = borderColor?.CGColor
+        borderLayer.borderWidth = (isFirstResponder || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
+        borderLayer.borderColor = borderColor?.cgColor
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+    fileprivate func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
-    private var placeholderHeight : CGFloat {
+    fileprivate var placeholderHeight : CGFloat {
         return placeHolderInsets.y + placeholderFontFromFont(font!).lineHeight;
     }
     
-    private func rectForBounds(bounds: CGRect) -> CGRect {
+    fileprivate func rectForBounds(_ bounds: CGRect) -> CGRect {
         return CGRect(x: bounds.origin.x, y: bounds.origin.y + placeholderHeight, width: bounds.size.width, height: bounds.size.height - placeholderHeight)
     }
     
     // MARK: - Overrides
     
-    public override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-        if isFirstResponder() || text!.isNotEmpty {
-            return CGRectMake(placeHolderInsets.x, placeHolderInsets.y, bounds.width, placeholderHeight)
+    open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        if isFirstResponder || text!.isNotEmpty {
+            return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
-            return textRectForBounds(bounds)
+            return textRect(forBounds: bounds)
         }
     }
     
-    public override func editingRectForBounds(bounds: CGRect) -> CGRect {
-        return textRectForBounds(bounds)
+    open override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return textRect(forBounds: bounds)
     }
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        return CGRectOffset(bounds, textFieldInsets.x, textFieldInsets.y + placeholderHeight/2)
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight/2)
     }
 }
 

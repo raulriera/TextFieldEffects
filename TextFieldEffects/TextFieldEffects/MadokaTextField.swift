@@ -11,14 +11,14 @@ import UIKit
 /**
  A MadokaTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
-@IBDesignable public class MadokaTextField: TextFieldEffects {
+@IBDesignable open class MadokaTextField: TextFieldEffects {
     
     /**
      The color of the placeholder text.
      
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .blackColor() {
+    @IBInspectable dynamic open var placeholderColor: UIColor = .black() {
         didSet {
             updatePlaceholder()
         }
@@ -29,7 +29,7 @@ import UIKit
      
      This property applies a color to the lower edge of the control. The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var borderColor: UIColor? {
+    @IBInspectable dynamic open var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
@@ -40,37 +40,37 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.65 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.65 {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             updateBorder()
             updatePlaceholder()
         }
     }
     
-    private let borderThickness: CGFloat = 1
-    private let placeholderInsets = CGPoint(x: 6, y: 6)
-    private let textFieldInsets = CGPoint(x: 6, y: 6)
-    private let borderLayer = CAShapeLayer()
-    private var backgroundLayerColor: UIColor?
+    fileprivate let borderThickness: CGFloat = 1
+    fileprivate let placeholderInsets = CGPoint(x: 6, y: 6)
+    fileprivate let textFieldInsets = CGPoint(x: 6, y: 6)
+    fileprivate let borderLayer = CAShapeLayer()
+    fileprivate var backgroundLayerColor: UIColor?
     
     // MARK: - TextFieldsEffects
     
-    override public func drawViewsForRect(rect: CGRect) {
-        let frame = CGRect(origin: CGPointZero, size: CGSize(width: rect.size.width, height: rect.size.height))
+    override open func drawViewsForRect(_ rect: CGRect) {
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
-        placeholderLabel.frame = CGRectInset(frame, placeholderInsets.x, placeholderInsets.y)
+        placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateBorder()
@@ -80,86 +80,86 @@ import UIKit
         addSubview(placeholderLabel)        
     }
     
-    override public func animateViewsForTextEntry() {
+    override open func animateViewsForTextEntry() {
         borderLayer.strokeEnd = 1
         
-        UIView.animateWithDuration(0.3, animations: {
-            let translate = CGAffineTransformMakeTranslation(-self.placeholderInsets.x, self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
-            let scale = CGAffineTransformMakeScale(0.9, 0.9)
+        UIView.animate(withDuration: 0.3, animations: {
+            let translate = CGAffineTransform(translationX: -self.placeholderInsets.x, y: self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
+            let scale = CGAffineTransform(scaleX: 0.9, y: 0.9)
             
-            self.placeholderLabel.transform = CGAffineTransformConcat(translate, scale)
+            self.placeholderLabel.transform = translate.concatenating(scale)
         }) { _ in
-            self.animationCompletionHandler?(type: .TextEntry)
+            self.animationCompletionHandler?(.textEntry)
         }
     }
     
-    override public func animateViewsForTextDisplay() {
+    override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
             borderLayer.strokeEnd = percentageForBottomBorder()
             
-            UIView.animateWithDuration(0.3, animations: {
-                self.placeholderLabel.transform = CGAffineTransformIdentity
+            UIView.animate(withDuration: 0.3, animations: {
+                self.placeholderLabel.transform = CGAffineTransform.identity
             }) { _ in
-                self.animationCompletionHandler?(type: .TextDisplay)
+                self.animationCompletionHandler?(.textDisplay)
             }
         }
     }
     
     // MARK: - Private
     
-    private func updateBorder() {
+    fileprivate func updateBorder() {
         let rect = rectForBorder(bounds)
         let path = UIBezierPath()
-        path.moveToPoint(CGPoint(x: rect.origin.x + borderThickness, y: rect.height - borderThickness))
-        path.addLineToPoint(CGPoint(x: rect.width - borderThickness, y: rect.height - borderThickness))
-        path.addLineToPoint(CGPoint(x: rect.width - borderThickness, y: rect.origin.y + borderThickness))
-        path.addLineToPoint(CGPoint(x: rect.origin.x + borderThickness, y: rect.origin.y + borderThickness))
-        path.closePath()
-        borderLayer.path = path.CGPath
+        path.move(to: CGPoint(x: rect.origin.x + borderThickness, y: rect.height - borderThickness))
+        path.addLine(to: CGPoint(x: rect.width - borderThickness, y: rect.height - borderThickness))
+        path.addLine(to: CGPoint(x: rect.width - borderThickness, y: rect.origin.y + borderThickness))
+        path.addLine(to: CGPoint(x: rect.origin.x + borderThickness, y: rect.origin.y + borderThickness))
+        path.close()
+        borderLayer.path = path.cgPath
         borderLayer.lineCap = kCALineCapSquare
         borderLayer.lineWidth = borderThickness
         borderLayer.fillColor = nil
-        borderLayer.strokeColor = borderColor?.CGColor
+        borderLayer.strokeColor = borderColor?.cgColor
         borderLayer.strokeEnd = percentageForBottomBorder()
     }
     
-    private func percentageForBottomBorder() -> CGFloat {
+    fileprivate func percentageForBottomBorder() -> CGFloat {
         let borderRect = rectForBorder(bounds)
         let sumOfSides = (borderRect.width * 2) + (borderRect.height * 2)
         return (borderRect.width * 100 / sumOfSides) / 100
     }
     
-    private func updatePlaceholder() {
+    fileprivate func updatePlaceholder() {
         placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             animateViewsForTextEntry()
         }
     }
     
-    private func placeholderFontFromFont(font: UIFont) -> UIFont! {
+    fileprivate func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     
-    private func rectForBorder(bounds: CGRect) -> CGRect {
+    fileprivate func rectForBorder(_ bounds: CGRect) -> CGRect {
         let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return newRect
     }
     
-    private func layoutPlaceholderInTextRect() {
-        placeholderLabel.transform = CGAffineTransformIdentity
+    fileprivate func layoutPlaceholderInTextRect() {
+        placeholderLabel.transform = CGAffineTransform.identity
         
-        let textRect = textRectForBounds(bounds)
+        let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
         switch textAlignment {
-        case .Center:
+        case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
-        case .Right:
+        case .right:
             originX += textRect.size.width - placeholderLabel.bounds.width
         default:
             break
@@ -171,15 +171,15 @@ import UIKit
     
     // MARK: - Overrides
     
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
-        return CGRectInset(newBounds, textFieldInsets.x, 0)
+        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         
-        return CGRectInset(newBounds, textFieldInsets.x, 0)
+        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
 }
