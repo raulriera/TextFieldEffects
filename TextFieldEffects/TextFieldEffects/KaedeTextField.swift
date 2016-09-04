@@ -75,7 +75,7 @@ import UIKit
         updateForegroundColor()
         updatePlaceholder()
         
-        if text!.isNotEmpty || isFirstResponder() {
+        if text!.isNotEmpty || isFirstResponder {
             animateViewsForTextEntry()
         }
         
@@ -91,7 +91,7 @@ import UIKit
         UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .beginFromCurrentState, animations: ({
             self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6, y: 0)
         }), completion: { _ in
-            self.animationCompletionHandler?(type: .textEntry)
+            self.animationCompletionHandler?(.textEntry)
         })
     }
     
@@ -104,7 +104,7 @@ import UIKit
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.foregroundView.frame.origin = CGPoint.zero
             }), completion: { _ in
-                self.animationCompletionHandler?(type: .textDisplay)
+                self.animationCompletionHandler?(.textDisplay)
             })
         }
     }

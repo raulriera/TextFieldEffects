@@ -34,7 +34,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a  black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .black() {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .black {
         didSet {
             updatePlaceholder()
         }
@@ -78,7 +78,7 @@ import UIKit
             self.updateBorder()
             self.updatePlaceholder()
         }, completion: { _ in
-            self.animationCompletionHandler?(type: .textEntry)
+            self.animationCompletionHandler?(.textEntry)
         })
     }
     
@@ -87,7 +87,7 @@ import UIKit
             self.updateBorder()
             self.updatePlaceholder()
         }, completion: { _ in
-            self.animationCompletionHandler?(type: .textDisplay)
+            self.animationCompletionHandler?(.textDisplay)
         })
     }
     
@@ -103,7 +103,7 @@ import UIKit
     
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
-        borderLayer.borderWidth = (isFirstResponder() || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
+        borderLayer.borderWidth = (isFirstResponder || text!.isNotEmpty) ? borderSize.active : borderSize.inactive
         borderLayer.borderColor = borderColor?.cgColor
     }
     
@@ -123,7 +123,7 @@ import UIKit
     // MARK: - Overrides
     
     public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)

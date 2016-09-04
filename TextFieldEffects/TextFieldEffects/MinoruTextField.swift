@@ -18,7 +18,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .black() {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .black {
         didSet {
             updatePlaceholder()
         }
@@ -86,7 +86,7 @@ import UIKit
         borderLayer.shadowOpacity = 0.5
         borderLayer.shadowRadius = 1
         
-        animationCompletionHandler?(type: .textEntry)
+        animationCompletionHandler?(.textEntry)
     }
     
     override public func animateViewsForTextDisplay() {
@@ -97,7 +97,7 @@ import UIKit
         borderLayer.shadowOpacity = 0
         borderLayer.shadowRadius = 0
         
-        animationCompletionHandler?(type: .textDisplay)
+        animationCompletionHandler?(.textDisplay)
     }
     
     // MARK: - Private
@@ -113,7 +113,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() {
+        if isFirstResponder {
             animateViewsForTextEntry()
         }
     }

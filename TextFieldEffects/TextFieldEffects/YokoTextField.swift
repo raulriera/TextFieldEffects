@@ -40,7 +40,7 @@ import UIKit
      
      The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var foregroundColor: UIColor = UIColor.black() {
+    @IBInspectable dynamic public var foregroundColor: UIColor = .black {
         didSet {
             updateForeground()
         }
@@ -82,7 +82,7 @@ import UIKit
             self.foregroundView.layer.transform = CATransform3DIdentity
             
             }, completion: { _ in
-                self.animationCompletionHandler?(type: .textEntry)
+                self.animationCompletionHandler?(.textEntry)
         })
         
         foregroundLayer.frame = rectForBorder(foregroundView.frame, isFilled: false)
@@ -95,7 +95,7 @@ import UIKit
                 self.foregroundLayer.frame = self.rectForBorder(self.foregroundView.frame, isFilled: true)
                 self.foregroundView.layer.transform = self.rotationAndPerspectiveTransformForView(self.foregroundView)
                 }, completion: { _ in
-                    self.animationCompletionHandler?(type: .textDisplay)
+                    self.animationCompletionHandler?(.textDisplay)
             })
         }
     }
@@ -120,7 +120,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             animateViewsForTextEntry()
         }
     }
@@ -167,8 +167,8 @@ import UIKit
         var newPoint:CGPoint = CGPoint(x: view.bounds.size.width * anchorPoint.x, y: view.bounds.size.height * anchorPoint.y)
         var oldPoint:CGPoint = CGPoint(x: view.bounds.size.width * view.layer.anchorPoint.x, y: view.bounds.size.height * view.layer.anchorPoint.y)
         
-        newPoint = newPoint.apply(transform: view.transform)
-        oldPoint = oldPoint.apply(transform: view.transform)
+        newPoint = newPoint.applying(view.transform)
+        oldPoint = oldPoint.applying(view.transform)
         
         var position = view.layer.position
         

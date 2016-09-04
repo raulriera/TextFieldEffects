@@ -97,7 +97,7 @@ import UIKit
     
     private func updateBorder() {
         borderLayer.frame = rectForBorder(frame)
-        borderLayer.backgroundColor = isFirstResponder() ? activeColor?.cgColor : inactiveColor?.cgColor
+        borderLayer.backgroundColor = isFirstResponder ? activeColor?.cgColor : inactiveColor?.cgColor
     }
     
     private func updatePlaceholder() {
@@ -106,7 +106,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() {
+        if isFirstResponder {
             animateViewsForTextEntry()
         }
     }
@@ -119,7 +119,7 @@ import UIKit
     private func rectForBorder(_ bounds: CGRect) -> CGRect {
         var newRect:CGRect
         
-        if isFirstResponder() {
+        if isFirstResponder {
             newRect = CGRect(x: 0, y: bounds.size.height - font!.lineHeight + textFieldInsets.y - borderThickness.active, width: bounds.size.width, height: borderThickness.active)
         } else {
             newRect = CGRect(x: 0, y: bounds.size.height - font!.lineHeight + textFieldInsets.y - borderThickness.inactive, width: bounds.size.width, height: borderThickness.inactive)
@@ -159,7 +159,7 @@ import UIKit
                     self.placeholderLabel.transform = CGAffineTransform.identity
                     self.placeholderLabel.alpha = 1
                 }) { _ in
-                    self.animationCompletionHandler?(type: self.isFirstResponder() ? .textEntry : .textDisplay)
+                    self.animationCompletionHandler?(self.isFirstResponder ? .textEntry : .textDisplay)
                 }
         }
     }

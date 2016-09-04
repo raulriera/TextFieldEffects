@@ -33,7 +33,7 @@ import UIKit
      
      This property applies a color to the edges of the control. The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var activeBorderColor: UIColor = .clear() {
+    @IBInspectable dynamic public var activeBorderColor: UIColor = .clear {
         didSet {
             updateBorder()
             updateBackground()
@@ -46,7 +46,7 @@ import UIKit
      
      This property applies a color to the edges of the control. The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var inactiveBorderColor: UIColor = .clear() {
+    @IBInspectable dynamic public var inactiveBorderColor: UIColor = .clear {
         didSet {
             updateBorder()
             updateBackground()
@@ -59,7 +59,7 @@ import UIKit
      
      This property applies a color to the background of the input.
      */
-    @IBInspectable dynamic public var activeBackgroundColor: UIColor = .clear() {
+    @IBInspectable dynamic public var activeBackgroundColor: UIColor = .clear {
         didSet {
             updateBackground()
         }
@@ -70,7 +70,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a dark gray color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .darkGray() {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .darkGray {
         didSet {
             updatePlaceholder()
         }
@@ -98,11 +98,11 @@ import UIKit
     private func updateBorder() {
         borderLayer.frame = rectForBounds(bounds)
         borderLayer.borderWidth = borderSize
-        borderLayer.borderColor = (isFirstResponder() || text!.isNotEmpty) ? activeBorderColor.cgColor : inactiveBorderColor.cgColor
+        borderLayer.borderColor = (isFirstResponder || text!.isNotEmpty) ? activeBorderColor.cgColor : inactiveBorderColor.cgColor
     }
 
     private func updateBackground() {
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             borderLayer.backgroundColor = activeBackgroundColor.cgColor
         } else {
             borderLayer.backgroundColor = inactiveBorderColor.cgColor
@@ -114,7 +114,7 @@ import UIKit
         placeholderLabel.text = placeholder
         placeholderLabel.textAlignment = textAlignment
 
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: placeholderFontScale * 0.8)
             placeholderLabel.text = placeholder?.uppercased()
             placeholderLabel.textColor = activeBorderColor
@@ -154,7 +154,7 @@ import UIKit
                 self.updateBorder()
                 self.updateBackground()
             }, completion: { _ in
-                self.animationCompletionHandler?(type: self.isFirstResponder() ? .textEntry : .textDisplay)
+                self.animationCompletionHandler?(self.isFirstResponder ? .textEntry : .textDisplay)
             })
         }
     }
@@ -189,7 +189,7 @@ import UIKit
     }
     
     public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)

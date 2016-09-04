@@ -40,7 +40,7 @@ import UIKit
 
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .black() {
+    @IBInspectable dynamic public var placeholderColor: UIColor = .black {
         didSet {
             updatePlaceholder()
         }
@@ -99,7 +99,7 @@ import UIKit
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
                 self.placeholderLabel.alpha = 0
             }), completion: { _ in
-                self.animationCompletionHandler?(type: .textEntry)
+                self.animationCompletionHandler?(.textEntry)
             })
         }
     
@@ -119,7 +119,7 @@ import UIKit
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1
             }), completion: { _ in
-                self.animationCompletionHandler?(type: .textDisplay)
+                self.animationCompletionHandler?(.textDisplay)
             })
             
             activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
@@ -142,7 +142,7 @@ import UIKit
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder() || text!.isNotEmpty {
+        if isFirstResponder || text!.isNotEmpty {
             animateViewsForTextEntry()
         }
     }
