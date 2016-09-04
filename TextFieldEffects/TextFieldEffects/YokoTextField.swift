@@ -11,14 +11,14 @@ import UIKit
 /**
  A YokoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable 3D visual effect on the background of the control.
  */
-@IBDesignable public class YokoTextField: TextFieldEffects {
+@IBDesignable open class YokoTextField: TextFieldEffects {
     
     /**
      The color of the placeholder text.
      
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor? {
+    @IBInspectable dynamic open var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
@@ -29,7 +29,7 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.7 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.7 {
         didSet {
             updatePlaceholder()
         }
@@ -40,19 +40,19 @@ import UIKit
      
      The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var foregroundColor: UIColor = .black {
+    @IBInspectable dynamic open var foregroundColor: UIColor = .black {
         didSet {
             updateForeground()
         }
     }
     
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             updateForeground()
             updatePlaceholder()
@@ -67,7 +67,7 @@ import UIKit
     
     // MARK: - TextFieldsEffects
     
-    override public func drawViewsForRect(_ rect: CGRect) {
+    override open func drawViewsForRect(_ rect: CGRect) {
         updateForeground()
         updatePlaceholder()
         
@@ -76,7 +76,7 @@ import UIKit
         layer.addSublayer(foregroundLayer)        
     }
     
-    override public func animateViewsForTextEntry() {
+    override open func animateViewsForTextEntry() {
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .beginFromCurrentState, animations: {
             
             self.foregroundView.layer.transform = CATransform3DIdentity
@@ -88,7 +88,7 @@ import UIKit
         foregroundLayer.frame = rectForBorder(foregroundView.frame, isFilled: false)
     }
     
-    override public func animateViewsForTextDisplay() {
+    override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .beginFromCurrentState, animations: {
                 
@@ -207,12 +207,12 @@ import UIKit
     
     // MARK: - Overrides
         
-    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
         
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)

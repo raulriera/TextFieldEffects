@@ -11,7 +11,7 @@ import UIKit
 /**
  An AkiraTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
-@IBDesignable public class AkiraTextField : TextFieldEffects {
+@IBDesignable open class AkiraTextField : TextFieldEffects {
     
     private let borderSize: (active: CGFloat, inactive: CGFloat) = (1, 2)
     private let borderLayer = CALayer()
@@ -23,7 +23,7 @@ import UIKit
      
      This property applies a color to the bounds of the control. The default value for this property is a clear color.
     */
-    @IBInspectable dynamic public var borderColor: UIColor? {
+    @IBInspectable dynamic open var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
@@ -34,7 +34,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a  black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .black {
+    @IBInspectable dynamic open var placeholderColor: UIColor = .black {
         didSet {
             updatePlaceholder()
         }
@@ -45,19 +45,19 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.7 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.7 {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             updateBorder()
         }
@@ -65,7 +65,7 @@ import UIKit
     
     // MARK: TextFieldEffects
     
-    override public func drawViewsForRect(_ rect: CGRect) {
+    override open func drawViewsForRect(_ rect: CGRect) {
         updateBorder()
         updatePlaceholder()
         
@@ -73,7 +73,7 @@ import UIKit
         layer.addSublayer(borderLayer)
     }
     
-    override public func animateViewsForTextEntry() {
+    override open func animateViewsForTextEntry() {
         UIView.animate(withDuration: 0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
@@ -82,7 +82,7 @@ import UIKit
         })
     }
     
-    override public func animateViewsForTextDisplay() {
+    override open func animateViewsForTextDisplay() {
         UIView.animate(withDuration: 0.3, animations: {
             self.updateBorder()
             self.updatePlaceholder()
@@ -122,7 +122,7 @@ import UIKit
     
     // MARK: - Overrides
     
-    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder || text!.isNotEmpty {
             return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
@@ -130,11 +130,11 @@ import UIKit
         }
     }
     
-    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    open override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return textRect(forBounds: bounds)
     }
     
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight/2)
     }
 }

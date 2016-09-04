@@ -11,7 +11,7 @@ import UIKit
 /**
  An YoshikoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges and background of the control.
  */
-@IBDesignable public class YoshikoTextField: TextFieldEffects {
+@IBDesignable open class YoshikoTextField: TextFieldEffects {
 
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
@@ -22,7 +22,7 @@ import UIKit
      
      This property applies a thickness to the border of the control. The default value for this property is 2 points.
      */
-    @IBInspectable public var borderSize: CGFloat = 2.0 {
+    @IBInspectable open var borderSize: CGFloat = 2.0 {
         didSet {
             updateBorder()
         }
@@ -33,7 +33,7 @@ import UIKit
      
      This property applies a color to the edges of the control. The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var activeBorderColor: UIColor = .clear {
+    @IBInspectable dynamic open var activeBorderColor: UIColor = .clear {
         didSet {
             updateBorder()
             updateBackground()
@@ -46,7 +46,7 @@ import UIKit
      
      This property applies a color to the edges of the control. The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var inactiveBorderColor: UIColor = .clear {
+    @IBInspectable dynamic open var inactiveBorderColor: UIColor = .clear {
         didSet {
             updateBorder()
             updateBackground()
@@ -59,7 +59,7 @@ import UIKit
      
      This property applies a color to the background of the input.
      */
-    @IBInspectable dynamic public var activeBackgroundColor: UIColor = .clear {
+    @IBInspectable dynamic open var activeBackgroundColor: UIColor = .clear {
         didSet {
             updateBackground()
         }
@@ -70,7 +70,7 @@ import UIKit
      
      This property applies a color to the complete placeholder string. The default value for this property is a dark gray color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .darkGray {
+    @IBInspectable dynamic open var placeholderColor: UIColor = .darkGray {
         didSet {
             updatePlaceholder()
         }
@@ -81,13 +81,13 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.7 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.7 {
         didSet {
             updatePlaceholder()
         }
     }
 
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
@@ -161,17 +161,17 @@ import UIKit
     
     // MARK: - TextFieldEffects
     
-    override public func animateViewsForTextEntry() {
+    override open func animateViewsForTextEntry() {
         animateViews()
     }
     
-    override public func animateViewsForTextDisplay() {
+    override open func animateViewsForTextDisplay() {
         animateViews()
     }
     
     // MARK: - Overrides
 
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             updatePlaceholder()
             updateBorder()
@@ -179,7 +179,7 @@ import UIKit
         }
     }
 
-    override public func drawViewsForRect(_ rect: CGRect) {
+    override open func drawViewsForRect(_ rect: CGRect) {
         updatePlaceholder()
         updateBorder()
         updateBackground()
@@ -188,7 +188,7 @@ import UIKit
         addSubview(placeholderLabel)
     }
     
-    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder || text!.isNotEmpty {
             return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
@@ -196,17 +196,17 @@ import UIKit
         }
     }
     
-    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    open override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return textRect(forBounds: bounds)
     }
     
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight / 2)
     }
     
     // MARK: - Interface Builder
     
-    public override func prepareForInterfaceBuilder() {
+    open override func prepareForInterfaceBuilder() {
         placeholderLabel.alpha = 1
     }
     

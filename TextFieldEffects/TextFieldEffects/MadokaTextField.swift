@@ -11,14 +11,14 @@ import UIKit
 /**
  A MadokaTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
-@IBDesignable public class MadokaTextField: TextFieldEffects {
+@IBDesignable open class MadokaTextField: TextFieldEffects {
     
     /**
      The color of the placeholder text.
      
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor = .black {
+    @IBInspectable dynamic open var placeholderColor: UIColor = .black {
         didSet {
             updatePlaceholder()
         }
@@ -29,7 +29,7 @@ import UIKit
      
      This property applies a color to the lower edge of the control. The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var borderColor: UIColor? {
+    @IBInspectable dynamic open var borderColor: UIColor? {
         didSet {
             updateBorder()
         }
@@ -40,19 +40,19 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.65 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.65 {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             updateBorder()
             updatePlaceholder()
@@ -67,7 +67,7 @@ import UIKit
     
     // MARK: - TextFieldsEffects
     
-    override public func drawViewsForRect(_ rect: CGRect) {
+    override open func drawViewsForRect(_ rect: CGRect) {
         let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
@@ -80,7 +80,7 @@ import UIKit
         addSubview(placeholderLabel)        
     }
     
-    override public func animateViewsForTextEntry() {
+    override open func animateViewsForTextEntry() {
         borderLayer.strokeEnd = 1
         
         UIView.animate(withDuration: 0.3, animations: {
@@ -93,7 +93,7 @@ import UIKit
         }
     }
     
-    override public func animateViewsForTextDisplay() {
+    override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
             borderLayer.strokeEnd = percentageForBottomBorder()
             
@@ -171,12 +171,12 @@ import UIKit
     
     // MARK: - Overrides
     
-    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
         
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)

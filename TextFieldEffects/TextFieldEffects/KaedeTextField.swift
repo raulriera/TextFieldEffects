@@ -11,14 +11,14 @@ import UIKit
 /**
  A KaedeTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the foreground of the control.
  */
-@IBDesignable public class KaedeTextField: TextFieldEffects {
+@IBDesignable open class KaedeTextField: TextFieldEffects {
     
     /**
      The color of the placeholder text.
      
      This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
-    @IBInspectable dynamic public var placeholderColor: UIColor? {
+    @IBInspectable dynamic open var placeholderColor: UIColor? {
         didSet {
             updatePlaceholder()
         }
@@ -29,7 +29,7 @@ import UIKit
      
      This property determines the size of the placeholder label relative to the font size of the text field.
      */
-    @IBInspectable dynamic public var placeholderFontScale: CGFloat = 0.8 {
+    @IBInspectable dynamic open var placeholderFontScale: CGFloat = 0.8 {
         didSet {
             updatePlaceholder()
         }
@@ -40,19 +40,19 @@ import UIKit
      
      The default value for this property is a clear color.
      */
-    @IBInspectable dynamic public var foregroundColor: UIColor? {
+    @IBInspectable dynamic open var foregroundColor: UIColor? {
         didSet {
             updateForegroundColor()
         }
     }
     
-    override public var placeholder: String? {
+    override open var placeholder: String? {
         didSet {
             updatePlaceholder()
         }
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         didSet {
             drawViewsForRect(bounds)
         }
@@ -64,7 +64,7 @@ import UIKit
         
     // MARK: - TextFieldsEffects
 
-    override public func drawViewsForRect(_ rect: CGRect) {
+    override open func drawViewsForRect(_ rect: CGRect) {
         let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         foregroundView.frame = frame
@@ -83,7 +83,7 @@ import UIKit
         addSubview(placeholderLabel)        
     }
     
-    override public func animateViewsForTextEntry() {
+    override open func animateViewsForTextEntry() {
         UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
             self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
         }), completion: nil)
@@ -95,7 +95,7 @@ import UIKit
         })
     }
     
-    override public func animateViewsForTextDisplay() {
+    override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = self.placeholderInsets
@@ -127,13 +127,13 @@ import UIKit
     
     // MARK: - Overrides
         
-    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return frame.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
     
-    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return frame.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
