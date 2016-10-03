@@ -22,8 +22,10 @@ class ExampleTableViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        _ = textFields.forEach { $0.textAlignment = .center }
+
         guard prefillTextField == true else { return }
         
-        _ = textFields.map { $0.text = "Raul" }
+        _ = textFields.forEach { $0.text = "Raul" }
     }
 }

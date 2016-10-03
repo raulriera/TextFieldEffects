@@ -46,8 +46,10 @@ import UIKit
         }
     }
     
+    private var _placeholder: String?
     override open var placeholder: String? {
         didSet {
+            _placeholder = placeholder
             updatePlaceholder()
         }
     }
@@ -116,7 +118,8 @@ import UIKit
     }
     
     private func updatePlaceholder() {
-        placeholderLabel.text = placeholder
+        placeholderLabel.text = _placeholder
+        super.placeholder = nil
         placeholderLabel.textColor = placeholderColor
     }
     
