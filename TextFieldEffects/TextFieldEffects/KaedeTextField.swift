@@ -46,14 +46,6 @@ import UIKit
         }
     }
     
-    private var _placeholder: String?
-    override open var placeholder: String? {
-        didSet {
-            _placeholder = placeholder
-            updatePlaceholder()
-        }
-    }
-    
     override open var bounds: CGRect {
         didSet {
             drawViewsForRect(bounds)
@@ -117,9 +109,10 @@ import UIKit
         foregroundView.backgroundColor = foregroundColor
     }
     
-    private func updatePlaceholder() {
+    internal override func updatePlaceholder() {
+        super.updatePlaceholder()
+        
         placeholderLabel.text = _placeholder
-        super.placeholder = nil
         placeholderLabel.textColor = placeholderColor
     }
     

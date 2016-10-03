@@ -18,14 +18,16 @@ class ExampleTableViewController : UITableViewController {
     textFields prepopulated with the name "Raul" (for testing purposes)
     */
     let prefillTextField = false
-    
+    let centeredTextField = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = textFields.forEach { $0.textAlignment = .center }
-
-        guard prefillTextField == true else { return }
-        
-        _ = textFields.forEach { $0.text = "Raul" }
+        if prefillTextField {
+            textFields.forEach { $0.text = "Raul" }
+        }
+        if centeredTextField {
+            textFields.forEach { $0.textAlignment = .center }
+        }
     }
 }
