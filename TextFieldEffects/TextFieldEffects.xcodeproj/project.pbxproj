@@ -24,6 +24,7 @@
 		4CBF76771A71AF7700073B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76751A71AF7700073B6A /* Main.storyboard */; };
 		4CBF76791A71AF7700073B6A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76781A71AF7700073B6A /* Images.xcassets */; };
 		4CBF767C1A71AF7700073B6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */; };
+		8CB9128E1DAC172F00BC3F3D /* LTRKaedeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9128D1DAC172F00BC3F3D /* LTRKaedeTextField.swift */; };
 		DF983ABB1BBD1F4100BCC4C7 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		4CBF76761A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CBF76781A71AF7700073B6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CBF767B1A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8CB9128D1DAC172F00BC3F3D /* LTRKaedeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTRKaedeTextField.swift; sourceTree = "<group>"; };
 		DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 		4CB3B6CF1AA8DEA7000AFA56 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
+				8CB9128D1DAC172F00BC3F3D /* LTRKaedeTextField.swift */,
 				11E69DA61B27B1A90025D54E /* AkiraTextField.swift */,
 				4CB3B6E71AA8DEC3000AFA56 /* HoshiTextField.swift */,
 				4CB3B6E81AA8DEC3000AFA56 /* IsaoTextField.swift */,
@@ -277,6 +280,7 @@
 				DF983ABB1BBD1F4100BCC4C7 /* YoshikoTextField.swift in Sources */,
 				4CB3B6F31AA8DEC3000AFA56 /* MadokaTextField.swift in Sources */,
 				4CB3B6F61AA8DEC3000AFA56 /* YokoTextField.swift in Sources */,
+				8CB9128E1DAC172F00BC3F3D /* LTRKaedeTextField.swift in Sources */,
 				4CB3B6EF1AA8DEC3000AFA56 /* HoshiTextField.swift in Sources */,
 				4CB3B6F01AA8DEC3000AFA56 /* IsaoTextField.swift in Sources */,
 				4CB3B6F51AA8DEC3000AFA56 /* TextFieldsEffects.swift in Sources */,
