@@ -43,14 +43,6 @@ open class TextFieldEffects : UITextField {
     */
     open let placeholderLabel = UILabel()
     
-    internal var _placeholder: String?
-    override open var placeholder: String? {
-        didSet {
-            _placeholder = placeholder
-            updatePlaceholder()
-        }
-    }
-    
     /**
     Creates all the animations that are used to leave the textfield in the "entering text" state.
     */
@@ -65,13 +57,6 @@ open class TextFieldEffects : UITextField {
         fatalError("\(#function) must be overridden")
     }
     
-    /**
-     Creates all the animations that are used configure placeholder appearance.
-     */
-    internal func updatePlaceholder() {
-        super.placeholder = nil
-    }
-
     /**
      The animation completion handler is the best place to be notified when the text field animation has ended.
      */

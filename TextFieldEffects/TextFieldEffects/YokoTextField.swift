@@ -46,6 +46,12 @@ import UIKit
         }
     }
     
+    override open var placeholder: String? {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+    
     override open var bounds: CGRect {
         didSet {
             updateForeground()
@@ -107,11 +113,9 @@ import UIKit
         foregroundLayer.frame = rectForBorder(foregroundView.frame, isFilled: true)
     }
     
-    internal override func updatePlaceholder() {
-        super.updatePlaceholder()
-
+    private func updatePlaceholder() {
         placeholderLabel.font = placeholderFontFromFont(font!)
-        placeholderLabel.text = _placeholder
+        placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()

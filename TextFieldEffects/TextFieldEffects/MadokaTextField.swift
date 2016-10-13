@@ -46,6 +46,12 @@ import UIKit
         }
     }
     
+    override open var placeholder: String? {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+    
     override open var bounds: CGRect {
         didSet {
             updateBorder()
@@ -123,10 +129,8 @@ import UIKit
         return (borderRect.width * 100 / sumOfSides) / 100
     }
     
-    internal override func updatePlaceholder() {
-        super.updatePlaceholder()
-
-        placeholderLabel.text = _placeholder
+    private func updatePlaceholder() {
+        placeholderLabel.text = placeholder
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()

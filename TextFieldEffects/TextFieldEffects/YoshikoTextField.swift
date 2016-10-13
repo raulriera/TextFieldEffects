@@ -87,6 +87,12 @@ import UIKit
         }
     }
 
+    override open var placeholder: String? {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+
     // MARK: Private 
 
     private func updateBorder() {
@@ -103,11 +109,9 @@ import UIKit
         }
     }
 
-    internal override func updatePlaceholder() {
-        super.updatePlaceholder()
-
+    private func updatePlaceholder() {
         placeholderLabel.frame = placeholderRect(forBounds: bounds)
-        placeholderLabel.text = _placeholder
+        placeholderLabel.text = placeholder
         placeholderLabel.textAlignment = textAlignment
 
         if isFirstResponder || text!.isNotEmpty {
