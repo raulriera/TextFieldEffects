@@ -13,6 +13,15 @@ import UIKit
  */
 @IBDesignable open class KaedeTextField: TextFieldEffects {
     
+    
+    /**
+        this property determine where text and placeholder label will be
+        true means placeholder label will be on the left
+     
+ 
+     */
+    @IBInspectable dynamic var LTR : Bool = true
+    
     /**
      The color of the placeholder text.
      
@@ -84,6 +93,8 @@ import UIKit
     }
     
     override open func animateViewsForTextEntry() {
+        
+        if LTR == false {
         UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
             self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65, y: self.placeholderInsets.y)
         }), completion: nil)
@@ -93,10 +104,30 @@ import UIKit
         }), completion: { _ in
             self.animationCompletionHandler?(.textEntry)
         })
+        
+        }
+        else if LTR == true  {
+        
+            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
+                self.placeholderLabel.frame.size.width = self.frame.size.width * 0.25
+                
+            }), completion: nil)
+            
+            UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .beginFromCurrentState, animations: ({
+                
+                self.foregroundView.frame.size.width = self.frame.size.width * 0.3
+                
+            }), completion: { _ in
+                self.animationCompletionHandler?(.textEntry)
+            })
+        }
+        
     }
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
+            
+            if LTR == false {
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = self.placeholderInsets
             }), completion: nil)
@@ -106,6 +137,23 @@ import UIKit
             }), completion: { _ in
                 self.animationCompletionHandler?(.textDisplay)
             })
+            }
+            else if LTR == true
+            {
+                UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
+                    self.placeholderLabel.frame.size.width = self.frame.size.width
+                    //                self.placeholderLabel.frame.origin = self.placeholderInsets
+                }), completion: nil)
+                
+                UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
+                    self.foregroundView.frame.size.width=self.frame.size.width
+                    //                self.foregroundView.frame.origin = CGPointZero
+                }), completion: { _ in
+                    
+                    self.animationCompletionHandler?(.textDisplay)
+                })
+            }
+            
         }
     }
     
@@ -128,15 +176,40 @@ import UIKit
     // MARK: - Overrides
         
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        
+        if LTR == false {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return frame.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+            
+        }
+        else   {
+        
+            var _bounds = bounds
+            _bounds.origin.x += self.placeholderLabel.frame.size.width * 1.2
+            
+            let frame = CGRect(origin: _bounds.origin, size: CGSize(width: bounds.size.width * 0.7, height: bounds.size.height))
+            
+            let start = self.textFieldInsets.x
+            return frame.insetBy(dx: start , dy: self.textFieldInsets.y)
+        }
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        if LTR == false {
         let frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
         
         return frame.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        }else {
+            var _bounds = bounds
+            _bounds.origin.x += self.placeholderLabel.frame.size.width * 1.2
+            
+            let frame = CGRect(origin: _bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
+            
+            let start = self.textFieldInsets.x
+            return frame.insetBy(dx: start, dy: self.textFieldInsets.y)
+        
+        }
     }
     
 }
