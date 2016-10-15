@@ -37,6 +37,7 @@
                                                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                             <color key="value" red="0.34229797124862671" green="0.39760923385620117" blue="0.4628179669380188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="LTR" value="NO"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </textField>
                                             </subviews>
@@ -609,72 +610,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="ZOk-P3-csN" secondAttribute="trailing" id="XDP-23-pfg"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ZOk-P3-csN" secondAttribute="bottom" constant="-8" id="ana-3Q-qF8"/>
                                                 <constraint firstItem="ZOk-P3-csN" firstAttribute="leading" secondItem="4DI-tD-73y" secondAttribute="leadingMargin" id="vOd-4S-Ybw"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="LTRKaede" id="COi-YR-qZ2">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="0pu-6N-uqy">
-                                        <rect key="frame" x="0.0" y="1765" width="414" height="66"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0pu-6N-uqy" id="0hZ-jR-Lfp">
-                                            <frame key="frameInset" width="414" height="66"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John" placeholder="First name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hGR-zN-iyg" customClass="LTRKaedeTextField" customModule="TextFieldEffects">
-                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
-                                                            <color key="value" red="0.92138004299999998" green="0.91652441019999997" blue="0.91664552690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                            <color key="value" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="hGR-zN-iyg" firstAttribute="top" secondItem="0hZ-jR-Lfp" secondAttribute="topMargin" constant="-8" id="BI0-6K-aH1"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="hGR-zN-iyg" secondAttribute="trailing" constant="-8" id="CcC-FL-kAi"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hGR-zN-iyg" secondAttribute="bottom" constant="-8" id="Kba-ay-iC0"/>
-                                                <constraint firstItem="hGR-zN-iyg" firstAttribute="leading" secondItem="0hZ-jR-Lfp" secondAttribute="leadingMargin" constant="-8" id="pMf-Js-ihH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZwU-lm-ZcR">
-                                        <rect key="frame" x="0.0" y="1831" width="414" height="66"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZwU-lm-ZcR" id="OAm-N3-VMU">
-                                            <frame key="frameInset" width="414" height="66"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6jc-7g-naU" customClass="LTRKaedeTextField" customModule="TextFieldEffects">
-                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="foregroundColor">
-                                                            <color key="value" red="0.92138004299999998" green="0.91652441019999997" blue="0.91664552690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
-                                                            <color key="value" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="6jc-7g-naU" firstAttribute="top" secondItem="OAm-N3-VMU" secondAttribute="topMargin" constant="-8" id="1LV-iy-H6B"/>
-                                                <constraint firstItem="6jc-7g-naU" firstAttribute="leading" secondItem="OAm-N3-VMU" secondAttribute="leadingMargin" constant="-8" id="YpL-hk-UDo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="6jc-7g-naU" secondAttribute="trailing" constant="-8" id="nxr-aV-n25"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="6jc-7g-naU" secondAttribute="bottom" constant="-8" id="yRs-6S-TQB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
