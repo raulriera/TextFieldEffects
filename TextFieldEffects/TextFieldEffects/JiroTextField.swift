@@ -162,12 +162,12 @@ import UIKit
             
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let realBounds = bounds.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
-        return realBounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        return realBounds.offsetBy(dx: 0, dy: textFieldInsets.y)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let realBounds = bounds.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
-        return realBounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        return realBounds.offsetBy(dx: 0, dy: textFieldInsets.y)
     }
 
 }
