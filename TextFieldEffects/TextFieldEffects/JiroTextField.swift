@@ -84,7 +84,9 @@ import UIKit
         
         UIView.animate(withDuration: 0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .beginFromCurrentState, animations: ({
             
-            self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height)
+            // There is no need to change the x position
+            self.placeholderLabel.textAlignment = self.textAlignment
+            self.placeholderLabel.frame.origin.y =  self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height
             self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFilled: true)
             
         }), completion: { _ in
@@ -159,11 +161,13 @@ import UIKit
     // MARK: - Overrides
             
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        let realBounds = bounds.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        return realBounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        let realBounds = bounds.insetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        return realBounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
 
 }
