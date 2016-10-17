@@ -99,7 +99,6 @@ import UIKit
         placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
-        placeholderLabel.backgroundColor = UIColor.green
     }
     
     private func updateBorder() {
