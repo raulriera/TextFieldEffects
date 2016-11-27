@@ -50,13 +50,7 @@ import UIKit
             updatePlaceholder()
         }
     }
-    
-    override open var placeholder: String? {
-        didSet {
-            updatePlaceholder()
-        }
-    }
-    
+        
     override open var bounds: CGRect {
         didSet {
             updateBorder()
@@ -93,9 +87,11 @@ import UIKit
     
     // MARK: Private
     
-    private func updatePlaceholder() {
+    internal override func updatePlaceholder() {
+        super.updatePlaceholder()
+
         placeholderLabel.frame = placeholderRect(forBounds: bounds)
-        placeholderLabel.text = placeholder
+        placeholderLabel.text = _placeholder
         placeholderLabel.font = placeholderFontFromFont(font!)
         placeholderLabel.textColor = placeholderColor
         placeholderLabel.textAlignment = textAlignment
