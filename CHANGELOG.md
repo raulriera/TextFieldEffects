@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.3.1
+  * Fixes https://github.com/raulriera/TextFieldEffects/issues/67
+  * Remove all project's warnings
+
 ## Version 1.3.0
   * Swift 3.0 support
 
