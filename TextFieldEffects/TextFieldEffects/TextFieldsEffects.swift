@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     /**
-    true iff self contains characters.
+    true Iff self contains characters.
     */
     public var isNotEmpty: Bool {
         return !isEmpty
