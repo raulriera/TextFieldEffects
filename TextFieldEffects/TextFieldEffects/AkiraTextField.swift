@@ -124,7 +124,7 @@ import UIKit
     
     open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder || text!.isNotEmpty {
-            return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
+            return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width-textFieldInsets.x*2, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)
         }
@@ -135,7 +135,8 @@ import UIKit
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight/2)
+        let realBounds = bounds.insetBy(dx: textFieldInsets.x, dy:0)
+        return realBounds.offsetBy(dx: 0, dy: textFieldInsets.y + placeholderHeight/2)
     }
 }
 
