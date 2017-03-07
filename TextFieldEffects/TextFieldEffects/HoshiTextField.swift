@@ -77,7 +77,7 @@ import UIKit
     private let activeBorderLayer = CALayer()    
     private var activePlaceholderPoint: CGPoint = CGPoint.zero
     
-    // MARK: - TextFieldsEffects
+    // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
         let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))

@@ -64,7 +64,7 @@ import UIKit
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     private let borderLayer = CALayer()
     
-    // MARK: - TextFieldsEffects
+    // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
         let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
@@ -82,14 +82,14 @@ import UIKit
     override open func animateViewsForTextEntry() {
         updateBorder()
         if let activeColor = activeColor {
-            performPlacerholderAnimationWithColor(activeColor)
+            performPlaceholderAnimationWithColor(activeColor)
         }
     }
     
     override open func animateViewsForTextDisplay() {
         updateBorder()
         if let inactiveColor = inactiveColor {
-            performPlacerholderAnimationWithColor(inactiveColor)
+            performPlaceholderAnimationWithColor(inactiveColor)
         }
     }
     
@@ -143,7 +143,7 @@ import UIKit
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
     }
     
-    private func performPlacerholderAnimationWithColor(_ color: UIColor) {
+    private func performPlaceholderAnimationWithColor(_ color: UIColor) {
         
         let yOffset: CGFloat = 4
         

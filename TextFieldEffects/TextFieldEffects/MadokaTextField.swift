@@ -65,7 +65,7 @@ import UIKit
     private let borderLayer = CAShapeLayer()
     private var backgroundLayerColor: UIColor?
     
-    // MARK: - TextFieldsEffects
+    // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
         let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
