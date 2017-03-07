@@ -17,12 +17,12 @@ class ExampleTableViewController : UITableViewController {
     Set this value to true if you want to see all the "firstName"
     textFields prepopulated with the name "Raul" (for testing purposes)
     */
-    let prefillTextField = false
+    let prefillTextFields = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard prefillTextField == true else { return }
+        guard prefillTextFields == true else { return }
         
         _ = textFields.map { $0.text = "Raul" }
     }

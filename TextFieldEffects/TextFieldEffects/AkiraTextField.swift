@@ -16,7 +16,7 @@ import UIKit
     private let borderSize: (active: CGFloat, inactive: CGFloat) = (1, 2)
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
-    private let placeHolderInsets = CGPoint(x: 6, y: 0)
+    private let placeholderInsets = CGPoint(x: 6, y: 0)
     
     /**
      The color of the border.
@@ -32,7 +32,7 @@ import UIKit
     /**
      The color of the placeholder text.
      
-     This property applies a color to the complete placeholder string. The default value for this property is a  black color.
+     This property applies a color to the complete placeholder string. The default value for this property is a black color.
      */
     @IBInspectable dynamic open var placeholderColor: UIColor = .black {
         didSet {
@@ -113,7 +113,7 @@ import UIKit
     }
     
     private var placeholderHeight : CGFloat {
-        return placeHolderInsets.y + placeholderFontFromFont(font!).lineHeight;
+        return placeholderInsets.y + placeholderFontFromFont(font!).lineHeight
     }
     
     private func rectForBounds(_ bounds: CGRect) -> CGRect {
@@ -124,7 +124,7 @@ import UIKit
     
     open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder || text!.isNotEmpty {
-            return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
+            return CGRect(x: placeholderInsets.x, y: placeholderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)
         }

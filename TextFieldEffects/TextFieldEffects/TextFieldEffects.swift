@@ -1,5 +1,5 @@
 //
-//  TextFieldsEffects.swift
+//  TextFieldEffects.swift
 //  TextFieldEffects
 //
 //  Created by Raúl Riera on 24/01/2015.
@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     /**
-    true iff self contains characters.
+    true if self contains characters.
     */
     public var isNotEmpty: Bool {
         return !isEmpty
@@ -18,12 +18,12 @@ extension String {
 }
 
 /**
-A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entrey and display. You typically use this class the same way you use UITextField.
+A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
 */
 open class TextFieldEffects : UITextField {
     
     /**
-     The type of animatino a TextFieldEffect can perform.
+     The type of animation a TextFieldEffect can perform.
      
      - TextEntry: animation that takes effect when the textfield has focus.
      - TextDisplay: animation that takes effect when the textfield loses focus.

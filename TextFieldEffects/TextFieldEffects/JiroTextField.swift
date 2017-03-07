@@ -64,7 +64,7 @@ import UIKit
     private let textFieldInsets = CGPoint(x: 8, y: 12)
     private let borderLayer = CALayer()
     
-    // MARK: - TextFieldsEffects
+    // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
         let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
