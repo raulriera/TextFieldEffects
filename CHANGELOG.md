@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.3.2
+  * Renaming broke the project
+  * Fixes https://github.com/raulriera/TextFieldEffects/issues/120
+
 ## Version 1.3.1
   * Fixes https://github.com/raulriera/TextFieldEffects/issues/67
   * Remove all project's warnings
