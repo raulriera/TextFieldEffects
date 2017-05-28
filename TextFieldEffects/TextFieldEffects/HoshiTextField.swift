@@ -106,10 +106,6 @@ import UIKit
         layoutPlaceholderInTextRect()
         placeholderLabel.frame.origin = activePlaceholderPoint
         
-        UIView.animate(withDuration: 0.2, animations: {
-            self.placeholderLabel.alpha = 0.5
-        })
-        
         activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: true)
     }
     
