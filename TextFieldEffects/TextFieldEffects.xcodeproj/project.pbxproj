@@ -25,6 +25,7 @@
 		4CBF76771A71AF7700073B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76751A71AF7700073B6A /* Main.storyboard */; };
 		4CBF76791A71AF7700073B6A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76781A71AF7700073B6A /* Images.xcassets */; };
 		4CBF767C1A71AF7700073B6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */; };
+		88D554E01F22E53B0044ABD5 /* TextFieldEffects_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D554DF1F22E53B0044ABD5 /* TextFieldEffects_Extensions.swift */; };
 		DF983ABB1BBD1F4100BCC4C7 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		4CBF76761A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CBF76781A71AF7700073B6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CBF767B1A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		88D554DF1F22E53B0044ABD5 /* TextFieldEffects_Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects_Extensions.swift; sourceTree = "<group>"; };
 		DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				4CB3B6EA1AA8DEC3000AFA56 /* KaedeTextField.swift */,
 				4CB3B6EB1AA8DEC3000AFA56 /* MadokaTextField.swift */,
 				4CB3B6EC1AA8DEC3000AFA56 /* MinoruTextField.swift */,
+				88D554DF1F22E53B0044ABD5 /* TextFieldEffects_Extensions.swift */,
 				4C86F6A21E8C0085001FB2B3 /* TextFieldEffects.swift */,
 				4CB3B6EE1AA8DEC3000AFA56 /* YokoTextField.swift */,
 				DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */,
@@ -282,6 +285,7 @@
 				4CB3B6EF1AA8DEC3000AFA56 /* HoshiTextField.swift in Sources */,
 				4CB3B6F01AA8DEC3000AFA56 /* IsaoTextField.swift in Sources */,
 				4CB3B6F21AA8DEC3000AFA56 /* KaedeTextField.swift in Sources */,
+				88D554E01F22E53B0044ABD5 /* TextFieldEffects_Extensions.swift in Sources */,
 				11E69DA71B27B1A90025D54E /* AkiraTextField.swift in Sources */,
 				4CB3B6F11AA8DEC3000AFA56 /* JiroTextField.swift in Sources */,
 				4CB3B6F41AA8DEC3000AFA56 /* MinoruTextField.swift in Sources */,

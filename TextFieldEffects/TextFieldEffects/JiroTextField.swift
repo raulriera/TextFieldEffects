@@ -82,9 +82,30 @@ import UIKit
     override open func animateViewsForTextEntry() {
         borderLayer.frame.origin = CGPoint(x: 0, y: font!.lineHeight)
         
+        var placeholderX:CGFloat = placeholderLabel.frame.origin.x
+        
+        switch textAlignment {
+        case .natural,.justified:
+            if #available(iOS 9.0, *) {
+                if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .leftToRight {
+                    placeholderX = placeholderInsets.x
+                }
+                else{//rightToLeft
+                    placeholderX = self.bounds.width - (placeholderLabel.frame.width +  placeholderInsets.x)
+                }
+            }
+        case .left:
+            placeholderX = placeholderInsets.x
+        case .right:
+            placeholderX = self.bounds.width - (placeholderLabel.frame.width +  placeholderInsets.x)
+        default:
+            break
+        }
+        
         UIView.animate(withDuration: 0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .beginFromCurrentState, animations: ({
             
-            self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height)
+            self.placeholderLabel.frame.origin = CGPoint(x: placeholderX, y: self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height)
+
             self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFilled: true)
             
         }), completion: { _ in
@@ -103,6 +124,21 @@ import UIKit
             
             borderLayer.frame = rectForBorder(borderThickness, isFilled: false)
         }
+    }
+    
+    open override func repositionLeftView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x + placeholderInsets.x, y: bounds.origin.y + textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionRightView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y + textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y + textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
     }
     
     // MARK: - Private
@@ -145,6 +181,12 @@ import UIKit
         let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
         switch self.textAlignment {
+        case .natural,.justified:
+            if #available(iOS 9.0, *) {
+                if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
+                    originX += textRect.size.width - placeholderLabel.bounds.width
+                }
+            }
         case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
         case .right:
@@ -159,11 +201,17 @@ import UIKit
     // MARK: - Overrides
             
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        let fixedBounds = super.editingRect(forBounds: bounds)
+        
+        let correctedBounds = fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        let fixedBounds = super.textRect(forBounds: bounds)
+        
+        let correctedBounds = fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y)
     }
 
 }

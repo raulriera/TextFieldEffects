@@ -100,6 +100,21 @@ import UIKit
         }
     }
     
+    open override func repositionLeftView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x + placeholderInsets.x, y: bounds.origin.y - 2*textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionRightView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y - 2*textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y - 2*textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
     // MARK: - Private
     
     private func updateForeground() {
@@ -149,13 +164,32 @@ import UIKit
     private func layoutPlaceholderInTextRect() {
         let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
+        
         switch textAlignment {
+        case .natural,.justified:
+            if #available(iOS 9.0, *) {
+                if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .leftToRight {
+                    originX = placeholderInsets.x
+                }
+                else{//rightToLeft
+                    originX += textRect.width - placeholderLabel.bounds.width
+                    
+                    if let rightView = rightView, isPresentingRightView(){
+                        originX += self.frame.width - rightView.frame.origin.x - placeholderInsets.x
+                    }
+                }
+            }
+            
+        case .left:
+            originX = placeholderInsets.x
         case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
         case .right:
-            originX += textRect.size.width - placeholderLabel.bounds.width
-        default:
-            break
+            originX += textRect.width - placeholderLabel.bounds.width
+            
+            if let rightView = rightView, isPresentingRightView(){
+                originX += self.frame.width - rightView.frame.origin.x - placeholderInsets.x
+            }
         }
         placeholderLabel.frame = CGRect(x: originX, y: bounds.height - placeholderLabel.frame.height,
             width: placeholderLabel.frame.size.width, height: placeholderLabel.frame.size.height)
@@ -208,14 +242,15 @@ import UIKit
     // MARK: - Overrides
         
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
-        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        let newBounds = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
+        let fixedBounds = super.editingRect(forBounds: newBounds)
+        return fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        let newBounds = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
-        
-        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        let newBounds = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y)
+        let fixedBounds = super.textRect(forBounds: newBounds)
+        return fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
 }

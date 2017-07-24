@@ -91,6 +91,21 @@ import UIKit
         })
     }
     
+    open override func repositionLeftView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x + placeholderInsets.x, y: bounds.origin.y + placeholderHeight/2)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionRightView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y + placeholderHeight/2)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y + placeholderHeight/2)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
     // MARK: Private
     
     private func updatePlaceholder() {
@@ -120,22 +135,42 @@ import UIKit
         return CGRect(x: bounds.origin.x, y: bounds.origin.y + placeholderHeight, width: bounds.size.width, height: bounds.size.height - placeholderHeight)
     }
     
+    private func correctedBounds(ForBounds bounds:CGRect)->CGRect{
+        let correctedBounds = bounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y + placeholderHeight/2)
+    }
+    
     // MARK: - Overrides
     
     open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder || text!.isNotEmpty {
-            return CGRect(x: placeholderInsets.x, y: placeholderInsets.y, width: bounds.width, height: placeholderHeight)
+            var originX:CGFloat = placeholderInsets.x
+            switch textAlignment {
+            case .natural,.justified:
+                if #available(iOS 9.0, *) {
+                    if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
+                        originX = -originX
+                    }
+                }
+            case .right:
+                originX = -originX
+            default:
+                break
+            }
+            return CGRect(x: originX, y: placeholderInsets.x/2, width: bounds.width, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)
         }
     }
     
     open override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return textRect(forBounds: bounds)
+        let fixedBounds = super.editingRect(forBounds: bounds)
+        return correctedBounds(ForBounds: fixedBounds)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight/2)
+        let fixedBounds = super.textRect(forBounds: bounds)
+        return correctedBounds(ForBounds: fixedBounds)
     }
 }
 

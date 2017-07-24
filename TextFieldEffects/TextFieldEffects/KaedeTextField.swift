@@ -69,7 +69,13 @@ import UIKit
         
         foregroundView.frame = frame
         foregroundView.isUserInteractionEnabled = false
-        placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
+        
+        var leftViewOffsetX:CGFloat = 0
+        if let leftView = leftView,isPresentingLeftView(){
+            leftViewOffsetX = leftView.frame.width + leftView.frame.origin.x
+        }
+
+        placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x+leftViewOffsetX, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
         
         updateForegroundColor()
@@ -105,8 +111,14 @@ import UIKit
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
+            
+            var leftViewOffsetX:CGFloat = 0
+            if let leftView = leftView,isPresentingLeftView(){
+                leftViewOffsetX = leftView.frame.width + leftView.frame.origin.x
+            }
+            
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
-                self.placeholderLabel.frame.origin = self.placeholderInsets
+                self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x + leftViewOffsetX, y: self.placeholderInsets.y)
             }), completion: nil)
             
             UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
@@ -117,6 +129,25 @@ import UIKit
         }
     }
     
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        let directionOverride: CGFloat
+        
+        if #available(iOS 9.0, *) {
+            directionOverride = UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft ? -1.0 : 1.0
+        } else {
+            directionOverride = 1.0
+        }
+        
+        var rightViewOffsetX:CGFloat = 0
+        if let rightView = rightView,isPresentingRightView() && rightViewMode != .unlessEditing{
+            rightViewOffsetX = rightView.frame.width
+        }
+        
+        let correctX = (self.frame.size.width * 0.6 * directionOverride) - rightViewOffsetX - bounds.width
+        
+        let origin = CGPoint(x: correctX, y: bounds.origin.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
     // MARK: - Private
     
     private func updateForegroundColor() {
@@ -136,7 +167,14 @@ import UIKit
     // MARK: - Overrides
         
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        var frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
+        let fixedBounds = super.editingRect(forBounds: bounds)
+        
+        var rightViewOffsetX:CGFloat = 0
+        if let rightView = rightView,isPresentingRightView(){
+            rightViewOffsetX = rightView.frame.width
+        }
+        
+        var frame = CGRect(origin: fixedBounds.origin, size: CGSize(width: (fixedBounds.size.width + rightViewOffsetX) * 0.6, height: fixedBounds.size.height))
 
 		if #available(iOS 9.0, *) {
 			if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
