@@ -70,9 +70,9 @@ import UIKit
         }
     }
     
-    private let borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 2, inactive: 0.5)
-    private let placeholderInsets = CGPoint(x: 0, y: 6)
-    private let textFieldInsets = CGPoint(x: 0, y: 12)
+    private let borderThickness: (active: CGFloat, inactive: CGFloat) = (active: 1, inactive: 1) // Changed value of borderThickness to 1 and 1 from 2 and 0.5
+    private let placeholderInsets = CGPoint(x: 0, y: 6) 
+    private let textFieldInsets = CGPoint(x: 14, y: 12) // Changed value of x to 14 from 0
     private let inactiveBorderLayer = CALayer()
     private let activeBorderLayer = CALayer()    
     private var activePlaceholderPoint: CGPoint = CGPoint.zero
