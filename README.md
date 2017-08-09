@@ -13,6 +13,7 @@ Currently it features the following effects from the article:
 - [x] Madoka
 - [x] Akira
 - [x] Yoshiko
+- [x] Kasai
 
 ## How they look
 
@@ -42,6 +43,9 @@ Currently it features the following effects from the article:
 
 ### Yoshiko
 <img src="/Screenshots/Yoshiko.gif" />
+
+### Kasai
+<img src="/Screenshots/Kasai.gif" />
 
 ## Installation
 
