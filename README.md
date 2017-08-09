@@ -45,7 +45,7 @@ Currently it features the following effects from the article:
 <img src="/Screenshots/Yoshiko.gif" />
 
 ### Kasai
-<img src="/Screenshots/Kasai.gif" />
+<img src="/Screenshots/kasai.gif" />
 
 ## Installation
 
