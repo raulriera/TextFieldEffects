@@ -12,7 +12,7 @@ extension String {
     /**
     true if self contains characters.
     */
-    public var isNotEmpty: Bool {
+	var isNotEmpty: Bool {
         return !isEmpty
     }
 }
@@ -21,7 +21,6 @@ extension String {
 A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
 */
 open class TextFieldEffects : UITextField {
-    
     /**
      The type of animation a TextFieldEffect can perform.
      
@@ -110,14 +109,14 @@ open class TextFieldEffects : UITextField {
     /**
     The textfield has started an editing session.
     */
-    open func textFieldDidBeginEditing() {
+    @objc open func textFieldDidBeginEditing() {
         animateViewsForTextEntry()
     }
     
     /**
     The textfield has ended an editing session.
     */
-    open func textFieldDidEndEditing() {
+    @objc open func textFieldDidEndEditing() {
         animateViewsForTextDisplay()
     }
     
