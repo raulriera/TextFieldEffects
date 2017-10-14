@@ -74,6 +74,7 @@ open class TextFieldEffects : UITextField {
         fatalError("\(#function) must be overridden")
     }
     
+        
     // MARK: - Overrides
     
     override open func draw(_ rect: CGRect) {
@@ -100,6 +101,51 @@ open class TextFieldEffects : UITextField {
         }
     }
     
+    
+    open override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+        let defaultRect = super.leftViewRect(forBounds: bounds)
+        return repositionLeftView(CurrentBounds:defaultRect)
+    }
+    
+    open override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+        let defaultRect = super.rightViewRect(forBounds: bounds)
+        return repositionRightView(CurrentBounds: defaultRect)
+    }
+    
+    open override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
+        let defaultRect = super.clearButtonRect(forBounds: bounds)
+        return repositionClearButton(CurrentBounds:defaultRect)
+    }
+    
+    //MARK: - LeftView and RightView methods
+    
+    /**
+     The default implementation of this method does nothing
+     You must implement this method if you want to position added leftView on a diferent position
+     - parameter bounds: The current bounds of added leftView, this position is calculated by UITextField.leftViewRect(forBounds: CGRect) method
+     */
+    public func repositionLeftView(CurrentBounds bounds:CGRect)->CGRect{
+        return bounds
+    }
+    
+    /**
+     The default implementation of this method does nothing
+     You must implement this method if you want to position added rightView on a diferent position
+     - parameter bounds: The current bounds of added rightView, this position is calculated by UITextField.rightViewRect(forBounds: CGRect) method
+     */
+    public func repositionRightView(CurrentBounds bounds:CGRect)->CGRect{
+        return bounds
+    }
+    
+    /**
+     The default implementation of this method does nothing
+     You must implement this method if you want to position clearButton on a diferent position
+     - parameter bounds: The current bounds of added clearButton, this position is calculated by UITextField.clearButtonRect(forBounds: CGRect) method
+     */
+    public func repositionClearButton(CurrentBounds bounds:CGRect)->CGRect{
+        return bounds
+    }
+
     // MARK: - UITextField Observing
     
     override open func willMove(toSuperview newSuperview: UIView!) {

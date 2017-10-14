@@ -168,6 +168,21 @@ import UIKit
         animateViews()
     }
     
+    open override func repositionLeftView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x + placeHolderInsets.x, y: bounds.origin.y + placeholderHeight / 2)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionRightView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeHolderInsets.x, y: bounds.origin.y + placeholderHeight / 2)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeHolderInsets.x, y: bounds.origin.y + placeholderHeight / 2)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
     // MARK: - Overrides
 
     override open var bounds: CGRect {
@@ -189,18 +204,37 @@ import UIKit
     
     open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         if isFirstResponder || text!.isNotEmpty {
-            return CGRect(x: placeHolderInsets.x, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
+            
+            var originX:CGFloat = placeHolderInsets.x
+            switch textAlignment {
+            case .natural,.justified:
+                if #available(iOS 9.0, *) {
+                    if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
+                        originX = -originX
+                    }
+                }
+            case .right:
+                originX = -originX
+            default:
+                break
+            }
+            
+            return CGRect(x: originX, y: placeHolderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)
         }
     }
     
     open override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return textRect(forBounds: bounds)
+        let fixedBounds = super.editingRect(forBounds: bounds)
+        let correctedBounds = fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y + placeholderHeight / 2)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight / 2)
+        let fixedBounds = super.textRect(forBounds: bounds)
+        let correctedBounds = fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y + placeholderHeight / 2)
     }
     
     // MARK: - Interface Builder

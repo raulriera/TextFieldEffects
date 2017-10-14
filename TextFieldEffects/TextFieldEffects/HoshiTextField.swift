@@ -76,6 +76,22 @@ import UIKit
     private let activeBorderLayer = CALayer()    
     private var activePlaceholderPoint: CGPoint = CGPoint.zero
     
+    
+    /**
+     This UIEdgeInsets must be applied to calculated TextFieldRect and placeholderRect to avoid things like placeholderLaber appearing up or down one of these views
+     */
+    private var insetsBySideViews:UIEdgeInsets{
+        
+        if textAlignment == NSTextAlignment.center{
+            if isPresentingLeftView() || isPresentingRightView(){
+                return UIEdgeInsets(top: 0, left: 5, bottom: 0, right:-5)
+            }
+            return UIEdgeInsets.zero
+        }
+        
+        return UIEdgeInsets(top: 0, left: isPresentingLeftView() ? 5 : 0, bottom: 0, right: isPresentingRightView() || isPresentingLeftView() ? -5 : 0)
+    }
+
     // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
@@ -125,6 +141,19 @@ import UIKit
         }
     }
     
+    //New methods, added to fix problems with leftView, rightView and clearButton
+    open override func repositionLeftView(CurrentBounds bounds: CGRect) -> CGRect {
+        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+    }
+    
+    open override func repositionRightView(CurrentBounds bounds: CGRect) -> CGRect {
+        return bounds.offsetBy(dx: 0, dy: textFieldInsets.y)
+    }
+    
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        return bounds.offsetBy(dx: 0, dy: textFieldInsets.y)
+    }
+
     // MARK: - Private
     
     private func updateBorder() {
@@ -162,28 +191,60 @@ import UIKit
     private func layoutPlaceholderInTextRect() {        
         let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
+        
+        var x:CGFloat = placeholderLabel.frame.origin.x
+
         switch self.textAlignment {
+        case .natural,.justified:
+            if #available(iOS 9.0, *) {
+                if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .leftToRight {
+                    x = 0
+                }
+                else{//rightToLeft
+                    x = self.frame.width - placeholderLabel.bounds.width - insetsBySideViews.right
+                    originX += textRect.size.width - placeholderLabel.bounds.width
+                }
+            }
+        case .left:
+            x = 0
         case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
         case .right:
             originX += textRect.size.width - placeholderLabel.bounds.width
-        default:
-            break
+            x = self.frame.width - placeholderLabel.bounds.width
         }
-        placeholderLabel.frame = CGRect(x: originX, y: textRect.height/2,
-            width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
-        activePlaceholderPoint = CGPoint(x: placeholderLabel.frame.origin.x, y: placeholderLabel.frame.origin.y - placeholderLabel.frame.size.height - placeholderInsets.y)
+        
+        
+        
+        placeholderLabel.frame = CGRect(x: originX, y: textRect.height/2,width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
+        
+        activePlaceholderPoint = CGPoint(x: x, y: placeholderLabel.frame.origin.y - placeholderLabel.frame.size.height - placeholderInsets.y)
 
+    }
+    
+    /**
+     This method corrects the bounds applying insets when necessary
+     */
+    private func correctedRect(ForBounds fixedBounds:CGRect)->CGRect{
+        let correctedOrigin = CGPoint(x: fixedBounds.origin.x + insetsBySideViews.left, y: fixedBounds.origin.y + insetsBySideViews.top)
+        
+        let correctedSize = CGSize(width: fixedBounds.width + insetsBySideViews.right, height: fixedBounds.height + insetsBySideViews.bottom)
+        
+        let correctedBounds = CGRect(origin: correctedOrigin, size:correctedSize)
+        
+        return correctedBounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
     }
     
     // MARK: - Overrides
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        let fixedBounds = super.editingRect(forBounds: bounds)
+        return correctedRect(ForBounds: fixedBounds)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        let fixedBounds = super.textRect(forBounds: bounds)
+        return correctedRect(ForBounds: fixedBounds)
     }
     
 }

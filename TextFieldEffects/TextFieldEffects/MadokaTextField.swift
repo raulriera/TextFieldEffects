@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 /**
  A MadokaTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
@@ -82,8 +81,50 @@ import UIKit
     override open func animateViewsForTextEntry() {
         borderLayer.strokeEnd = 1
         
+        var translationX:CGFloat = self.placeholderInsets.x//self.placeholderLabel.frame.origin.x
+        
+        switch textAlignment {
+        case .natural,.justified:
+            if #available(iOS 9.0, *) {
+                if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .leftToRight {
+                    if let leftView = leftView {
+                        translationX += leftView.frame.width + leftView.frame.origin.x
+                        if placeholderLabel.layer.position.x - translationX < 0{
+                            translationX = self.placeholderInsets.x
+                        }
+                    }
+                }
+                else{//rightToLeft
+                    if let rightView = rightView{
+                        translationX += rightView.frame.width + rightView.frame.origin.x
+                    }
+                }
+            }
+        case .left:
+            if let leftView = leftView {
+                translationX += leftView.frame.width + leftView.frame.origin.x
+                if placeholderLabel.layer.position.x - translationX < 0{
+                    translationX = self.placeholderInsets.x
+                }
+            }
+        case .right:
+            if let rightView = rightView{
+                translationX -= (self.frame.width - rightView.frame.origin.x) + placeholderInsets.x
+                if placeholderLabel.layer.position.x + placeholderLabel.layer.frame.width/2 - translationX > self.frame.width{
+                    translationX = -placeholderInsets.x
+                }
+            }
+            else{
+                translationX = 0
+            }
+        default:
+            break
+        }
+        
         UIView.animate(withDuration: 0.3, animations: {
-            let translate = CGAffineTransform(translationX: -self.placeholderInsets.x, y: self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
+            //let translate = CGAffineTransform(translationX: -translationX, y: self.placeholderLabel.bounds.height + (self.placeholderInsets.y * 2))
+            let translate = CGAffineTransform(translationX: -translationX, y: self.placeholderLabel.bounds.height + self.placeholderLabel.frame.origin.y + self.placeholderInsets.y)
+
             let scale = CGAffineTransform(scaleX: 0.9, y: 0.9)
             
             self.placeholderLabel.transform = translate.concatenating(scale)
@@ -103,6 +144,22 @@ import UIKit
             }
         }
     }
+    
+    open override func repositionLeftView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x + placeholderInsets.x, y: bounds.origin.y - 2*textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionRightView(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y - 2*textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+    
+    open override func repositionClearButton(CurrentBounds bounds: CGRect) -> CGRect {
+        let origin = CGPoint(x: bounds.origin.x - placeholderInsets.x, y: bounds.origin.y - 2*textFieldInsets.y)
+        return CGRect(origin: origin, size: bounds.size)
+    }
+
     
     // MARK: - Private
     
@@ -156,6 +213,12 @@ import UIKit
         let textRect = self.textRect(forBounds: bounds)
         var originX = textRect.origin.x
         switch textAlignment {
+        case .natural,.justified:
+            if #available(iOS 9.0, *) {
+                if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .leftToRight {
+                    //originX += textRect.size.width - placeholderLabel.bounds.width
+                }
+            }
         case .center:
             originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
         case .right:
@@ -164,7 +227,7 @@ import UIKit
             break
         }
         
-        placeholderLabel.frame = CGRect(x: originX, y: textRect.height - placeholderLabel.bounds.height - placeholderInsets.y,
+        placeholderLabel.frame = CGRect(x: originX, y: textRect.height/2 - placeholderLabel.bounds.height/2/* - placeholderInsets.y*/,
             width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
     }
     
@@ -172,13 +235,14 @@ import UIKit
     
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
-        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        let fixedBounds = super.editingRect(forBounds: newBounds)
+        return fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
-        
-        return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
+        let fixedBounds = super.textRect(forBounds: newBounds)
+        return fixedBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
 }
