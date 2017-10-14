@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 1.4.0
+  * Support for iOS 11
+
 ## Version 1.3.3
   * Fixes https://github.com/raulriera/TextFieldEffects/issues/118
 
