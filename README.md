@@ -59,7 +59,7 @@ Add the following to your Podfile:
 
 ``` ruby
 use_frameworks!
-pod "TextFieldEffects"
+pod 'TextFieldEffects'
 ```
 
 ### Carthage
@@ -67,7 +67,7 @@ pod "TextFieldEffects"
 Add the following to your Cartfile:
 
 ``` ruby
-github "raulriera/TextFieldEffects"
+github 'raulriera/TextFieldEffects'
 ```
 
 ## How to use them
