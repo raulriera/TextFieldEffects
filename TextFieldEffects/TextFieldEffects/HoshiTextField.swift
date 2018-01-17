@@ -131,7 +131,7 @@ import UIKit
         inactiveBorderLayer.frame = rectForBorder(borderThickness.inactive, isFilled: true)
         inactiveBorderLayer.backgroundColor = borderInactiveColor?.cgColor
         
-        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: false)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: self.isFirstResponder)
         activeBorderLayer.backgroundColor = borderActiveColor?.cgColor
     }
     
