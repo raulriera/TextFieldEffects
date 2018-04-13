@@ -45,6 +45,18 @@ import UIKit
         }
     }
     
+    /**
+     The background of text field.
+     
+     The default value for this property is true.
+     */
+    @IBInspectable dynamic open var fillBackground: Bool = true {
+        didSet {
+            updatePlaceholder()
+        }
+    }
+    
+    
     override open var placeholder: String? {
         didSet {
             updatePlaceholder()
@@ -84,7 +96,7 @@ import UIKit
         UIView.animate(withDuration: 0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .beginFromCurrentState, animations: ({
             
             self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height)
-            self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFilled: true)
+            self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFilled: self.fillBackground)
             
         }), completion: { _ in
             self.animationCompletionHandler?(.textEntry)
