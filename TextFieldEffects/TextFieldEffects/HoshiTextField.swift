@@ -109,7 +109,7 @@ import UIKit
 			self.placeholderLabel.alpha = 1.0
 		})
 
-        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: true)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: self.isFirstResponder)
     }
     
     override open func animateViewsForTextDisplay() {
@@ -131,7 +131,7 @@ import UIKit
         inactiveBorderLayer.frame = rectForBorder(borderThickness.inactive, isFilled: true)
         inactiveBorderLayer.backgroundColor = borderInactiveColor?.cgColor
         
-        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: false)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: self.isFirstResponder)
         activeBorderLayer.backgroundColor = borderActiveColor?.cgColor
     }
     
