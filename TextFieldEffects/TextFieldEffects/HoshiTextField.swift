@@ -109,7 +109,7 @@ import UIKit
 			self.placeholderLabel.alpha = 1.0
 		})
 
-        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: true)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: self.isFirstResponder)
     }
     
     override open func animateViewsForTextDisplay() {
