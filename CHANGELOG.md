@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 1.5.0
+  * Support for iOS 12
+
 ## Version 1.4.0
   * Support for iOS 11
 
