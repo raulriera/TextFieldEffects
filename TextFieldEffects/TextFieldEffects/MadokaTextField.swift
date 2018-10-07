@@ -189,7 +189,3 @@ import UIKit
 //    return CAShapeLayer(layer: input)
 //}
 //
-//// Helper function inserted by Swift 4.2 migrator.
-//fileprivate func convertFromCAShapeLayerLineCap(_ input: CAShapeLayer) -> String {
-//    return
-//}
