@@ -91,11 +91,11 @@ import UIKit
 			directionOverride = 1.0
 		}
 
-        UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+        UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
             self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65 * directionOverride, y: self.placeholderInsets.y)
         }), completion: nil)
         
-        UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+        UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .beginFromCurrentState, animations: ({
             self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6 * directionOverride, y: 0)
         }), completion: { _ in
             self.animationCompletionHandler?(.textEntry)
@@ -104,11 +104,11 @@ import UIKit
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = self.placeholderInsets
             }), completion: nil)
             
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.foregroundView.frame.origin = CGPoint.zero
             }), completion: { _ in
                 self.animationCompletionHandler?(.textDisplay)
