@@ -78,7 +78,7 @@ import UIKit
     }
     
     override open func animateViewsForTextEntry() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIView.AnimationOptions.beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .beginFromCurrentState, animations: {
         
             self.borderLayer.borderColor = self.textColor?.cgColor
             self.borderLayer.shadowOffset = CGSize.zero
@@ -94,7 +94,7 @@ import UIKit
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: UIView.AnimationOptions.beginFromCurrentState, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.6, options: .beginFromCurrentState, animations: {
 
                 self.borderLayer.borderColor = nil
                 self.borderLayer.shadowOffset = CGSize.zero
