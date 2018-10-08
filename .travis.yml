@@ -1,0 +1,6 @@
+language: swift
+osx_image: xcode10
+xcode_project: TextFieldEffects/TextFieldEffects.xcodeproj
+xcode_schema: TextFieldEffects
+notifications:
+  disabled: true

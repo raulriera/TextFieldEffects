@@ -1,4 +1,4 @@
-# TextFieldEffects
+# TextFieldEffects [![Build Status](https://travis-ci.org/raulriera/TextFieldEffects.svg?branch=master)](https://travis-ci.org/raulriera/TextFieldEffects)
 
 I fell in love with the text inputs effects in [this article](http://tympanus.net/codrops/2015/01/08/inspiration-text-input-effects/). As an exercise I decided to recreate as many of them as I can using Swift *(some of them have a personal touch)*.
 
