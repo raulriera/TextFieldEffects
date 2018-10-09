@@ -115,7 +115,7 @@ import UIKit
         path.addLine(to: CGPoint(x: rect.origin.x + borderThickness, y: rect.origin.y + borderThickness))
         path.close()
         borderLayer.path = path.cgPath
-        borderLayer.lineCap = convertToCAShapeLayerLineCap(convertFromCAShapeLayerLineCap(CAShapeLayerLineCap.square))
+        borderLayer.lineCap = .square
         borderLayer.lineWidth = borderThickness
         borderLayer.fillColor = nil
         borderLayer.strokeColor = borderColor?.cgColor
@@ -177,18 +177,7 @@ import UIKit
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
-        
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToCAShapeLayerLineCap(_ input: String) -> CAShapeLayerLineCap {
-	return CAShapeLayerLineCap(rawValue: input)
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromCAShapeLayerLineCap(_ input: CAShapeLayerLineCap) -> String {
-	return input.rawValue
 }
