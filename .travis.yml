@@ -1,0 +1,8 @@
+language: swift
+osx_image: xcode10
+xcode_project: TextFieldEffects/TextFieldEffects.xcodeproj
+xcode_schema: TextFieldEffects
+notifications:
+  disabled: true
+script:
+  - xcodebuild -scheme TextFieldEffects -destination "OS=12.0,name=iPhone SE" -sdk iphonesimulator12.0 | xcpretty -c

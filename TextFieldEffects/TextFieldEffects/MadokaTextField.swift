@@ -177,15 +177,7 @@ import UIKit
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
-        
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     
 }
-
-//MARK: methods down below are unessesary -> Besar
-//// Helper function inserted by Swift 4.2 migrator.
-//fileprivate func convertToCAShapeLayerLineCap(_ input: String) -> CAShapeLayer {
-//    return CAShapeLayer(layer: input)
-//}
-//
