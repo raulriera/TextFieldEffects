@@ -94,7 +94,7 @@ import UIKit
     
     override open func animateViewsForTextEntry() {
         if text!.isEmpty {
-            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .beginFromCurrentState, animations: ({
                 self.placeholderLabel.frame.origin = CGPoint(x: 10, y: self.placeholderLabel.frame.origin.y)
                 self.placeholderLabel.alpha = 0
             }), completion: { _ in
@@ -114,7 +114,7 @@ import UIKit
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1
             }), completion: { _ in

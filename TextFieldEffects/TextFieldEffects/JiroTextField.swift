@@ -81,7 +81,7 @@ import UIKit
     override open func animateViewsForTextEntry() {
         borderLayer.frame.origin = CGPoint(x: 0, y: font!.lineHeight)
         
-        UIView.animate(withDuration: 0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+        UIView.animate(withDuration: 0.2, delay: 0.3, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .beginFromCurrentState, animations: ({
             
             self.placeholderLabel.frame.origin = CGPoint(x: self.placeholderInsets.x, y: self.borderLayer.frame.origin.y - self.placeholderLabel.bounds.height)
             self.borderLayer.frame = self.rectForBorder(self.borderThickness, isFilled: true)
@@ -93,7 +93,7 @@ import UIKit
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
                 self.layoutPlaceholderInTextRect()
                 self.placeholderLabel.alpha = 1
             }), completion: { _ in
