@@ -92,7 +92,7 @@ open class TextFieldEffects : UITextField {
     
     override open var text: String? {
         didSet {
-            if let text = text, text.isNotEmpty {
+            if let text = text, text.isNotEmpty || isFirstResponder {
                 animateViewsForTextEntry()
             } else {
                 animateViewsForTextDisplay()
