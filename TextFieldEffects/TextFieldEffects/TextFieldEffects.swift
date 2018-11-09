@@ -12,7 +12,7 @@ extension String {
     /**
     true if self contains characters.
     */
-	var isNotEmpty: Bool {
+	public var isNotEmpty: Bool {
         return !isEmpty
     }
 }
