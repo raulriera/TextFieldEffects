@@ -12,6 +12,7 @@ import UIKit
  An IsaoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the lower edge of the control.
  */
 @IBDesignable open class IsaoTextField: TextFieldEffects {
+    
     /**
      The color of the border when it has no content.
      
@@ -58,7 +59,7 @@ import UIKit
         }
     }
     
-    private let borderThickness: (active: CGFloat, inactive: CGFloat) = (4, 2)
+    private let borderThickness: (active: CGFloat, inactive: CGFloat) = (1, 1)
     private let placeholderInsets = CGPoint(x: 6, y: 6)
     private let textFieldInsets = CGPoint(x: 6, y: 6)
     private let borderLayer = CALayer()
@@ -66,7 +67,7 @@ import UIKit
     // MARK: - TextFieldEffects
     
     override open func drawViewsForRect(_ rect: CGRect) {
-        let frame = CGRect(origin: .zero, size: CGSize(width: rect.size.width, height: rect.size.height))
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: rect.size.width, height: rect.size.height))
         
         placeholderLabel.frame = frame.insetBy(dx: placeholderInsets.x, dy: placeholderInsets.y)
         placeholderLabel.font = placeholderFontFromFont(font!)
@@ -143,18 +144,19 @@ import UIKit
     }
     
     private func performPlaceholderAnimationWithColor(_ color: UIColor) {
+        
         let yOffset: CGFloat = 4
         
         UIView.animate(withDuration: 0.15, animations: {
             self.placeholderLabel.transform = CGAffineTransform(translationX: 0, y: -yOffset)
             self.placeholderLabel.alpha = 0
             }) { _ in
-                self.placeholderLabel.transform = .identity
+                self.placeholderLabel.transform = CGAffineTransform.identity
                 self.placeholderLabel.transform = CGAffineTransform(translationX: 0, y: yOffset)
                 
                 UIView.animate(withDuration: 0.15, animations: {
                     self.placeholderLabel.textColor = color
-                    self.placeholderLabel.transform = .identity
+                    self.placeholderLabel.transform = CGAffineTransform.identity
                     self.placeholderLabel.alpha = 1
                 }) { _ in
                     self.animationCompletionHandler?(self.isFirstResponder ? .textEntry : .textDisplay)

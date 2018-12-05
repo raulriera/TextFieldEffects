@@ -12,6 +12,7 @@ import UIKit
  A MadokaTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
 @IBDesignable open class MadokaTextField: TextFieldEffects {
+    
     /**
      The color of the placeholder text.
      
@@ -97,7 +98,7 @@ import UIKit
             borderLayer.strokeEnd = percentageForBottomBorder()
             
             UIView.animate(withDuration: 0.3, animations: {
-                self.placeholderLabel.transform = .identity
+                self.placeholderLabel.transform = CGAffineTransform.identity
             }) { _ in
                 self.animationCompletionHandler?(.textDisplay)
             }
@@ -115,7 +116,7 @@ import UIKit
         path.addLine(to: CGPoint(x: rect.origin.x + borderThickness, y: rect.origin.y + borderThickness))
         path.close()
         borderLayer.path = path.cgPath
-        borderLayer.lineCap = .square
+        borderLayer.lineCap = kCALineCapSquare
         borderLayer.lineWidth = borderThickness
         borderLayer.fillColor = nil
         borderLayer.strokeColor = borderColor?.cgColor
@@ -177,6 +178,7 @@ import UIKit
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let newBounds = rectForBorder(bounds)
+        
         return newBounds.insetBy(dx: textFieldInsets.x, dy: 0)
     }
     

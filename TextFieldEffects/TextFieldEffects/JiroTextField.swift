@@ -12,6 +12,7 @@ import UIKit
  A JiroTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the background of the control.
  */
 @IBDesignable open class JiroTextField: TextFieldEffects {
+    
     /**
      The color of the border.
      
@@ -74,7 +75,7 @@ import UIKit
         updateBorder()
         updatePlaceholder()
         
-		layer.insertSublayer(borderLayer, at: 0)
+        layer.addSublayer(borderLayer)
         addSubview(placeholderLabel)        
     }
     

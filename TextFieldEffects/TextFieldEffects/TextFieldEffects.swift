@@ -12,7 +12,7 @@ extension String {
     /**
     true if self contains characters.
     */
-	var isNotEmpty: Bool {
+    public var isNotEmpty: Bool {
         return !isEmpty
     }
 }
@@ -21,6 +21,7 @@ extension String {
 A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
 */
 open class TextFieldEffects : UITextField {
+    var textDidBigin : Bool = false
     /**
      The type of animation a TextFieldEffect can perform.
      
@@ -40,7 +41,7 @@ open class TextFieldEffects : UITextField {
     /**
     UILabel that holds all the placeholder information
     */
-    public let placeholderLabel = UILabel()
+    open let placeholderLabel = UILabel()
     
     /**
     Creates all the animations that are used to leave the textfield in the "entering text" state.
@@ -77,13 +78,7 @@ open class TextFieldEffects : UITextField {
     // MARK: - Overrides
     
     override open func draw(_ rect: CGRect) {
-		// FIXME: Short-circuit if the view is currently selected. iOS 11 introduced
-		// a setNeedsDisplay when you focus on a textfield, calling this method again
-		// and messing up some of the effects due to the logic contained inside these
-		// methods.
-		// This is just a "quick fix", something better needs to come along.
-		guard isFirstResponder == false else { return }
-		drawViewsForRect(rect)
+        drawViewsForRect(rect)
     }
     
     override open func drawPlaceholder(in rect: CGRect) {
@@ -92,7 +87,7 @@ open class TextFieldEffects : UITextField {
     
     override open var text: String? {
         didSet {
-            if let text = text, text.isNotEmpty || isFirstResponder {
+            if let text = text, text.isNotEmpty {
                 animateViewsForTextEntry()
             } else {
                 animateViewsForTextDisplay()
@@ -104,9 +99,9 @@ open class TextFieldEffects : UITextField {
     
     override open func willMove(toSuperview newSuperview: UIView!) {
         if newSuperview != nil {
-            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
             
-            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
         } else {
             NotificationCenter.default.removeObserver(self)
         }
@@ -115,14 +110,16 @@ open class TextFieldEffects : UITextField {
     /**
     The textfield has started an editing session.
     */
-    @objc open func textFieldDidBeginEditing() {
+    open func textFieldDidBeginEditing() {
+        textDidBigin = true
         animateViewsForTextEntry()
     }
     
     /**
     The textfield has ended an editing session.
     */
-    @objc open func textFieldDidEndEditing() {
+    open func textFieldDidEndEditing() {
+        textDidBigin = false
         animateViewsForTextDisplay()
     }
     
