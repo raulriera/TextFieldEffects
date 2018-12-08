@@ -123,6 +123,7 @@ import UIKit
             
             activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
         }
+    }
     
     // MARK: - Private
     
