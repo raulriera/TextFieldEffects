@@ -123,15 +123,14 @@ import UIKit
             
             activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
         }
-    }
     
     // MARK: - Private
     
     private func updateBorder() {
-        inactiveBorderLayer.frame = rectForBorder(borderThickness.inactive, isFilled: true)
+        inactiveBorderLayer.frame = rectForBorder(borderThickness.inactive, isFilled: !isFirstResponder)
         inactiveBorderLayer.backgroundColor = borderInactiveColor?.cgColor
         
-        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: false)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: isFirstResponder)
         activeBorderLayer.backgroundColor = borderActiveColor?.cgColor
     }
     
