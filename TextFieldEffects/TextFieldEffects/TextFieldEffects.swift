@@ -41,7 +41,7 @@ open class TextFieldEffects : UITextField {
     /**
     UILabel that holds all the placeholder information
     */
-    open let placeholderLabel = UILabel()
+    public let placeholderLabel = UILabel()
     
     /**
     Creates all the animations that are used to leave the textfield in the "entering text" state.
@@ -99,9 +99,9 @@ open class TextFieldEffects : UITextField {
     
     override open func willMove(toSuperview newSuperview: UIView!) {
         if newSuperview != nil {
-            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
             
-            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
         } else {
             NotificationCenter.default.removeObserver(self)
         }
@@ -110,7 +110,7 @@ open class TextFieldEffects : UITextField {
     /**
     The textfield has started an editing session.
     */
-    open func textFieldDidBeginEditing() {
+    @objc open func textFieldDidBeginEditing() {
         textDidBigin = true
         animateViewsForTextEntry()
     }
@@ -118,7 +118,7 @@ open class TextFieldEffects : UITextField {
     /**
     The textfield has ended an editing session.
     */
-    open func textFieldDidEndEditing() {
+    @objc open func textFieldDidEndEditing() {
         textDidBigin = false
         animateViewsForTextDisplay()
     }
