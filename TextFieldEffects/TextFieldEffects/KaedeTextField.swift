@@ -45,6 +45,11 @@ import UIKit
         }
     }
     
+    /**
+     The starting x position (as a percentage) of the placeholder area.
+     */
+    @IBInspectable dynamic open var placeholderSplit: CGFloat = 0.6
+    
     override open var placeholder: String? {
         didSet {
             updatePlaceholder()
@@ -92,11 +97,11 @@ import UIKit
 		}
 
         UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: .beginFromCurrentState, animations: ({
-            self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * 0.65 * directionOverride, y: self.placeholderInsets.y)
+            self.placeholderLabel.frame.origin = CGPoint(x: self.frame.size.width * (self.placeholderSplit + 0.05) * directionOverride, y: self.placeholderInsets.y)
         }), completion: nil)
         
         UIView.animate(withDuration: 0.45, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.5, options: .beginFromCurrentState, animations: ({
-            self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * 0.6 * directionOverride, y: 0)
+            self.foregroundView.frame.origin = CGPoint(x: self.frame.size.width * self.placeholderSplit * directionOverride, y: 0)
         }), completion: { _ in
             self.animationCompletionHandler?(.textEntry)
         })
@@ -135,7 +140,7 @@ import UIKit
     // MARK: - Overrides
         
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        var frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * 0.6, height: bounds.size.height))
+        var frame = CGRect(origin: bounds.origin, size: CGSize(width: bounds.size.width * placeholderSplit, height: bounds.size.height))
 
 		if #available(iOS 9.0, *) {
 			if UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .rightToLeft {
