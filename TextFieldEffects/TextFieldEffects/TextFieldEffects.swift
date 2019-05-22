@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 extension String {
     /**
     true if self contains characters.
@@ -17,6 +18,7 @@ extension String {
     }
 }
 
+@objc
 /**
 A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
 */

@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 /**
  A JiroTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the background of the control.
  */

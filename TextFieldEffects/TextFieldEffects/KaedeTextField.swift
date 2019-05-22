@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 /**
  A KaedeTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the foreground of the control.
  */

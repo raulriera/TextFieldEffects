@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 /**
  A YokoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable 3D visual effect on the background of the control.
  */
