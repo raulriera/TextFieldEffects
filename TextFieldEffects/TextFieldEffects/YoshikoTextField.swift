@@ -122,9 +122,15 @@ import UIKit
             placeholderLabel.textColor = placeholderColor
         }
     }
+ 
 
     private func placeholderFontFromFontAndPercentageOfOriginalSize(font: UIFont, percentageOfOriginalSize: CGFloat) -> UIFont! {
-        let smallerFont = UIFont(name: font.fontName, size: font.pointSize * percentageOfOriginalSize)
+        var smallerFont : UIFont
+       if(font.isSystemFont()){
+           smallerFont = .systemFont(ofSize: font.pointSize * percentageOfOriginalSize)
+       }else{
+           smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * percentageOfOriginalSize)
+       }
         return smallerFont
     }
 
