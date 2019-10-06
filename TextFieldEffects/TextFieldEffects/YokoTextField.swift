@@ -125,12 +125,7 @@ import UIKit
     }
     
    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
-        var smallerFont : UIFont
-        if(font.isSystemFont()){
-            smallerFont = .systemFont(ofSize: font.pointSize * placeholderFontScale)
-        }else{
-            smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * placeholderFontScale)
-        }
+        let smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
     

@@ -125,12 +125,7 @@ import UIKit
  
 
     private func placeholderFontFromFontAndPercentageOfOriginalSize(font: UIFont, percentageOfOriginalSize: CGFloat) -> UIFont! {
-        var smallerFont : UIFont
-       if(font.isSystemFont()){
-           smallerFont = .systemFont(ofSize: font.pointSize * percentageOfOriginalSize)
-       }else{
-           smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * percentageOfOriginalSize)
-       }
+        let smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * placeholderFontScale)
         return smallerFont
     }
 
