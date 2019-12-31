@@ -124,8 +124,8 @@ import UIKit
         }
     }
     
-   private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
-        let smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * placeholderFontScale)
+    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
+        let smallerFont = CTFontCreateWithFontDescriptor(font.fontDescriptor, font.pointSize * placeholderFontScale, nil)
         return smallerFont
     }
     

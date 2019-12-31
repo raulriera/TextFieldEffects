@@ -125,7 +125,7 @@ import UIKit
  
 
     private func placeholderFontFromFontAndPercentageOfOriginalSize(font: UIFont, percentageOfOriginalSize: CGFloat) -> UIFont! {
-        let smallerFont = UIFont(descriptor: font.fontDescriptor, size: font.pointSize * placeholderFontScale)
+        let smallerFont = CTFontCreateWithFontDescriptor(font.fontDescriptor, font.pointSize * placeholderFontScale, nil)
         return smallerFont
     }
 
