@@ -115,7 +115,7 @@ import UIKit
 
         if isFirstResponder || text!.isNotEmpty {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: placeholderFontScale * 0.8)
-            placeholderLabel.text = placeholder?.uppercased()
+//             placeholderLabel.text = placeholder?.uppercased()
             placeholderLabel.textColor = activeBorderColor
         } else {
             placeholderLabel.font = placeholderFontFromFontAndPercentageOfOriginalSize(font: font!, percentageOfOriginalSize: placeholderFontScale)
