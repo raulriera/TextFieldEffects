@@ -79,8 +79,8 @@ import UIKit
         updateBorder()
         updatePlaceholder()
         
+	layer.addSublayer(borderLayer)
         addSubview(placeholderLabel)
-        layer.addSublayer(borderLayer)
     }
     
     override open func animateViewsForTextEntry() {
