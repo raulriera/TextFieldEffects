@@ -160,9 +160,9 @@ import UIKit
 //         return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y + placeholderHeight/2)
 
 	 if isFirstResponder || text!.isNotEmpty {
-            return correctedBounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight/2)
+            return correctedBounds.offsetBy(dx: 0, dy: textFieldInsets.y + placeholderHeight/2)
         } else {
-            return correctedBounds.offsetBy(dx: textFieldInsets.x, dy: ((bounds.height/2) - (placeholderHeight/2) + (placeholderHeight * 0.25)))
+            return correctedBounds.offsetBy(dx: 0, dy: ((bounds.height/2) - (placeholderHeight/2) + (placeholderHeight * 0.25)))
         }
     }
 
@@ -183,7 +183,7 @@ import UIKit
             default:
                 break
             }
-            return CGRect(x: originX, y: placeholderInsets.x/2, width: bounds.width, height: placeholderHeight)
+            return CGRect(x: originX, y: placeholderInsets.y, width: bounds.width, height: placeholderHeight)
 //             return CGRect(x: placeholderInsets.x, y: placeholderInsets.y, width: bounds.width, height: placeholderHeight)
         } else {
             return textRect(forBounds: bounds)
