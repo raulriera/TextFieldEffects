@@ -13,7 +13,7 @@ import UIKit
  */
 @IBDesignable open class AkiraTextField : TextFieldEffects {
 	private let borderSize: (active: CGFloat, inactive: CGFloat) = (1, 0.5)
-    private let borderLayer = CALayer  = CALayer(){
+    private var borderLayer : CALayer  = CALayer(){
         didSet {
             updateBorder()
         }
