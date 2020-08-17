@@ -25,6 +25,7 @@
 		4CBF76771A71AF7700073B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76751A71AF7700073B6A /* Main.storyboard */; };
 		4CBF76791A71AF7700073B6A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF76781A71AF7700073B6A /* Images.xcassets */; };
 		4CBF767C1A71AF7700073B6A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */; };
+		C5F8599024D85E3700AFD07B /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8598F24D85E3700AFD07B /* ExampleViewController.swift */; };
 		DF983ABB1BBD1F4100BCC4C7 /* YoshikoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		4CBF76761A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4CBF76781A71AF7700073B6A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4CBF767B1A71AF7700073B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C5F8598F24D85E3700AFD07B /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		DF983ABA1BBD1F4100BCC4C7 /* YoshikoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoshikoTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			children = (
 				4CBF76711A71AF7700073B6A /* AppDelegate.swift */,
 				4C8036EA1B90A88E00218FAE /* ExampleTableViewController.swift */,
+				C5F8598F24D85E3700AFD07B /* ExampleViewController.swift */,
 				4CBF76751A71AF7700073B6A /* Main.storyboard */,
 				4CBF76781A71AF7700073B6A /* Images.xcassets */,
 				4CBF767A1A71AF7700073B6A /* LaunchScreen.xib */,
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8036EB1B90A88E00218FAE /* ExampleTableViewController.swift in Sources */,
+				C5F8599024D85E3700AFD07B /* ExampleViewController.swift in Sources */,
 				4CBF76721A71AF7700073B6A /* AppDelegate.swift in Sources */,
 				4C86F6A31E8C0085001FB2B3 /* TextFieldEffects.swift in Sources */,
 			);

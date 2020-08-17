@@ -61,6 +61,12 @@ open class TextFieldEffects : UITextField {
      */
     open var animationCompletionHandler: AnimationCompletionHandler?
     
+    open override var intrinsicContentSize: CGSize {
+        get {
+            return sizeThatFits(.zero)
+        }
+    }
+    
     /**
     Draws the receiver’s image within the passed-in rectangle.
     
@@ -98,6 +104,12 @@ open class TextFieldEffects : UITextField {
                 animateViewsForTextDisplay()
             }
         }
+    }
+    
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        let textFieldSize = super.sizeThatFits(size)
+        let placeholderSize = placeholderLabel.sizeThatFits(size)
+        return CGSize(width: max(textFieldSize.width, placeholderSize.width), height: textFieldSize.height + placeholderSize.height)
     }
     
     // MARK: - UITextField Observing
