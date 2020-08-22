@@ -689,19 +689,19 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpx-Md-7w2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1603"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1661.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLQ-kz-mEH">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="171"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="177.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaede" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sow-Gd-xKR">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o8k-Wj-dkj" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="51"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="51"/>
                                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -716,7 +716,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-NI-PW9" customClass="KaedeTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="112" width="374" height="51"/>
+                                                        <rect key="frame" x="0.0" y="118.5" width="374" height="51"/>
                                                         <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
@@ -731,7 +731,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Sow-Gd-xKR" firstAttribute="top" secondItem="NLQ-kz-mEH" secondAttribute="top" constant="24" id="0sA-Be-xNy"/>
                                                     <constraint firstAttribute="trailing" secondItem="hkz-NI-PW9" secondAttribute="trailing" id="Dsg-7a-avo"/>
@@ -746,16 +745,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hn0-cj-F7C">
-                                                <rect key="frame" x="20" y="171" width="374" height="163"/>
+                                                <rect key="frame" x="20" y="177.5" width="374" height="169.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoshi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRa-Yy-iuc">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fkx-Zc-yC1" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="47"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="47"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -772,7 +771,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJd-Df-JpN" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="108" width="374" height="47"/>
+                                                        <rect key="frame" x="0.0" y="114.5" width="374" height="47"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -789,7 +788,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="bRa-Yy-iuc" firstAttribute="leading" secondItem="Hn0-cj-F7C" secondAttribute="leading" id="0o4-00-hae"/>
                                                     <constraint firstAttribute="bottom" secondItem="kJd-Df-JpN" secondAttribute="bottom" constant="8" id="16M-0w-0BX"/>
@@ -804,16 +802,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZgR-6t-dCs">
-                                                <rect key="frame" x="20" y="334" width="374" height="155"/>
+                                                <rect key="frame" x="20" y="347" width="374" height="161.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jiro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPo-rU-f2u">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SlB-MD-aXC" customClass="JiroTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="47"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="47"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -827,7 +825,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CKW-Xo-Vj9" customClass="JiroTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="108" width="374" height="47"/>
+                                                        <rect key="frame" x="0.0" y="114.5" width="374" height="47"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -841,7 +839,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="CKW-Xo-Vj9" secondAttribute="bottom" id="0SF-T2-boJ"/>
                                                     <constraint firstItem="CKW-Xo-Vj9" firstAttribute="top" secondItem="SlB-MD-aXC" secondAttribute="bottom" constant="8" id="77W-w4-cGS"/>
@@ -856,16 +853,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TqJ-Fh-ny3">
-                                                <rect key="frame" x="20" y="489" width="374" height="198"/>
+                                                <rect key="frame" x="20" y="508.5" width="374" height="204.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minoru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mv-de-dUs">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIX-eI-ePS" customClass="MinoruTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="68.5"/>
                                                         <color key="textColor" red="0.40400000000000003" green="0.58799999999999997" blue="0.012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -876,7 +873,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ww-VZ-Qzl" customClass="MinoruTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="129.5" width="374" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="136" width="374" height="68.5"/>
                                                         <color key="textColor" red="0.40400000000000003" green="0.58799999999999997" blue="0.012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -887,7 +884,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="PIX-eI-ePS" firstAttribute="leading" secondItem="TqJ-Fh-ny3" secondAttribute="leading" id="7hZ-tE-ggU"/>
                                                     <constraint firstItem="2Mv-de-dUs" firstAttribute="top" secondItem="TqJ-Fh-ny3" secondAttribute="top" constant="24" id="QMv-zI-3mv"/>
@@ -902,16 +898,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuL-vN-Jnr">
-                                                <rect key="frame" x="20" y="687" width="374" height="201"/>
+                                                <rect key="frame" x="20" y="713" width="374" height="207.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Isao" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYi-vB-2Pc">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhW-e0-LPM" customClass="IsaoTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="70"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="70"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -925,7 +921,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RJa-He-GVu" customClass="IsaoTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="131" width="374" height="70"/>
+                                                        <rect key="frame" x="0.0" y="137.5" width="374" height="70"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -939,7 +935,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="FYi-vB-2Pc" firstAttribute="leading" secondItem="nuL-vN-Jnr" secondAttribute="leading" id="6KJ-Ix-2GU"/>
                                                     <constraint firstItem="yhW-e0-LPM" firstAttribute="leading" secondItem="nuL-vN-Jnr" secondAttribute="leading" id="88k-nj-e8j"/>
@@ -954,16 +949,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sqG-53-Jsg">
-                                                <rect key="frame" x="20" y="888" width="374" height="201"/>
+                                                <rect key="frame" x="20" y="920.5" width="374" height="207.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yoko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4A-ME-gNt">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUy-E1-NtB" customClass="YokoTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="70"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="70"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -977,7 +972,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dFp-2q-Bpx" customClass="YokoTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="131" width="374" height="70"/>
+                                                        <rect key="frame" x="0.0" y="137.5" width="374" height="70"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -991,7 +986,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="TUy-E1-NtB" firstAttribute="leading" secondItem="sqG-53-Jsg" secondAttribute="leading" id="1rl-eq-AKq"/>
                                                     <constraint firstItem="Y4A-ME-gNt" firstAttribute="leading" secondItem="sqG-53-Jsg" secondAttribute="leading" id="6FE-R2-XJH"/>
@@ -1006,16 +1000,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXZ-bn-4pc">
-                                                <rect key="frame" x="20" y="1089" width="374" height="198"/>
+                                                <rect key="frame" x="20" y="1128" width="374" height="204.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madoka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBr-yF-tyk">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xig-Y7-ILL" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="68.5"/>
                                                         <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1029,7 +1023,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ix-Tf-BoG" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="129.5" width="374" height="68.5"/>
+                                                        <rect key="frame" x="0.0" y="136" width="374" height="68.5"/>
                                                         <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1043,7 +1037,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="5ix-Tf-BoG" firstAttribute="leading" secondItem="cXZ-bn-4pc" secondAttribute="leading" id="35L-df-EII"/>
                                                     <constraint firstAttribute="trailing" secondItem="5ix-Tf-BoG" secondAttribute="trailing" id="GmV-A2-nV7"/>
@@ -1058,16 +1051,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGd-Hg-utC">
-                                                <rect key="frame" x="20" y="1287" width="374" height="158"/>
+                                                <rect key="frame" x="20" y="1332.5" width="374" height="164.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akira" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kb-Qx-kZx">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Uc-pm-l2Q" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="48.5"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="48.5"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1081,7 +1074,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-Kt-yJb" customClass="AkiraTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="109.5" width="374" height="48.5"/>
+                                                        <rect key="frame" x="0.0" y="116" width="374" height="48.5"/>
                                                         <color key="textColor" red="0.3422979712" green="0.39760923390000003" blue="0.46281796689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1095,7 +1088,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="4Uc-pm-l2Q" firstAttribute="leading" secondItem="GGd-Hg-utC" secondAttribute="leading" id="83O-S9-ruZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="4Uc-pm-l2Q" secondAttribute="trailing" id="9Rn-eK-mq2"/>
@@ -1110,16 +1102,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37l-oC-DFD">
-                                                <rect key="frame" x="20" y="1445" width="374" height="158"/>
+                                                <rect key="frame" x="20" y="1497" width="374" height="164.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yoshiko" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze3-Q6-jxF">
-                                                        <rect key="frame" x="0.0" y="24" width="374" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="24" width="374" height="27.5"/>
+                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dkN-tH-vC5" customClass="YoshikoTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="53" width="374" height="48.5"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="374" height="48.5"/>
                                                         <color key="textColor" red="0.3021732271" green="0.26395642759999999" blue="0.55874562260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1142,7 +1134,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSo-iT-ojx" customClass="YoshikoTextField" customModule="TextFieldEffects">
-                                                        <rect key="frame" x="0.0" y="109.5" width="374" height="48.5"/>
+                                                        <rect key="frame" x="0.0" y="116" width="374" height="48.5"/>
                                                         <color key="textColor" red="0.3021732271" green="0.26395642759999999" blue="0.55874562260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1165,7 +1157,6 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Ze3-Q6-jxF" firstAttribute="leading" secondItem="37l-oC-DFD" secondAttribute="leading" id="5Vd-cn-Y9q"/>
                                                     <constraint firstItem="dkN-tH-vC5" firstAttribute="leading" secondItem="37l-oC-DFD" secondAttribute="leading" id="7Nh-Pa-cT0"/>
@@ -1180,7 +1171,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="ZgR-6t-dCs" firstAttribute="leading" secondItem="xpx-Md-7w2" secondAttribute="leading" constant="20" id="0eB-aQ-Eo6"/>
@@ -1226,7 +1217,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yPy-iV-33t" secondAttribute="trailing" id="8XS-99-D4b"/>
                             <constraint firstItem="3tD-38-lGj" firstAttribute="top" secondItem="yPy-iV-33t" secondAttribute="bottom" id="JVO-Dh-3uB"/>
