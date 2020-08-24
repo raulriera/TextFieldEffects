@@ -11,7 +11,7 @@ import UIKit
 /**
  An YoshikoTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges and background of the control.
  */
-@IBDesignable open class YoshikoTextField: TextFieldEffects {
+open class YoshikoTextField: TextFieldEffects {
     private let borderLayer = CALayer()
     private let textFieldInsets = CGPoint(x: 6, y: 0)
     private let placeHolderInsets = CGPoint(x: 6, y: 0)

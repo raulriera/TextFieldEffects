@@ -76,6 +76,11 @@ open class TextFieldEffects : UITextField {
     
     // MARK: - Overrides
     
+    open override func didMoveToWindow() {
+        super.didMoveToWindow()
+        self.drawViewsForRect(self.frame)
+    }
+    
     override open func draw(_ rect: CGRect) {
 		// FIXME: Short-circuit if the view is currently selected. iOS 11 introduced
 		// a setNeedsDisplay when you focus on a textfield, calling this method again
