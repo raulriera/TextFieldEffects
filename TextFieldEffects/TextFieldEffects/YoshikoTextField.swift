@@ -201,7 +201,10 @@ import UIKit
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y + placeholderHeight / 2)
+        return CGRect(x: textFieldInsets.x,
+                      y: placeholderHeight,
+                      width: bounds.width - (textFieldInsets.x * 2),
+                      height: bounds.height - placeholderHeight)
     }
     
     // MARK: - Interface Builder
