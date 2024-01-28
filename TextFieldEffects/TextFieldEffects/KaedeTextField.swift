@@ -58,7 +58,7 @@ import UIKit
     
     override open var bounds: CGRect {
         didSet {
-            drawViewsForRect(bounds)
+            updatePlaceholder()
         }
     }
     
